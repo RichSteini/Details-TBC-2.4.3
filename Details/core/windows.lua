@@ -969,7 +969,6 @@ local _utf8sub = string.utf8sub
 
 --> cria o frame de wait for plugin
 	function _detalhes:CreateWaitForPlugin()
-		--[[
 		local WaitForPluginFrame = CreateFrame ("Frame", "DetailsWaitForPluginFrame" .. self.meu_id, UIParent)
 		local WaitTexture = WaitForPluginFrame:CreateTexture (nil, "overlay")
 		WaitTexture:SetTexture ("Interface\\UNITPOWERBARALT\\Mechanical_Circular_Frame")
@@ -977,11 +976,12 @@ local _utf8sub = string.utf8sub
 		WaitTexture:SetWidth (180)
 		WaitTexture:SetHeight (180)
 		WaitForPluginFrame.wheel = WaitTexture
-		local RotateAnimGroup = WaitForPluginFrame:CreateAnimationGroup()
-		local rotate = RotateAnimGroup:CreateAnimation ("Rotation")
-		rotate:SetDegrees (360)
-		rotate:SetDuration (60)
-		RotateAnimGroup:SetLooping ("repeat")
+
+		--local RotateAnimGroup = WaitForPluginFrame:CreateAnimationGroup()
+		--local rotate = RotateAnimGroup:CreateAnimation ("Rotation")
+		--rotate:SetDegrees (360)
+		--rotate:SetDuration (60)
+		--RotateAnimGroup:SetLooping ("repeat")
 
 		local bgpanel = gump:NewPanel (UIParent, UIParent, "DetailsWaitFrameBG"..self.meu_id, nil, 120, 30, false, false, false)
 		bgpanel:SetPoint ("CENTER", WaitForPluginFrame, "CENTER")
@@ -996,11 +996,9 @@ local _utf8sub = string.utf8sub
 
 		WaitForPluginFrame:Hide()
 		self.wait_for_plugin_created = true
-		]]
 		function self:WaitForPlugin()
 			
-			--self:ChangeIcon ([[Interface\GossipFrame\ActiveQuestIcon]])
-			--[[
+			self:ChangeIcon ([[Interface\GossipFrame\ActiveQuestIcon]])
 			if (WaitForPluginFrame:IsShown() and WaitForPluginFrame:GetParent() == self.baseframe) then
 				self.waiting_pid = self:ScheduleTimer ("ExecDelayedPlugin1", 5, self)
 			end
@@ -1013,29 +1011,25 @@ local _utf8sub = string.utf8sub
 			WaitForPluginFrame:Show()
 			label:Show()
 			bgpanel:Show()
-			RotateAnimGroup:Play()
+			--RotateAnimGroup:Play()
 
 			self.waiting_raid_plugin = true
 
 			self.waiting_pid = self:ScheduleTimer ("ExecDelayedPlugin1", 5, self)
-			]]
 		end
 
 		function self:CancelWaitForPlugin()
-			--[[
-			RotateAnimGroup:Stop()
+			--RotateAnimGroup:Stop()
 			WaitForPluginFrame:Hide()
 			label:Hide()
 			bgpanel:Hide()
-			]]
 		end
 
 		function self:ExecDelayedPlugin1()
-			--[[
 			self.waiting_raid_plugin = nil
 			self.waiting_pid = nil
 
-			RotateAnimGroup:Stop()
+			--RotateAnimGroup:Stop()
 			WaitForPluginFrame:Hide()
 			label:Hide()
 			bgpanel:Hide()
@@ -1047,12 +1041,10 @@ local _utf8sub = string.utf8sub
 				_detalhes.RaidTables:EnableRaidMode (self)
 
 			end
-			]]
 		end
 	end
 
 	do
-		--[[
 		local WaitForPluginFrame = CreateFrame ("Frame", "DetailsWaitForPluginFrame", UIParent)
 		local WaitTexture = WaitForPluginFrame:CreateTexture (nil, "overlay")
 		WaitTexture:SetTexture ("Interface\\UNITPOWERBARALT\\Mechanical_Circular_Frame")
@@ -1060,11 +1052,11 @@ local _utf8sub = string.utf8sub
 		WaitTexture:SetWidth (180)
 		WaitTexture:SetHeight (180)
 		WaitForPluginFrame.wheel = WaitTexture
-		local RotateAnimGroup = WaitForPluginFrame:CreateAnimationGroup()
-		local rotate = RotateAnimGroup:CreateAnimation ("Rotation")
-		rotate:SetDegrees (360)
-		rotate:SetDuration (60)
-		RotateAnimGroup:SetLooping ("repeat")
+		--local RotateAnimGroup = WaitForPluginFrame:CreateAnimationGroup()
+		--local rotate = RotateAnimGroup:CreateAnimation ("Rotation")
+		--rotate:SetDegrees (360)
+		--rotate:SetDuration (60)
+		--RotateAnimGroup:SetLooping ("repeat")
 
 		local bgpanel = gump:NewPanel (UIParent, UIParent, "DetailsWaitFrameBG", nil, 120, 30, false, false, false)
 		bgpanel:SetPoint ("CENTER", WaitForPluginFrame, "CENTER")
@@ -1078,10 +1070,9 @@ local _utf8sub = string.utf8sub
 		label:Hide()
 
 		WaitForPluginFrame:Hide()
-		]]
+
 		function _detalhes:WaitForSoloPlugin (instancia)
-			--instancia:ChangeIcon ([[Interface\GossipFrame\ActiveQuestIcon]])
-			--[[
+			instancia:ChangeIcon ([[Interface\GossipFrame\ActiveQuestIcon]])
 
 			if (WaitForPluginFrame:IsShown() and WaitForPluginFrame:GetParent() == instancia.baseframe) then
 				return _detalhes:ScheduleTimer ("ExecDelayedPlugin", 5, instancia)
@@ -1095,25 +1086,20 @@ local _utf8sub = string.utf8sub
 			WaitForPluginFrame:Show()
 			label:Show()
 			bgpanel:Show()
-			RotateAnimGroup:Play()
+			--RotateAnimGroup:Play()
 			
 			return _detalhes:ScheduleTimer ("ExecDelayedPlugin", 5, instancia)
-			]]
-			return 0
 		end
 
 		function _detalhes:CancelWaitForPlugin()
-			--[[
-			RotateAnimGroup:Stop()
+			--RotateAnimGroup:Stop()
 			WaitForPluginFrame:Hide()
 			label:Hide()
 			bgpanel:Hide()
-			]]
 		end
 
 		function _detalhes:ExecDelayedPlugin (instancia)
-			--[[
-			RotateAnimGroup:Stop()
+			--RotateAnimGroup:Stop()
 			WaitForPluginFrame:Hide()
 			label:Hide()
 			bgpanel:Hide()
@@ -1125,7 +1111,6 @@ local _utf8sub = string.utf8sub
 				_detalhes.RaidTables:switch (nil, _detalhes.RaidTables.Mode)
 
 			end
-			]]
 		end
 	end
 

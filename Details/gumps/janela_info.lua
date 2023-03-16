@@ -4815,6 +4815,7 @@ function gump:CriaJanelaInfo()
 				if (#tabOBject.players > 0) then
 					--tutorial flash
 					local blink = _detalhes:GetTutorialCVar ("DETAILS_INFO_TUTORIAL2") or 0
+					--[[
 					if (type (blink) == "number" and blink < 10) then
 
 						if (not tabOBject.FlashAnimation) then
@@ -4835,6 +4836,7 @@ function gump:CriaJanelaInfo()
 
 						tabOBject.FlashAnimation:Play()
 					end
+					]]
 
 					return true
 				end

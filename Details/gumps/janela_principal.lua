@@ -255,7 +255,7 @@ function _detalhes:MostrarScrollBar(sem_animacao)
 
 	if(not _detalhes.use_scroll) then
 		self.baseframe:EnableMouseWheel(true)
-		self.scroll:Enable()
+		--self.scroll:Enable()
 		self.scroll:SetValue(0)
 		self.rolagem = true
 		return
@@ -3542,7 +3542,7 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 
 	--> details version
 		instancia._version = baseframe:CreateFontString(nil, "overlay", "GameFontHighlightSmall")
-			--instancia._version:SetPoint("left", backgrounddisplay, "left", 20, 0)
+			instancia._version:SetPoint("left", backgrounddisplay, "left", 20, 0)
 			instancia._version:SetTextColor(1, 1, 1)
 			instancia._version:SetText("this is a alpha version of Details\nyou can help us sending bug reports\nuse the blue button.")
 			if(not _detalhes.initializing) then
