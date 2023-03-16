@@ -660,7 +660,7 @@ local movement_onupdate = function(self, elapsed)
 									end
 								end
 
-								instancia_alvo.h_esquerda:Flash(1, 1, 2.0, false, 0, 0)
+								--instancia_alvo.h_esquerda:Flash(1, 1, 2.0, false, 0, 0)
 
 							elseif(lado == 2) then
 
@@ -686,7 +686,7 @@ local movement_onupdate = function(self, elapsed)
 									end
 								end
 
-								instancia_alvo.h_baixo:Flash(1, 1, 2.0, false, 0, 0)
+								--instancia_alvo.h_baixo:Flash(1, 1, 2.0, false, 0, 0)
 
 							elseif(lado == 3) then
 
@@ -711,7 +711,7 @@ local movement_onupdate = function(self, elapsed)
 									end
 								end
 
-								instancia_alvo.h_direita:Flash(1, 1, 2.0, false, 0, 0)
+								--instancia_alvo.h_direita:Flash(1, 1, 2.0, false, 0, 0)
 							elseif(lado == 4) then
 
 								local texture = instancia_alvo.h_cima.texture
@@ -725,7 +725,7 @@ local movement_onupdate = function(self, elapsed)
 									texture:SetPoint("bottomright", instancia_alvo.baseframe, "topright", 0, 0)
 								end
 
-								instancia_alvo.h_cima:Flash(1, 1, 2.0, false, 0, 0)
+								--instancia_alvo.h_cima:Flash(1, 1, 2.0, false, 0, 0)
 
 							end
 						end
@@ -963,10 +963,10 @@ local function move_janela(baseframe, iniciando, instancia, just_updating)
 		end
 
 		if(instancia_alvo and instancia_alvo.ativa and instancia_alvo.baseframe) then
-			instancia_alvo.h_esquerda:Stop()
-			instancia_alvo.h_baixo:Stop()
-			instancia_alvo.h_direita:Stop()
-			instancia_alvo.h_cima:Stop()
+			--instancia_alvo.h_esquerda:Stop()
+			--instancia_alvo.h_baixo:Stop()
+			--instancia_alvo.h_direita:Stop()
+			--instancia_alvo.h_cima:Stop()
 		end
 
 	end
