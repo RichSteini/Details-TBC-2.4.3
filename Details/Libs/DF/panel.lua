@@ -4991,8 +4991,8 @@ function DF:ApplyStandardBackdrop (f, darkTheme, alphaScale)
 	f.__background:SetTexture (0.2317647, 0.2317647, 0.2317647)
 	f.__background:SetVertexColor (0.27, 0.27, 0.27)
 	f.__background:SetAlpha (0.8 * alphaScale)
-	f.__background:SetVertTile (true)
-	f.__background:SetHorizTile (true)
+	--f.__background:SetVertTile (true)
+	--f.__background:SetHorizTile (true)
 	f.__background:SetAllPoints()
 end
 

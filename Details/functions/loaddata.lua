@@ -23,11 +23,11 @@ function _detalhes:ApplyBasicKeys()
 
 	--> player faction and enemy faction
 		self.faction = UnitFactionGroup ("player")
-		if (self.faction == PLAYER_FACTION_GROUP[0]) then --> player is horde
-			self.faction_against = PLAYER_FACTION_GROUP[1] --> ally
+		if (self.faction == "Horde") then --> player is horde
+			self.faction_against = "Alliance" --> ally
 			self.faction_id = 0
-		elseif (self.faction == PLAYER_FACTION_GROUP[1]) then --> player is alliance
-			self.faction_against = PLAYER_FACTION_GROUP[0] --> horde
+		elseif (self.faction == "Alliance") then --> player is alliance
+			self.faction_against = "Horde" --> horde
 			self.faction_id = 1
 		end
 

@@ -933,7 +933,7 @@ local menus2 = {
 			container.slider:baixoPoint (0, -3)
 			container.wheel_jump = 80
 
-			container.slider:Disable()
+			--container.slider:Disable()
 			container.baixo:Disable()
 			container.cima:Disable()
 			container:EnableMouseWheel (false)
@@ -2654,14 +2654,23 @@ function window:CreateFrame17()
 			return t
 		end
 
-		local healer_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("HEALER")}, "HealerIcon1", "$parentHealerIcon1")
-		local healer_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("HEALER")}, "HealerIcon2", "$parentHealerIcon2")
+		--local healer_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("HEALER")}, "HealerIcon1", "$parentHealerIcon1")
+		--local healer_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("HEALER")}, "HealerIcon2", "$parentHealerIcon2")
 
-		local dps_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("DAMAGER")}, "DpsIcon1", "$parentDpsIcon1")
-		local dps_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("DAMAGER")}, "DpsIcon2", "$parentDpsIcon2")
+		--local dps_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("DAMAGER")}, "DpsIcon1", "$parentDpsIcon1")
+		--local dps_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("DAMAGER")}, "DpsIcon2", "$parentDpsIcon2")
 
-		local tank_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("TANK")}, "TankIcon1", "$parentTankIcon1")
-		local tank_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("TANK")}, "TankIcon2", "$parentTankIcon2")
+		--local tank_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("TANK")}, "TankIcon1", "$parentTankIcon1")
+		--local tank_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {GetTexCoordsForRole("TANK")}, "TankIcon2", "$parentTankIcon2")
+
+		local healer_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {}, "HealerIcon1", "$parentHealerIcon1")
+		local healer_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {}, "HealerIcon2", "$parentHealerIcon2")
+
+		local dps_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {}, "DpsIcon1", "$parentDpsIcon1")
+		local dps_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {}, "DpsIcon2", "$parentDpsIcon2")
+
+		local tank_icon1 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {}, "TankIcon1", "$parentTankIcon1")
+		local tank_icon2 = g:NewImage (frame17, [[Interface\LFGFRAME\UI-LFG-ICON-ROLES]], 20, 20, nil, {}, "TankIcon2", "$parentTankIcon2")
 
 		-- auto switch all roles in combat
 			g:NewLabel (frame17, _, "$parentAutoSwitchLabel", "autoSwitchLabel", Loc ["STRING_OPTIONS_AUTO_SWITCH"], "GameFontHighlightLeft")
@@ -3839,7 +3848,8 @@ function window:CreateFrame1()
 		local avatar_x_anchor2 = window.right_start_at - 15
 
 		local box = g:NewTextEntry (frame1, _, "$parentNicknameEntry", "nicknameEntry", SLIDER_WIDTH, TEXTENTRY_HEIGHT, onPressEnter, nil, nil, nil, nil, options_dropdown_template)
-		box:SetFontObject ("SystemFont_Outline_Small")
+		--box:SetFontObject ("SystemFont_Outline_Small")
+		box:SetFontObject ("GameFontHighlightSmall")
 
 		--create a reset nickname button
 			g:NewButton (box, _, "$parentResetNicknameButton", "resetNicknameButton", 16, 16, function()

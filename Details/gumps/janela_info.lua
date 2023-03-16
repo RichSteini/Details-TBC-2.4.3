@@ -730,19 +730,22 @@ end
 --> cria os textos em geral da janela info
 ------------------------------------------------------------------------------------------------------------------------------
 local function cria_textos (este_gump, SWW)
-	este_gump.nome = este_gump:CreateFontString (nil, "OVERLAY", "QuestFont_Large")
+	--este_gump.nome = este_gump:CreateFontString (nil, "OVERLAY", "QuestFont_Large")
+	este_gump.nome = este_gump:CreateFontString (nil, "OVERLAY", "GameFontHighlightSmall")
 	este_gump.nome:SetPoint ("TOPLEFT", este_gump, "TOPLEFT", 105, -54)
 
 	este_gump.atributo_nome = este_gump:CreateFontString (nil, "OVERLAY", "GameFontHighlightSmall")
 
-	este_gump.targets = SWW:CreateFontString (nil, "OVERLAY", "QuestFont_Large")
+	--este_gump.targets = SWW:CreateFontString (nil, "OVERLAY", "QuestFont_Large")
+	este_gump.targets = SWW:CreateFontString (nil, "OVERLAY", "GameFontHighlightSmall")
 	este_gump.targets:SetPoint ("TOPLEFT", este_gump, "TOPLEFT", 24, -273)
 	este_gump.targets:SetText (Loc ["STRING_TARGETS"] .. ":")
 
 	este_gump.avatar = este_gump:CreateTexture (nil, "ARTWORK")
 	este_gump.avatar_bg = este_gump:CreateTexture (nil, "BORDER")
 	este_gump.avatar_attribute = este_gump:CreateFontString (nil, "OVERLAY", "GameFontHighlightSmall")
-	este_gump.avatar_nick = este_gump:CreateFontString (nil, "OVERLAY", "QuestFont_Large")
+	--este_gump.avatar_nick = este_gump:CreateFontString (nil, "OVERLAY", "QuestFont_Large")
+	este_gump.avatar_nick = este_gump:CreateFontString (nil, "OVERLAY", "GameFontHighlightSmall")
 
 	este_gump.avatar:SetPoint ("TOPLEFT", este_gump, "TOPLEFT", 60, -10)
 	este_gump.avatar_bg:SetPoint ("TOPLEFT", este_gump, "TOPLEFT", 60, -12)
@@ -4334,7 +4337,7 @@ function gump:CriaJanelaInfo()
 				bar.lefttext:SetJustifyH ("LEFT")
 				bar.lefttext:SetTextColor (1, 1, 1, 1)
 				bar.lefttext:SetNonSpaceWrap (true)
-				bar.lefttext:SetWordWrap (false)
+				--bar.lefttext:SetWordWrap (false)
 				if (main) then
 					bar.lefttext:SetWidth (180)
 				else
@@ -5494,7 +5497,7 @@ local function CriaTexturaBarra(instancia, barra)
 	barra.texto_esquerdo:SetTextColor(1, 1, 1, 1)
 
 	barra.texto_esquerdo:SetNonSpaceWrap(true)
-	barra.texto_esquerdo:SetWordWrap(false)
+	--barra.texto_esquerdo:SetWordWrap(false)
 
 	barra.texto_direita = barra.overlay:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 	if barra.targets then

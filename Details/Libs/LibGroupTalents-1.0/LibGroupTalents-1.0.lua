@@ -89,10 +89,16 @@ local function RosterInfoFullName(info)
 	return namerealm
 end
 
+local TALENT_ACTIVATION_SPELLS = {
+	63645,
+	63644
+}
 local specChangers = {}
-for index,spellid in ipairs(_G.TALENT_ACTIVATION_SPELLS) do
+--[[
+for index,spellid in ipairs(TALENT_ACTIVATION_SPELLS) do
 	specChangers[GetSpellInfo(spellid)] = index
 end
+]]
 
 local frame = lib.frame
 if (not frame) then
@@ -755,7 +761,7 @@ assert(ctd[1].list and ctd[2].list and ctd[3].list)
 
 		local n = new()
 		for tab = 1, numTabs do
-			local branchLength = GetNumTalents(tab, isnotplayer, nil, group)
+			local branchLength = GetNumTalents(tab, isnotplayer, nil)
 			if (branchLength ~= #ctd[tab].list) then
 				-- Tab tree size is not what we expected for this class
 				del(n)
@@ -796,27 +802,27 @@ function lib:TalentQuery_Ready(e, name, realm, unit)
 		local isnotplayer = not UnitIsUnit(unit, "player")
 
 		if (GetTalentTabInfo(1, isnotplayer)) then
-			local active = GetActiveTalentGroup(isnotplayer)
-			local numActive = GetNumTalentGroups(isnotplayer)
+			--local active = GetActiveTalentGroup(isnotplayer)
+			--local numActive = GetNumTalentGroups(isnotplayer)
 			local listUnspent, invalid
 			local talents = new()
+			local group = 1
+			local active = 1
 
-			for group = 1,numActive do
-				local n = ReadTalentGroup(isnotplayer, group, r.class)
-				if (n and #n >= 3) then
-					talents[group] = n
-				else
-					invalid = true
-					break
-				end
+			local n = ReadTalentGroup(isnotplayer, group, r.class)
+			if (n and #n >= 3) then
+				talents[group] = n
+			else
+				invalid = true
+			end
 
-				local unspent = GetUnspentTalentPoints(isnotplayer, nil, group)
-				if (unspent and unspent > 0) then
-					if (not listUnspent) then
-						listUnspent = new()
-					end
-					listUnspent[group] = unspent
+			--local unspent = GetUnspentTalentPoints(isnotplayer, nil, group)
+			local unspent = 61
+			if (unspent and unspent > 0) then
+				if (not listUnspent) then
+					listUnspent = new()
 				end
+				listUnspent[group] = unspent
 			end
 
 			if (isnotplayer and (invalid or (listUnspent and listUnspent[active] or 0) > 0)) then
@@ -826,10 +832,6 @@ function lib:TalentQuery_Ready(e, name, realm, unit)
 			end
 
 			if (not invalid) then
-				if (active > numActive) then
-					-- May be better to discard instead? We'll see
-					active = 1
-				end
 				self:OnReceiveTalents(guid, unit, talents, active, numActive, listUnspent)
 			end
 		end
@@ -1294,7 +1296,7 @@ function lib:GetGUIDTalents(guid, refetch)
 
 	if (not activeTalents or refetch) then
 		if (UnitIsUnit("player", unit)) then
-			self:RefreshPlayerGlyphs()
+			--self:RefreshPlayerGlyphs()
 			self:TalentQuery_Ready(nil, name, nil, unit)
 
 		elseif ((UnitInRaid(unit) or UnitInParty(unit)) and UnitIsConnected(unit)) then
@@ -1555,7 +1557,7 @@ end
 -- GetActiveTalentGroup
 function lib:GetActiveTalentGroup(unit)
 	if (UnitIsUnit(unit, "player")) then
-		return GetActiveTalentGroup()
+		return 1
 	else
 		local guid = unit and UnitGUID(unit)
 		local r = guid and self.roster[guid]

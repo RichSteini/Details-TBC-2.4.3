@@ -69,7 +69,9 @@ if not C_Timer or C_Timer._version ~= 2 then
 				ticker._delay = ticker._delay - elapsed
 				i = i + 1
 			else
-				ticker._callback(ticker)
+				if ticker._callback then
+					ticker._callback(ticker)
+				end
 
 				if ticker._remainingIterations == -1 then
 					ticker._delay = ticker._duration

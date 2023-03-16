@@ -2158,7 +2158,8 @@ function _detalhes:LibGroupTalents_Update(event, guid, unit, dominant_tree_id, n
 
 	local talent_string = n1.."/"..n2.."/"..n3
 	_detalhes.cached_talents [guid] = talent_string
-	local class, _, _, _, name = select(2, GetPlayerInfoByGUID(guid))
+	local name = UnitName(guid)
+	local class = UnitClass(guid)
 	local specID = DetailsFramework.GetSpecializationID(class, dominant_tree_id)
 	if specID then
 		if (not _detalhes.class_specs_coords [specID]) then

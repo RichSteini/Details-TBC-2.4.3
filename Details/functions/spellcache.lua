@@ -65,16 +65,16 @@ do
 		[7] = {name = Loc ["STRING_ENVIRONMENTAL_LAVA"], icon = [[Interface\ICONS\Ability_Rhyolith_Volcano]]},
 		[8] = {name = Loc ["STRING_ENVIRONMENTAL_SLIME"], icon = [[Interface\ICONS\Ability_Creature_Poison_02]]},
 
-		[59638] = {name = GetSpellInfo (59638) .. " (" .. Loc ["STRING_MIRROR_IMAGE"] .. ")"}, --> Mirror Image's Frost Bolt (mage)
+		--[59638] = {name = GetSpellInfo (59638) .. " (" .. Loc ["STRING_MIRROR_IMAGE"] .. ")"}, --> Mirror Image's Frost Bolt (mage)
 
 		[44461] = {name = GetSpellInfo (44461) .. " (" .. Loc ["STRING_EXPLOSION"] .. ")"}, --> Living Bomb (explosion)
 
 		[33778] = {name = GetSpellInfo (33778) .. " (Bloom)"}, --lifebloom (bloom)
 
-		[70890] = {name = GetSpellInfo (70890) .. " (Shadow)"}, --DK Scourge Strike
-		[55090] = {name = GetSpellInfo (55090) .. " (Physical)"}, --DK Scourge Strike
+		--[70890] = {name = GetSpellInfo (70890) .. " (Shadow)"}, --DK Scourge Strike
+		--[55090] = {name = GetSpellInfo (55090) .. " (Physical)"}, --DK Scourge Strike
 
-		[49184] = {name = GetSpellInfo (49184) .. " (Main Target)"}, --DK Howling Blast
+		--[49184] = {name = GetSpellInfo (49184) .. " (Main Target)"}, --DK Howling Blast
 --[[
 		[88082] = {name = GetSpellInfo (88082) .. " (" .. Loc ["STRING_MIRROR_IMAGE"] .. ")"}, --> Mirror Image's Fireball (mage)
 

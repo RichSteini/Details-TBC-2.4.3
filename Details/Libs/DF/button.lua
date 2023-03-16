@@ -883,7 +883,7 @@ local ButtonMetaFunctions = _G [DF.GlobalWidgetControlNames ["button"]]
 
 		if (
 			(x == button.x and y == button.y) or
-			(button.mouse_down+0.5 > GetTime() and button:IsMouseOver())
+			(button.mouse_down+0.5 > GetTime() and MouseIsOver(button))
 		) then
 			if (buttontype == "LeftButton") then
 				DF:CoreDispatch ((button:GetName() or "Button") .. ":OnMouseUp()", button.MyObject.func, button, buttontype, button.MyObject.param1, button.MyObject.param2)
@@ -985,6 +985,7 @@ local build_button = function (self)
 	self.texture_disabled:Hide()
 	self.texture_disabled:SetTexture ("Interface\\Tooltips\\UI-Tooltip-Background")
 
+	--[[
 	self:SetScript ("OnDisable", function (self)
 		self.texture_disabled:Show()
 		self.texture_disabled:SetVertexColor (0, 0, 0)
@@ -994,6 +995,7 @@ local build_button = function (self)
 	self:SetScript ("OnEnable", function (self)
 		self.texture_disabled:Hide()
 	end)
+	]]
 end
 
 function DF:CreateButton (parent, func, w, h, text, param1, param2, texture, member, name, short_method, button_template, text_template)

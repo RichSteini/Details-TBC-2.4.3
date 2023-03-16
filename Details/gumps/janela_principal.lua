@@ -1764,7 +1764,7 @@ end
 --> this should run only when the mouse is over a instance bar
 local shift_monitor = function(self)
 
-	if(not self:IsMouseOver()) then
+	if(not MouseIsOver(self)) then
 		self:SetScript("OnUpdate", shift_monitor)
 		return
 	end
@@ -2280,6 +2280,7 @@ local icon_frame_inspect_callback = function(guid, unitid, icon_frame)
 end
 
 local icon_frame_create_animation = function()
+	--[[
 	local f = CreateFrame("frame", nil, UIParent)
 	f:SetFrameStrata("FULLSCREEN")
 	f.anim = f:CreateAnimationGroup()
@@ -2289,11 +2290,12 @@ local icon_frame_create_animation = function()
 	f.anim:SetLooping("repeat")
 
 	local t = f:CreateTexture(nil, "overlay")
-	t:SetTexture([[Interface\COMMON\StreamCircle]])
-	t:SetAlpha(0.7)
-	t:SetAllPoints()
+	]]
+	--t:SetTexture([[Interface\COMMON\StreamCircle]])
+	--t:SetAlpha(0.7)
+	--t:SetAllPoints()
 
-	tinsert(_detalhes.icon_animations.load.available, f)
+	--tinsert(_detalhes.icon_animations.load.available, f)
 end
 
 local icon_frame_on_click_down = function(self)
@@ -2745,12 +2747,14 @@ local function button_up_scripts(main_frame, backgrounddisplay, instancia, scrol
 		self:SetScript("OnUpdate", nil)
 	end)
 
+	--[[
 	main_frame.button_up:SetScript("OnEnable", function(self)
 		local current = scrollbar:GetValue()
 		if(current == 0) then
 			main_frame.button_up:Disable()
 		end
 	end)
+	]]
 end
 
 function DetailsKeyBindScrollUp()
@@ -2928,7 +2932,7 @@ end
 
 function _detalhes:InstanceAlertTime(instance)
 	instance.alert:Hide()
-	instance.alert.rotate:Stop()
+	--instance.alert.rotate:Stop()
 	instance.alert_time = nil
 end
 
@@ -2953,7 +2957,7 @@ function _detalhes:InstanceAlert(msg, icon, time, clickfunc, doflash, forceAlert
 
 	if(type(msg) == "boolean" and not msg) then
 		self.alert:Hide()
-		self.alert.rotate:Stop()
+		--self.alert.rotate:Stop()
 		self.alert_time = nil
 		return
 	end
@@ -2975,7 +2979,7 @@ function _detalhes:InstanceAlert(msg, icon, time, clickfunc, doflash, forceAlert
 				self.alert.icon:SetTexCoord(left, right, top, bottom)
 			end
 			if(animate) then
-				self.alert.rotate:Play()
+				--self.alert.rotate:Play()
 			end
 			if(r and g and b) then
 				self.alert.icon:SetVertexColor(r, g, b, a or 1)
@@ -3089,6 +3093,7 @@ local function CreateAlertFrame(baseframe, instancia)
 	button._instance = instancia
 	button.func_param = {}
 
+	--[[
 	local RotateAnimGroup = rotate_frame:CreateAnimationGroup()
 	local rotate = RotateAnimGroup:CreateAnimation("Rotation")
 	rotate:SetDegrees(360)
@@ -3107,6 +3112,7 @@ local function CreateAlertFrame(baseframe, instancia)
 		alert_bg:SetPoint("left", baseframe, "left", 3, 0)
 		alert_bg:SetPoint("right", baseframe, "right", -3, 0)
 	end)
+	]]
 
 	local on_enter_alert = function(self)
 		text:SetTextColor(1, 0.8, 0.3, 1)
@@ -3121,7 +3127,7 @@ local function CreateAlertFrame(baseframe, instancia)
 	button:SetScript("OnLeave", on_leave_alert)
 
 	function alert_bg:Play()
-		anime:Play()
+		--anime:Play()
 	end
 
 	local flash_texture = button:CreateTexture(nil, "overlay")
@@ -3129,6 +3135,7 @@ local function CreateAlertFrame(baseframe, instancia)
 	flash_texture:SetTexture([[Interface\AchievementFrame\UI-Achievement-Alert-Glow]])
 	flash_texture:SetAllPoints()
 	flash_texture:SetBlendMode("ADD")
+	--[[
 	local animation = flash_texture:CreateAnimationGroup()
 	local anim1 = animation:CreateAnimation("ALPHA")
 	local anim2 = animation:CreateAnimation("ALPHA")
@@ -3151,6 +3158,7 @@ local function CreateAlertFrame(baseframe, instancia)
 		flash_texture:Show()
 		animation:Play()
 	end
+	]]
 
 	function alert_bg:DoFlash()
 		C_Timer.After(0.23, do_flash)
@@ -3159,7 +3167,7 @@ local function CreateAlertFrame(baseframe, instancia)
 	alert_bg.text = text
 	alert_bg.icon = icon
 	alert_bg.button = button
-	alert_bg.rotate = RotateAnimGroup
+	--alert_bg.rotate = RotateAnimGroup
 
 	instancia.alert = alert_bg
 
@@ -3339,7 +3347,7 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 	baseframe:SetMovable(true)
 	baseframe:SetResizable(true)
 	baseframe:SetUserPlaced(false)
-	baseframe:SetDontSavePosition(true)
+	--baseframe:SetDontSavePosition(true)
 
 	baseframe.instance = instancia
 	baseframe:SetFrameStrata(baseframe_strata)
@@ -3953,8 +3961,8 @@ function gump:CriaNovaBarra(instancia, index)
 
 	--> create textures and icons
 	new_row.textura = new_row.statusbar:CreateTexture(nil, "artwork")
-	new_row.textura:SetHorizTile(false)
-	new_row.textura:SetVertTile(false)
+	--new_row.textura:SetHorizTile(false)
+	--new_row.textura:SetVertTile(false)
 
 	--> row background texture
 	new_row.background = new_row:CreateTexture(nil, "background")

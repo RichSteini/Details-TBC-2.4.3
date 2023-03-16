@@ -229,8 +229,8 @@
 				f.bg1:SetTexture ([[Interface\AddOns\Details\images\background]], true)
 				f.bg1:SetAlpha (0.7)
 				f.bg1:SetVertexColor (0.27, 0.27, 0.27)
-				f.bg1:SetVertTile (true)
-				f.bg1:SetHorizTile (true)
+				--f.bg1:SetVertTile (true)
+				--f.bg1:SetHorizTile (true)
 				f.bg1:SetAllPoints()
 
 				f:SetBackdrop ({edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, bgFile = [[Interface\AddOns\Details\images\background]], tileSize = 64, tile = true})
@@ -1143,7 +1143,8 @@
 					modelFrameBackground:SetSize (138, 261)
 					modelFrameBackground:SetPoint ("TOPRIGHT", actorsFrame.widget, "TOPLEFT", -15, -8)
 					modelFrameBackground:SetTexture ([[Interface\ACHIEVEMENTFRAME\UI-GuildAchievement-Parchment-Horizontal-Desaturated]])
-					modelFrameBackground:SetRotation (90)
+					--modelFrameBackground:SetRotation (90)
+					modelFrameBackground:SetTexCoord(1,0,0,0,1,1,0,1)
 					modelFrameBackground:SetVertexColor (.5, .5, .5, 0.5)
 
 					local modelFrameBackgroundIcon = custom_window:CreateTexture (nil, "overlay")

@@ -127,12 +127,14 @@ function DF:NewScrollBar (master, slave, x, y)
 		self:SetScript ("OnUpdate", nil)
 	end)
 	--> isso aqui pra quando o slider ativar, o scroll fica na  posi��o zero
+	--[[
 	botao_cima:SetScript ("OnEnable", function (self)
 		local current = new_slider:GetValue()
 		if (current == 0) then
 			botao_cima:Disable()
 		end
 	end)
+	]]
 
 	new_slider:SetScript ("OnValueChanged", function (self)
 		local current = self:GetValue()
@@ -159,6 +161,7 @@ function DF:NewScrollBar (master, slave, x, y)
 		botao_baixo:Show()
 	end)
 
+	--[[
 	new_slider:SetScript ("OnDisable", function (self)
 		botao_cima:Disable()
 		botao_baixo:Disable()
@@ -168,6 +171,7 @@ function DF:NewScrollBar (master, slave, x, y)
 		botao_cima:Enable()
 		botao_baixo:Enable()
 	end)
+	]]
 
 	master:SetScript ("OnMouseWheel", function (self, delta)
 		if (not new_slider:IsEnabled()) then
@@ -200,7 +204,7 @@ function DF:NewScrollBar (master, slave, x, y)
 	function new_slider:Update (desativar)
 
 		if (desativar) then
-			new_slider:Disable()
+			--new_slider:Disable()
 			new_slider:SetValue(0)
 			new_slider.ativo = false
 			master:EnableMouseWheel (false)
@@ -211,7 +215,7 @@ function DF:NewScrollBar (master, slave, x, y)
 		if (self.scrollMax > 0) then
 			new_slider:SetMinMaxValues (0, self.scrollMax)
 			if (not new_slider.ativo) then
-				new_slider:Enable()
+				--new_slider:Enable()
 				new_slider.ativo = true
 				master:EnableMouseWheel (true)
 			end

@@ -355,7 +355,7 @@ local function cria_drop_down (este_gump)
 
 			local bnet_friends = {}
 
-			local BnetFriends = BNGetNumFriends()
+			local BnetFriends = GetNumFriends()
 			for i = 1, BnetFriends do
 				local presenceID, presenceName, battleTag, isBattleTagPresence, toonName, toonID, client, isOnline, lastOnline, isAFK, isDND, messageText, noteText, isRIDFriend, broadcastTime, canSoR = BNGetFriendInfo (i)
 				if (isOnline) then
@@ -1071,7 +1071,8 @@ local function cria_drop_down (este_gump)
 		end)
 
 		--> title
-		window.title = window:CreateFontString (nil, "OVERLAY", "GameFontHighlightLeft")
+		--window.title = window:CreateFontString (nil, "OVERLAY", "GameFontHighlightLeft")
+		window.title = window:CreateFontString (nil, "OVERLAY", "GameFontHighlightSmall")
 		window.title:SetText (Loc ["STRING_REPORTFRAME_WINDOW_TITLE"])
 
 		seta_scripts (window)

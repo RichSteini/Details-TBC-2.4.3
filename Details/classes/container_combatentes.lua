@@ -62,13 +62,13 @@
 	local OBJECT_TYPE_PLAYER =	0x00000400
 	local OBJECT_TYPE_PETS = 	OBJECT_TYPE_PET + OBJECT_TYPE_GUARDIAN
 
-	local KirinTor = GetFactionInfoByID (1090) or "1"
-	local Valarjar = GetFactionInfoByID (1948) or "1"
-	local HighmountainTribe = GetFactionInfoByID (1828) or "1"
-	local CourtofFarondis = GetFactionInfoByID (1900) or "1"
-	local Dreamweavers = GetFactionInfoByID (1883) or "1"
-	local TheNightfallen = GetFactionInfoByID (1859) or "1"
-	local TheWardens = GetFactionInfoByID (1894) or "1"
+	local KirinTor = GetFactionInfo (1090) or "1"
+	local Valarjar = GetFactionInfo (1948) or "1"
+	local HighmountainTribe = GetFactionInfo (1828) or "1"
+	local CourtofFarondis = GetFactionInfo (1900) or "1"
+	local Dreamweavers = GetFactionInfo (1883) or "1"
+	local TheNightfallen = GetFactionInfo (1859) or "1"
+	local TheWardens = GetFactionInfo (1894) or "1"
 
 	local IsFactionNpc = {
 		[KirinTor] = true,

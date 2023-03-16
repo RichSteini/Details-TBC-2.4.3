@@ -1109,6 +1109,7 @@ local flash = function(self, fadeInTime, fadeOutTime, flashDuration, showWhenDon
 end
 
 function gump:CreateFlashAnimation(frame, onFinishFunc, onLoopFunc)
+	--[[
 	local FlashAnimation = frame:CreateAnimationGroup()
 
 	FlashAnimation.fadeOut = FlashAnimation:CreateAnimation("Alpha") --> fade out anime
@@ -1129,6 +1130,7 @@ function gump:CreateFlashAnimation(frame, onFinishFunc, onLoopFunc)
 
 	frame.Flash = flash
 	frame.Stop = stop
+	]]
 end
 
 --> todo: remove the function creation everytime this function run.

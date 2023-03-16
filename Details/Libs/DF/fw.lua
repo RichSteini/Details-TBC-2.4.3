@@ -745,6 +745,7 @@ local flash = function (self, fadeInTime, fadeOutTime, flashDuration, showWhenDo
 end
 
 function DF:CreateFlashAnimation (frame, onFinishFunc, onLoopFunc)
+	--[[
 	local FlashAnimation = frame:CreateAnimationGroup()
 
 	FlashAnimation.fadeOut = FlashAnimation:CreateAnimation ("Alpha") --> fade out anime
@@ -764,6 +765,7 @@ function DF:CreateFlashAnimation (frame, onFinishFunc, onLoopFunc)
 
 	frame.Flash = flash
 	frame.Stop = stop
+	]]
 end
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2404,17 +2406,20 @@ end
 --> animations
 
 function DF:CreateAnimationHub (parent, onPlay, onFinished)
+	--[[
 	local newAnimation = parent:CreateAnimationGroup()
 	newAnimation:SetScript ("OnPlay", onPlay)
 	newAnimation:SetScript ("OnFinished", onFinished)
 	newAnimation:SetScript ("OnStop", onFinished)
 	newAnimation.NextAnimation = 1
+	]]
 	return newAnimation
 end
 
 
 -- TODO
 function DF:CreateAnimation (animation, type, order, duration, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
+	--[[
 	local anim = animation:CreateAnimation (type)
 
 	anim:SetDuration (duration)
@@ -2457,6 +2462,7 @@ function DF:CreateAnimation (animation, type, order, duration, arg1, arg2, arg3,
 	end
 
 	animation.NextAnimation = animation.NextAnimation + 1
+	]]
 	return anim
 end
 

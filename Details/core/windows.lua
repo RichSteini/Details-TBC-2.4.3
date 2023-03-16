@@ -969,7 +969,7 @@ local _utf8sub = string.utf8sub
 
 --> cria o frame de wait for plugin
 	function _detalhes:CreateWaitForPlugin()
-
+		--[[
 		local WaitForPluginFrame = CreateFrame ("Frame", "DetailsWaitForPluginFrame" .. self.meu_id, UIParent)
 		local WaitTexture = WaitForPluginFrame:CreateTexture (nil, "overlay")
 		WaitTexture:SetTexture ("Interface\\UNITPOWERBARALT\\Mechanical_Circular_Frame")
@@ -996,11 +996,11 @@ local _utf8sub = string.utf8sub
 
 		WaitForPluginFrame:Hide()
 		self.wait_for_plugin_created = true
-
+		]]
 		function self:WaitForPlugin()
-
-			self:ChangeIcon ([[Interface\GossipFrame\ActiveQuestIcon]])
-
+			
+			--self:ChangeIcon ([[Interface\GossipFrame\ActiveQuestIcon]])
+			--[[
 			if (WaitForPluginFrame:IsShown() and WaitForPluginFrame:GetParent() == self.baseframe) then
 				self.waiting_pid = self:ScheduleTimer ("ExecDelayedPlugin1", 5, self)
 			end
@@ -1018,17 +1018,20 @@ local _utf8sub = string.utf8sub
 			self.waiting_raid_plugin = true
 
 			self.waiting_pid = self:ScheduleTimer ("ExecDelayedPlugin1", 5, self)
+			]]
 		end
 
 		function self:CancelWaitForPlugin()
+			--[[
 			RotateAnimGroup:Stop()
 			WaitForPluginFrame:Hide()
 			label:Hide()
 			bgpanel:Hide()
+			]]
 		end
 
 		function self:ExecDelayedPlugin1()
-
+			--[[
 			self.waiting_raid_plugin = nil
 			self.waiting_pid = nil
 
@@ -1044,10 +1047,12 @@ local _utf8sub = string.utf8sub
 				_detalhes.RaidTables:EnableRaidMode (self)
 
 			end
+			]]
 		end
 	end
 
 	do
+		--[[
 		local WaitForPluginFrame = CreateFrame ("Frame", "DetailsWaitForPluginFrame", UIParent)
 		local WaitTexture = WaitForPluginFrame:CreateTexture (nil, "overlay")
 		WaitTexture:SetTexture ("Interface\\UNITPOWERBARALT\\Mechanical_Circular_Frame")
@@ -1073,10 +1078,10 @@ local _utf8sub = string.utf8sub
 		label:Hide()
 
 		WaitForPluginFrame:Hide()
-
+		]]
 		function _detalhes:WaitForSoloPlugin (instancia)
-
-			instancia:ChangeIcon ([[Interface\GossipFrame\ActiveQuestIcon]])
+			--instancia:ChangeIcon ([[Interface\GossipFrame\ActiveQuestIcon]])
+			--[[
 
 			if (WaitForPluginFrame:IsShown() and WaitForPluginFrame:GetParent() == instancia.baseframe) then
 				return _detalhes:ScheduleTimer ("ExecDelayedPlugin", 5, instancia)
@@ -1091,19 +1096,23 @@ local _utf8sub = string.utf8sub
 			label:Show()
 			bgpanel:Show()
 			RotateAnimGroup:Play()
-
+			
 			return _detalhes:ScheduleTimer ("ExecDelayedPlugin", 5, instancia)
+			]]
+			return 0
 		end
 
 		function _detalhes:CancelWaitForPlugin()
+			--[[
 			RotateAnimGroup:Stop()
 			WaitForPluginFrame:Hide()
 			label:Hide()
 			bgpanel:Hide()
+			]]
 		end
 
 		function _detalhes:ExecDelayedPlugin (instancia)
-
+			--[[
 			RotateAnimGroup:Stop()
 			WaitForPluginFrame:Hide()
 			label:Hide()
@@ -1116,6 +1125,7 @@ local _utf8sub = string.utf8sub
 				_detalhes.RaidTables:switch (nil, _detalhes.RaidTables.Mode)
 
 			end
+			]]
 		end
 	end
 
@@ -1176,8 +1186,8 @@ local _utf8sub = string.utf8sub
 			f.bg1:SetTexture ([[Interface\AddOns\Details\images\background]], true)
 			f.bg1:SetAlpha (0.7)
 			f.bg1:SetVertexColor (0.27, 0.27, 0.27)
-			f.bg1:SetVertTile (true)
-			f.bg1:SetHorizTile (true)
+			--f.bg1:SetVertTile (true)
+			--f.bg1:SetHorizTile (true)
 			f.bg1:SetSize (790, 454)
 			f.bg1:SetAllPoints()
 
@@ -3950,8 +3960,8 @@ local _utf8sub = string.utf8sub
 			f.bg1:SetTexture ([[Interface\AddOns\Details\images\background]], true)
 			f.bg1:SetAlpha (0.8)
 			f.bg1:SetVertexColor (0.27, 0.27, 0.27)
-			f.bg1:SetVertTile (true)
-			f.bg1:SetHorizTile (true)
+			--f.bg1:SetVertTile (true)
+			--f.bg1:SetHorizTile (true)
 			f.bg1:SetSize (790, 454)
 			f.bg1:SetAllPoints()
 			f:SetBackdrop ({edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, bgFile = [[Interface\AddOns\Details\images\background]], tileSize = 64, tile = true})
@@ -4110,8 +4120,8 @@ local _utf8sub = string.utf8sub
 				code_editor.__background:SetTexture (0.2317647, 0.2317647, 0.2317647)
 				code_editor.__background:SetVertexColor (0.27, 0.27, 0.27)
 				code_editor.__background:SetAlpha (0.8)
-				code_editor.__background:SetVertTile (true)
-				code_editor.__background:SetHorizTile (true)
+				--code_editor.__background:SetVertTile (true)
+				--code_editor.__background:SetHorizTile (true)
 				code_editor.__background:SetAllPoints()
 
 				--> code compile error warning
@@ -6667,8 +6677,8 @@ function _detalhes:FormatBackground (f)
 	f.__background:SetTexture ([[Interface\AddOns\Details\images\background]], true)
 	f.__background:SetAlpha (0.7)
 	f.__background:SetVertexColor (0.27, 0.27, 0.27)
-	f.__background:SetVertTile (true)
-	f.__background:SetHorizTile (true)
+	--f.__background:SetVertTile (true)
+	--f.__background:SetHorizTile (true)
 	f.__background:SetAllPoints()
 end
 
@@ -6707,8 +6717,8 @@ function Details:Dump (t)
 		text_editor.__background:SetTexture (0.2317647, 0.2317647, 0.2317647)
 		text_editor.__background:SetVertexColor (0.27, 0.27, 0.27)
 		text_editor.__background:SetAlpha (0.8)
-		text_editor.__background:SetVertTile (true)
-		text_editor.__background:SetHorizTile (true)
+		--text_editor.__background:SetVertTile (true)
+		--text_editor.__background:SetHorizTile (true)
 		text_editor.__background:SetAllPoints()
 	end
 
@@ -6977,8 +6987,8 @@ function _detalhes:ShowImportWindow (defaultText, confirmFunc, titleText)
 		importTextEditor.__background:SetTexture (0.2317647, 0.2317647, 0.2317647)
 		importTextEditor.__background:SetVertexColor (0.27, 0.27, 0.27)
 		importTextEditor.__background:SetAlpha (0.8)
-		importTextEditor.__background:SetVertTile (true)
-		importTextEditor.__background:SetHorizTile (true)
+		--importTextEditor.__background:SetVertTile (true)
+		--importTextEditor.__background:SetHorizTile (true)
 		importTextEditor.__background:SetAllPoints()
 
 		--import button

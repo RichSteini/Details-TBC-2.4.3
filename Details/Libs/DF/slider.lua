@@ -305,7 +305,7 @@ local DFSliderMetaFunctions = _G [DF.GlobalWidgetControlNames ["slider"]]
 	end
 
 	function DFSliderMetaFunctions:Enable()
-		self.slider:Enable()
+		--self.slider:Enable()
 		if (not self.is_checkbox) then
 			if (not self.lock_texture) then
 				DF:NewImage (self, [[Interface\PetBattles\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
@@ -326,7 +326,7 @@ local DFSliderMetaFunctions = _G [DF.GlobalWidgetControlNames ["slider"]]
 	function DFSliderMetaFunctions:Disable()
 
 		self:ClearFocus()
-		self.slider:Disable()
+		--self.slider:Disable()
 		self.slider.amt:Hide()
 		self:SetAlpha (.4)
 

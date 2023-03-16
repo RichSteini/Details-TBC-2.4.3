@@ -88,12 +88,14 @@ function gump:NewDetailsButton (parent, container, instancia, func, param1, para
 
 	local rightFunction = options.rightFunc
 
+	--[[
 	new_button:SetScript ("OnDisable", function()
 		new_button.supportFrame.disable_overlay:Show()
 	end)
 	new_button:SetScript ("OnEnable", function()
 		new_button.supportFrame.disable_overlay:Hide()
 	end)
+	]]
 
 	new_button.funcParam1 = param1
 	new_button.funcParam2 = param2
