@@ -69,7 +69,28 @@ end
 -- 0.00048828125
 --local DEFAULT_SKIN =[[Interface\AddOns\Details\images\skins\classic_skin_tbc]]
 --local DEFAULT_SKIN = "Interface\\AddOns\\Details\\images\\skins\\classic_skin.blp"
-local DEFAULT_SKIN = "Interface\\AddOns\\Details\\images\\skins\\classic_skin_tbc.blp"
+local DEFAULT_SKIN = "Interface\\AddOns\\Details\\images\\skins\\classic_skin\\"
+local SKIN_PATH_SUFFIX = {
+	LEFT_BALL = "left_ball",
+	LEFT_CONNECTOR = "left_connector",
+	LEFT_CONNECTOR_NO_ICON = "left_connector_no_icon",
+	TOP_BACKGROUND = "top_background",
+	RIGHT_BALL = "right_ball",
+	LEFT_BALL_NO_ICON = "left_ball_no_icon",
+	LEFT_SIDE_BAR = "left_side_bar",
+	RIGHT_SIDE_BAR = "right_side_bar",
+	BOTTOM_SIDE_BAR = "bottom_side_bar",
+	SLIDER_TOP = "slider_top",
+	SLIDER_MIDDLE = "slider_middle",
+	SLIDER_DOWN = "slider_down",
+	STRETCH = "stretch",
+	RESIZE_RIGHT = "resize_right",
+	RESIZE_LEFT = "resize_left",
+	UNLOCK_BUTTON = "unlock_button",
+	BOTTOM_BACKGROUND = "bottom_background",
+	PIN_LEFT = "pin_left",
+	PIN_RIGHT = "pin_right"
+}
 
 --local COORDS_LEFT_BALL = {0.15673828125, 0.27978515625, 0.08251953125, 0.20556640625} -- 160 84 287 211(updated)
 --local COORDS_LEFT_BALL = {0.15576171875, 0.27978515625, 0.08251953125, 0.20556640625} -- 160 84 287 211(updated)
@@ -3426,16 +3447,16 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 	--> scroll image-node up
 		baseframe.scroll_up = backgrounddisplay:CreateTexture(nil, "background")
 		baseframe.scroll_up:SetPoint("topleft", backgrounddisplay, "topright", 0, 0)
-		baseframe.scroll_up:SetTexture(DEFAULT_SKIN)
-		baseframe.scroll_up:SetTexCoord(unpack(COORDS_SLIDER_TOP))
+		baseframe.scroll_up:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.SLIDER_TOP)
+		--baseframe.scroll_up:SetTexCoord(unpack(COORDS_SLIDER_TOP))
 		baseframe.scroll_up:SetWidth(32)
 		baseframe.scroll_up:SetHeight(32)
 
 	--> scroll image-node down
 		baseframe.scroll_down = backgrounddisplay:CreateTexture(nil, "background")
 		baseframe.scroll_down:SetPoint("bottomleft", backgrounddisplay, "bottomright", 0, 0)
-		baseframe.scroll_down:SetTexture(DEFAULT_SKIN)
-		baseframe.scroll_down:SetTexCoord(unpack(COORDS_SLIDER_DOWN))
+		baseframe.scroll_down:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.SLIDER_DOWN)
+		--baseframe.scroll_down:SetTexCoord(unpack(COORDS_SLIDER_DOWN))
 		baseframe.scroll_down:SetWidth(32)
 		baseframe.scroll_down:SetHeight(32)
 
@@ -3443,8 +3464,8 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 		baseframe.scroll_middle = backgrounddisplay:CreateTexture(nil, "background")
 		baseframe.scroll_middle:SetPoint("top", baseframe.scroll_up, "bottom", 0, 8)
 		baseframe.scroll_middle:SetPoint("bottom", baseframe.scroll_down, "top", 0, -11)
-		baseframe.scroll_middle:SetTexture(DEFAULT_SKIN)
-		baseframe.scroll_middle:SetTexCoord(unpack(COORDS_SLIDER_MIDDLE))
+		baseframe.scroll_middle:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.SLIDER_MIDDLE)
+		--baseframe.scroll_middle:SetTexCoord(unpack(COORDS_SLIDER_MIDDLE))
 		baseframe.scroll_middle:SetWidth(32)
 		baseframe.scroll_middle:SetHeight(64)
 
@@ -3499,8 +3520,8 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 		baseframe.button_stretch:SetFrameLevel(1)
 
 		local stretch_texture = baseframe.button_stretch:CreateTexture(nil, "overlay")
-		stretch_texture:SetTexture(DEFAULT_SKIN)
-		stretch_texture:SetTexCoord(unpack(COORDS_STRETCH))
+		stretch_texture:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.STRETCH)
+		--stretch_texture:SetTexCoord(unpack(COORDS_STRETCH))
 		stretch_texture:SetWidth(32)
 		stretch_texture:SetHeight(16)
 		stretch_texture:SetAllPoints(baseframe.button_stretch)
@@ -3591,8 +3612,8 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 		local resize_direita_texture = baseframe.resize_direita:CreateTexture(nil, "overlay")
 		resize_direita_texture:SetWidth(16)
 		resize_direita_texture:SetHeight(16)
-		resize_direita_texture:SetTexture(DEFAULT_SKIN)
-		resize_direita_texture:SetTexCoord(unpack(COORDS_RESIZE_RIGHT))
+		resize_direita_texture:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.RESIZE_RIGHT)
+		--resize_direita_texture:SetTexCoord(unpack(COORDS_RESIZE_RIGHT))
 		resize_direita_texture:SetAllPoints(baseframe.resize_direita)
 		baseframe.resize_direita.texture = resize_direita_texture
 
@@ -3630,8 +3651,8 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 		local resize_esquerda_texture = baseframe.resize_esquerda:CreateTexture(nil, "overlay")
 		resize_esquerda_texture:SetWidth(16)
 		resize_esquerda_texture:SetHeight(16)
-		resize_esquerda_texture:SetTexture(DEFAULT_SKIN)
-		resize_esquerda_texture:SetTexCoord(unpack(COORDS_RESIZE_LEFT))
+		resize_esquerda_texture:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.RESIZE_LEFT)
+		--resize_esquerda_texture:SetTexCoord(unpack(COORDS_RESIZE_LEFT))
 		resize_esquerda_texture:SetAllPoints(baseframe.resize_esquerda)
 		baseframe.resize_esquerda.texture = resize_esquerda_texture
 
@@ -3675,24 +3696,24 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 
 	--> left
 		baseframe.barra_esquerda = floatingframe:CreateTexture(nil, "artwork")
-		baseframe.barra_esquerda:SetTexture(DEFAULT_SKIN)
-		baseframe.barra_esquerda:SetTexCoord(unpack(COORDS_LEFT_SIDE_BAR))
+		baseframe.barra_esquerda:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.LEFT_SIDE_BAR)
+		--baseframe.barra_esquerda:SetTexCoord(unpack(COORDS_LEFT_SIDE_BAR))
 		baseframe.barra_esquerda:SetWidth(64)
 		baseframe.barra_esquerda:SetHeight	(512)
 		baseframe.barra_esquerda:SetPoint("topleft", baseframe, "topleft", -56, 0)
 		baseframe.barra_esquerda:SetPoint("bottomleft", baseframe, "bottomleft", -56, -14)
 	--> right
 		baseframe.barra_direita = floatingframe:CreateTexture(nil, "artwork")
-		baseframe.barra_direita:SetTexture(DEFAULT_SKIN)
-		baseframe.barra_direita:SetTexCoord(unpack(COORDS_RIGHT_SIDE_BAR))
+		baseframe.barra_direita:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.RIGHT_SIDE_BAR)
+		--baseframe.barra_direita:SetTexCoord(unpack(COORDS_RIGHT_SIDE_BAR))
 		baseframe.barra_direita:SetWidth(64)
 		baseframe.barra_direita:SetHeight(512)
 		baseframe.barra_direita:SetPoint("topright", baseframe, "topright", 56, 0)
 		baseframe.barra_direita:SetPoint("bottomright", baseframe, "bottomright", 56, -14)
 	--> bottom
 		baseframe.barra_fundo = floatingframe:CreateTexture(nil, "artwork")
-		baseframe.barra_fundo:SetTexture(DEFAULT_SKIN)
-		baseframe.barra_fundo:SetTexCoord(unpack(COORDS_BOTTOM_SIDE_BAR))
+		baseframe.barra_fundo:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.BOTTOM_SIDE_BAR)
+		--baseframe.barra_fundo:SetTexCoord(unpack(COORDS_BOTTOM_SIDE_BAR))
 		baseframe.barra_fundo:SetWidth(512)
 		baseframe.barra_fundo:SetHeight(64)
 		baseframe.barra_fundo:SetPoint("bottomleft", baseframe, "bottomleft", 0, -56)
@@ -3722,15 +3743,19 @@ function gump:CriaJanelaPrincipal(ID, instancia, criando)
 		instancia.break_snap_button:SetScript("OnEnter", unSnapButtonOnEnter)
 		instancia.break_snap_button:SetScript("OnLeave", unSnapButtonOnLeave)
 
-		instancia.break_snap_button:SetNormalTexture(DEFAULT_SKIN)
-		instancia.break_snap_button:SetDisabledTexture(DEFAULT_SKIN)
-		instancia.break_snap_button:SetHighlightTexture(DEFAULT_SKIN, "ADD")
-		instancia.break_snap_button:SetPushedTexture(DEFAULT_SKIN)
+		instancia.break_snap_button:SetNormalTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.UNLOCK_BUTTON)
+		instancia.break_snap_button:SetDisabledTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.UNLOCK_BUTTON)
+		instancia.break_snap_button:SetHighlightTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.UNLOCK_BUTTON, "ADD")
+		instancia.break_snap_button:SetPushedTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.UNLOCK_BUTTON)
 
-		instancia.break_snap_button:GetNormalTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
-		instancia.break_snap_button:GetDisabledTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
-		instancia.break_snap_button:GetHighlightTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
-		instancia.break_snap_button:GetPushedTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
+		--instancia.break_snap_button:GetNormalTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
+		--instancia.break_snap_button:GetDisabledTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
+		--instancia.break_snap_button:GetHighlightTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
+		--instancia.break_snap_button:GetPushedTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
+		--instancia.break_snap_button:GetNormalTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
+		--instancia.break_snap_button:GetDisabledTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
+		--instancia.break_snap_button:GetHighlightTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
+		--instancia.break_snap_button:GetPushedTexture():SetTexCoord(unpack(COORDS_UNLOCK_BUTTON))
 
 -- scripts ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -5213,39 +5238,39 @@ function gump:CriaRodape(baseframe, instancia)
 	--> esquerdo com statusbar
 	baseframe.rodape.esquerdo = instancia.floatingframe:CreateTexture(nil, "overlay")
 	baseframe.rodape.esquerdo:SetPoint("topright", baseframe, "bottomleft", 16, 0)
-	baseframe.rodape.esquerdo:SetTexture(DEFAULT_SKIN)
-	baseframe.rodape.esquerdo:SetTexCoord(unpack(COORDS_PIN_LEFT))
+	baseframe.rodape.esquerdo:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.PIN_LEFT)
+	--baseframe.rodape.esquerdo:SetTexCoord(unpack(COORDS_PIN_LEFT))
 	baseframe.rodape.esquerdo:SetWidth(32)
 	baseframe.rodape.esquerdo:SetHeight(32)
 
 	--> esquerdo sem statusbar
 	baseframe.rodape.esquerdo_nostatusbar = instancia.floatingframe:CreateTexture(nil, "overlay")
 	baseframe.rodape.esquerdo_nostatusbar:SetPoint("topright", baseframe, "bottomleft", 16, 14)
-	baseframe.rodape.esquerdo_nostatusbar:SetTexture(DEFAULT_SKIN)
-	baseframe.rodape.esquerdo_nostatusbar:SetTexCoord(unpack(COORDS_PIN_LEFT))
+	baseframe.rodape.esquerdo_nostatusbar:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.PIN_LEFT)
+	--baseframe.rodape.esquerdo_nostatusbar:SetTexCoord(unpack(COORDS_PIN_LEFT))
 	baseframe.rodape.esquerdo_nostatusbar:SetWidth(32)
 	baseframe.rodape.esquerdo_nostatusbar:SetHeight(32)
 
 	--> direito com statusbar
 	baseframe.rodape.direita = instancia.floatingframe:CreateTexture(nil, "overlay")
 	baseframe.rodape.direita:SetPoint("topleft", baseframe, "bottomright", -16, 0)
-	baseframe.rodape.direita:SetTexture(DEFAULT_SKIN)
-	baseframe.rodape.direita:SetTexCoord(unpack(COORDS_PIN_RIGHT))
+	baseframe.rodape.direita:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.PIN_RIGHT)
+	--baseframe.rodape.direita:SetTexCoord(unpack(COORDS_PIN_RIGHT))
 	baseframe.rodape.direita:SetWidth(32)
 	baseframe.rodape.direita:SetHeight(32)
 
 	--> direito sem statusbar
 	baseframe.rodape.direita_nostatusbar = instancia.floatingframe:CreateTexture(nil, "overlay")
 	baseframe.rodape.direita_nostatusbar:SetPoint("topleft", baseframe, "bottomright", -16, 14)
-	baseframe.rodape.direita_nostatusbar:SetTexture(DEFAULT_SKIN)
-	baseframe.rodape.direita_nostatusbar:SetTexCoord(unpack(COORDS_PIN_RIGHT))
+	baseframe.rodape.direita_nostatusbar:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.PIN_RIGHT)
+	--baseframe.rodape.direita_nostatusbar:SetTexCoord(unpack(COORDS_PIN_RIGHT))
 	baseframe.rodape.direita_nostatusbar:SetWidth(32)
 	baseframe.rodape.direita_nostatusbar:SetHeight(32)
 
 	--> barra centro
 	baseframe.rodape.top_bg = baseframe:CreateTexture(nil, "background")
-	baseframe.rodape.top_bg:SetTexture(DEFAULT_SKIN)
-	baseframe.rodape.top_bg:SetTexCoord(unpack(COORDS_BOTTOM_BACKGROUND))
+	baseframe.rodape.top_bg:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.BOTTOM_BACKGROUND)
+	--baseframe.rodape.top_bg:SetTexCoord(unpack(COORDS_BOTTOM_BACKGROUND))
 	baseframe.rodape.top_bg:SetWidth(512)
 	baseframe.rodape.top_bg:SetHeight(128)
 	baseframe.rodape.top_bg:SetPoint("left", baseframe.rodape.esquerdo, "right", -16, -48)
@@ -6657,38 +6682,37 @@ function _detalhes:ChangeSkin(skin_name)
 		if(self.skin_custom ~= "") then
 			skin_file = "Interface\\" .. self.skin_custom
 		end
+		skin_file = string.gsub(skin_file, ".blp", "\\")
 
-		--[[
-		self.baseframe.cabecalho.ball:SetTexture(skin_file) --> bola esquerda
-		self.baseframe.cabecalho.emenda:SetTexture(skin_file) --> emenda que liga a bola a textura do centro
+		self.baseframe.cabecalho.ball:SetTexture(skin_file .. SKIN_PATH_SUFFIX.LEFT_BALL) --> bola esquerda
+		self.baseframe.cabecalho.emenda:SetTexture(skin_file .. SKIN_PATH_SUFFIX.LEFT_CONNECTOR) --> emenda que liga a bola a textura do centro
 
-		self.baseframe.cabecalho.ball_r:SetTexture(skin_file) --> bola direita onde fica o bot�o de fechar
-		self.baseframe.cabecalho.top_bg:SetTexture(skin_file) --> top background
+		self.baseframe.cabecalho.ball_r:SetTexture(skin_file .. SKIN_PATH_SUFFIX.RIGHT_BALL) --> bola direita onde fica o bot�o de fechar
+		self.baseframe.cabecalho.top_bg:SetTexture(skin_file .. SKIN_PATH_SUFFIX.TOP_BACKGROUND) --> top background
 
-		self.baseframe.barra_esquerda:SetTexture(skin_file) --> barra lateral
-		self.baseframe.barra_direita:SetTexture(skin_file) --> barra lateral
-		self.baseframe.barra_fundo:SetTexture(skin_file) --> barra inferior
+		self.baseframe.barra_esquerda:SetTexture(skin_file .. SKIN_PATH_SUFFIX.LEFT_SIDE_BAR) --> barra lateral
+		self.baseframe.barra_direita:SetTexture(skin_file .. SKIN_PATH_SUFFIX.RIGHT_SIDE_BAR) --> barra lateral
+		self.baseframe.barra_fundo:SetTexture(skin_file .. SKIN_PATH_SUFFIX.BOTTOM_SIDE_BAR) --> barra inferior
 
-		self.baseframe.scroll_up:SetTexture(skin_file) --> scrollbar parte de cima
-		self.baseframe.scroll_down:SetTexture(skin_file) --> scrollbar parte de baixo
-		self.baseframe.scroll_middle:SetTexture(skin_file) --> scrollbar parte do meio
+		self.baseframe.scroll_up:SetTexture(skin_file .. SKIN_PATH_SUFFIX.SLIDER_TOP) --> scrollbar parte de cima
+		self.baseframe.scroll_down:SetTexture(skin_file .. SKIN_PATH_SUFFIX.SLIDER_DOWN) --> scrollbar parte de baixo
+		self.baseframe.scroll_middle:SetTexture(skin_file .. SKIN_PATH_SUFFIX.SLIDER_MIDDLE) --> scrollbar parte do meio
 
-		self.baseframe.rodape.top_bg:SetTexture(skin_file) --> rodape top background
-		self.baseframe.rodape.esquerdo:SetTexture(skin_file) --> rodape esquerdo
-		self.baseframe.rodape.direita:SetTexture(skin_file) --> rodape direito
-		self.baseframe.rodape.esquerdo_nostatusbar:SetTexture(skin_file) --> rodape direito
-		self.baseframe.rodape.direita_nostatusbar:SetTexture(skin_file) --> rodape direito
+		self.baseframe.rodape.top_bg:SetTexture(skin_file .. SKIN_PATH_SUFFIX.BOTTOM_BACKGROUND) --> rodape top background
+		self.baseframe.rodape.esquerdo:SetTexture(skin_file .. SKIN_PATH_SUFFIX.PIN_LEFT) --> rodape esquerdo
+		self.baseframe.rodape.direita:SetTexture(skin_file .. SKIN_PATH_SUFFIX.PIN_RIGHT) --> rodape direito
+		self.baseframe.rodape.esquerdo_nostatusbar:SetTexture(skin_file .. SKIN_PATH_SUFFIX.PIN_LEFT) --> rodape direito
+		self.baseframe.rodape.direita_nostatusbar:SetTexture(skin_file .. SKIN_PATH_SUFFIX.PIN_RIGHT) --> rodape direito
 
-		self.baseframe.button_stretch.texture:SetTexture(skin_file) --> bot�o de esticar a janela
+		self.baseframe.button_stretch.texture:SetTexture(skin_file .. SKIN_PATH_SUFFIX.STRETCH) --> bot�o de esticar a janela
 
-		self.baseframe.resize_direita.texture:SetTexture(skin_file) --> bot�o de redimencionar da direita
-		self.baseframe.resize_esquerda.texture:SetTexture(skin_file) --> bot�o de redimencionar da esquerda
+		self.baseframe.resize_direita.texture:SetTexture(skin_file .. SKIN_PATH_SUFFIX.RESIZE_RIGHT) --> bot�o de redimencionar da direita
+		self.baseframe.resize_esquerda.texture:SetTexture(skin_file .. SKIN_PATH_SUFFIX.RESIZE_LEFT) --> bot�o de redimencionar da esquerda
 
-		self.break_snap_button:SetNormalTexture(skin_file) --> cadeado
-		self.break_snap_button:SetDisabledTexture(skin_file)
-		self.break_snap_button:SetHighlightTexture(skin_file, "ADD")
-		self.break_snap_button:SetPushedTexture(skin_file)
-		]]
+		self.break_snap_button:SetNormalTexture(skin_file .. SKIN_PATH_SUFFIX.UNLOCK_BUTTON) --> cadeado
+		self.break_snap_button:SetDisabledTexture(skin_file .. SKIN_PATH_SUFFIX.UNLOCK_BUTTON)
+		self.break_snap_button:SetHighlightTexture(skin_file .. SKIN_PATH_SUFFIX.UNLOCK_BUTTON, "ADD")
+		self.break_snap_button:SetPushedTexture(skin_file .. SKIN_PATH_SUFFIX.UNLOCK_BUTTON)
 
 	--> update toolbar icons
 	local toolbar_buttons = {}
@@ -7778,11 +7802,15 @@ function _detalhes:ToolbarSide(side, only_update_anchors)
 
 		--> ball
 		if(self.hide_icon) then
-			self.baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL_NO_ICON))
-			self.baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR_NO_ICON))
+			--self.baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL_NO_ICON))
+			--self.baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR_NO_ICON))
+			self.baseframe.cabecalho.ball:SetTexture(string.gsub(self.baseframe.cabecalho.ball:GetTexture(), SKIN_PATH_SUFFIX.LEFT_BALL, SKIN_PATH_SUFFIX.LEFT_BALL_NO_ICON))
+			self.baseframe.cabecalho.emenda:SetTexture(string.gsub(self.baseframe.cabecalho.emenda:GetTexture(), SKIN_PATH_SUFFIX.LEFT_CONNECTOR, SKIN_PATH_SUFFIX.LEFT_CONNECTOR_NO_ICON))
 		else
-			self.baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL))
-			self.baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR))
+			self.baseframe.cabecalho.ball:SetTexture(string.gsub(self.baseframe.cabecalho.ball:GetTexture(), SKIN_PATH_SUFFIX.LEFT_BALL_NO_ICON, SKIN_PATH_SUFFIX.LEFT_BALL))
+			self.baseframe.cabecalho.emenda:SetTexture(string.gsub(self.baseframe.cabecalho.emenda:GetTexture(), SKIN_PATH_SUFFIX.LEFT_CONNECTOR_NO_ICON, SKIN_PATH_SUFFIX.LEFT_CONNECTOR))
+			--self.baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL))
+			--self.baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR))
 		end
 
 		self.baseframe.cabecalho.ball:ClearAllPoints()
@@ -7792,7 +7820,7 @@ function _detalhes:ToolbarSide(side, only_update_anchors)
 		self.baseframe.cabecalho.ball:SetPoint("bottomleft", self.baseframe, "topleft", x, y)
 
 		--> ball r
-		self.baseframe.cabecalho.ball_r:SetTexCoord(unpack(COORDS_RIGHT_BALL))
+		--self.baseframe.cabecalho.ball_r:SetTexCoord(unpack(COORDS_RIGHT_BALL))
 		self.baseframe.cabecalho.ball_r:ClearAllPoints()
 
 		local x, y = unpack(skin.right_corner_anchor)
@@ -7800,7 +7828,7 @@ function _detalhes:ToolbarSide(side, only_update_anchors)
 		self.baseframe.cabecalho.ball_r:SetPoint("bottomright", self.baseframe, "topright", x, y)
 
 		--> tex coords
-		self.baseframe.cabecalho.top_bg:SetTexCoord(unpack(COORDS_TOP_BACKGROUND))
+		--self.baseframe.cabecalho.top_bg:SetTexCoord(unpack(COORDS_TOP_BACKGROUND))
 
 		--> up frames
 		self.baseframe.UPFrame:SetPoint("left", self.baseframe.cabecalho.ball, "right", 0, -53)
@@ -7837,7 +7865,7 @@ function _detalhes:ToolbarSide(side, only_update_anchors)
 		_x = _x +(anchor_mod)
 		self.baseframe.cabecalho.ball:SetPoint("topleft", self.baseframe, "bottomleft", _x, _y + y)
 		local l, r, t, b = unpack(COORDS_LEFT_BALL)
-		self.baseframe.cabecalho.ball:SetTexCoord(l, r, b, t)
+		--self.baseframe.cabecalho.ball:SetTexCoord(l, r, b, t)
 
 		--> ball r
 		self.baseframe.cabecalho.ball_r:ClearAllPoints()
@@ -7846,13 +7874,13 @@ function _detalhes:ToolbarSide(side, only_update_anchors)
 		_x = _x +((anchor_mod) * -1)
 		self.baseframe.cabecalho.ball_r:SetPoint("topright", self.baseframe, "bottomright", _x, _y + y)
 		local l, r, t, b = unpack(COORDS_RIGHT_BALL)
-		self.baseframe.cabecalho.ball_r:SetTexCoord(l, r, b, t)
+		--self.baseframe.cabecalho.ball_r:SetTexCoord(l, r, b, t)
 
 		--> tex coords
 		local l, r, t, b = unpack(COORDS_LEFT_CONNECTOR)
-		self.baseframe.cabecalho.emenda:SetTexCoord(l, r, b, t)
+		--self.baseframe.cabecalho.emenda:SetTexCoord(l, r, b, t)
 		local l, r, t, b = unpack(COORDS_TOP_BACKGROUND)
-		self.baseframe.cabecalho.top_bg:SetTexCoord(l, r, b, t)
+		--self.baseframe.cabecalho.top_bg:SetTexCoord(l, r, b, t)
 
 		--> up frames
 		self.baseframe.UPFrame:SetPoint("left", self.baseframe.cabecalho.ball, "right", 0, 53)
@@ -7922,7 +7950,7 @@ function _detalhes:StretchButtonAnchor(side)
 
 		self.baseframe.button_stretch:SetPoint("bottom", self.baseframe, "top", 0, 20 + y)
 		self.baseframe.button_stretch:SetPoint("right", self.baseframe, "right", -27, 0)
-		self.baseframe.button_stretch.texture:SetTexCoord(unpack(COORDS_STRETCH))
+		--self.baseframe.button_stretch.texture:SetTexCoord(unpack(COORDS_STRETCH))
 		self.stretch_button_side = 1
 
 	elseif(side == 2 or string.lower(side) == "bottom") then
@@ -7941,7 +7969,7 @@ function _detalhes:StretchButtonAnchor(side)
 		self.baseframe.button_stretch:SetPoint("top", self.baseframe, "bottom", 0, y)
 
 		local l, r, t, b = unpack(COORDS_STRETCH)
-		self.baseframe.button_stretch.texture:SetTexCoord(r, l, b, t)
+		--self.baseframe.button_stretch.texture:SetTexCoord(r, l, b, t)
 
 		self.stretch_button_side = 2
 
@@ -8016,14 +8044,18 @@ function _detalhes:HideMainIcon(value)
 		--self.baseframe.cabecalho.ball:SetParent(self.baseframe)
 
 		if(self.toolbar_side == 1) then
-			self.baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL_NO_ICON))
-			self.baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR_NO_ICON))
+			--self.baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL_NO_ICON))
+			--self.baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR_NO_ICON))
+			self.baseframe.cabecalho.ball:SetTexture(string.gsub(self.baseframe.cabecalho.ball:GetTexture(), SKIN_PATH_SUFFIX.LEFT_BALL, SKIN_PATH_SUFFIX.LEFT_BALL_NO_ICON))
+			self.baseframe.cabecalho.emenda:SetTexture(string.gsub(self.baseframe.cabecalho.emenda:GetTexture(), SKIN_PATH_SUFFIX.LEFT_CONNECTOR, SKIN_PATH_SUFFIX.LEFT_CONNECTOR_NO_ICON))
 
 		elseif(self.toolbar_side == 2) then
-			local l, r, t, b = unpack(COORDS_LEFT_BALL_NO_ICON)
-			self.baseframe.cabecalho.ball:SetTexCoord(l, r, b, t)
-			local l, r, t, b = unpack(COORDS_LEFT_CONNECTOR_NO_ICON)
-			self.baseframe.cabecalho.emenda:SetTexCoord(l, r, b, t)
+			--local l, r, t, b = unpack(COORDS_LEFT_BALL_NO_ICON)
+			--self.baseframe.cabecalho.ball:SetTexCoord(l, r, b, t)
+			--local l, r, t, b = unpack(COORDS_LEFT_CONNECTOR_NO_ICON)
+			--self.baseframe.cabecalho.emenda:SetTexCoord(l, r, b, t)
+			self.baseframe.cabecalho.ball:SetTexture(string.gsub(self.baseframe.cabecalho.ball:GetTexture(), SKIN_PATH_SUFFIX.LEFT_BALL, SKIN_PATH_SUFFIX.LEFT_BALL_NO_ICON))
+			self.baseframe.cabecalho.emenda:SetTexture(string.gsub(self.baseframe.cabecalho.emenda:GetTexture(), SKIN_PATH_SUFFIX.LEFT_CONNECTOR, SKIN_PATH_SUFFIX.LEFT_CONNECTOR_NO_ICON))
 
 		end
 
@@ -8042,15 +8074,19 @@ function _detalhes:HideMainIcon(value)
 
 		if(self.toolbar_side == 1) then
 
-			self.baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL))
-			self.baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR))
+			--self.baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL))
+			--self.baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR))
+			self.baseframe.cabecalho.ball:SetTexture(string.gsub(self.baseframe.cabecalho.ball:GetTexture(), SKIN_PATH_SUFFIX.LEFT_BALL_NO_ICON, SKIN_PATH_SUFFIX.LEFT_BALL))
+			self.baseframe.cabecalho.emenda:SetTexture(string.gsub(self.baseframe.cabecalho.emenda:GetTexture(), SKIN_PATH_SUFFIX.LEFT_CONNECTOR_NO_ICON, SKIN_PATH_SUFFIX.LEFT_CONNECTOR))
 
 		elseif(self.toolbar_side == 2) then
 
-			local l, r, t, b = unpack(COORDS_LEFT_BALL)
-			self.baseframe.cabecalho.ball:SetTexCoord(l, r, b, t)
-			local l, r, t, b = unpack(COORDS_LEFT_CONNECTOR)
-			self.baseframe.cabecalho.emenda:SetTexCoord(l, r, b, t)
+			--local l, r, t, b = unpack(COORDS_LEFT_BALL)
+			--self.baseframe.cabecalho.ball:SetTexCoord(l, r, b, t)
+			--local l, r, t, b = unpack(COORDS_LEFT_CONNECTOR)
+			--self.baseframe.cabecalho.emenda:SetTexCoord(l, r, b, t)
+			self.baseframe.cabecalho.ball:SetTexture(string.gsub(self.baseframe.cabecalho.ball:GetTexture(), SKIN_PATH_SUFFIX.LEFT_BALL_NO_ICON, SKIN_PATH_SUFFIX.LEFT_BALL))
+			self.baseframe.cabecalho.emenda:SetTexture(string.gsub(self.baseframe.cabecalho.emenda:GetTexture(), SKIN_PATH_SUFFIX.LEFT_CONNECTOR_NO_ICON, SKIN_PATH_SUFFIX.LEFT_CONNECTOR))
 		end
 	end
 
@@ -8124,8 +8160,8 @@ function _detalhes:ShowSideBars(instancia)
 
 		if(self.toolbar_side == 2) then
 			self.baseframe.barra_fundo:Show()
-			local l, r, t, b = unpack(COORDS_BOTTOM_SIDE_BAR)
-			self.baseframe.barra_fundo:SetTexCoord(l, r, b, t)
+			--local l, r, t, b = unpack(COORDS_BOTTOM_SIDE_BAR)
+			--self.baseframe.barra_fundo:SetTexCoord(l, r, b, t)
 			self.baseframe.barra_fundo:ClearAllPoints()
 			self.baseframe.barra_fundo:SetPoint("bottomleft", self.baseframe, "topleft", 0, -6)
 			self.baseframe.barra_fundo:SetPoint("bottomright", self.baseframe, "topright", -1, -6)
@@ -8139,13 +8175,13 @@ function _detalhes:ShowSideBars(instancia)
 		self.baseframe.barra_fundo:Show()
 
 		if(self.toolbar_side == 2) then --tooltbar on bottom
-			local l, r, t, b = unpack(COORDS_BOTTOM_SIDE_BAR)
-			self.baseframe.barra_fundo:SetTexCoord(l, r, b, t)
+			--local l, r, t, b = unpack(COORDS_BOTTOM_SIDE_BAR)
+			--self.baseframe.barra_fundo:SetTexCoord(l, r, b, t)
 			self.baseframe.barra_fundo:ClearAllPoints()
 			self.baseframe.barra_fundo:SetPoint("bottomleft", self.baseframe, "topleft", 0, -6)
 			self.baseframe.barra_fundo:SetPoint("bottomright", self.baseframe, "topright", -1, -6)
 		else --tooltbar on top
-			self.baseframe.barra_fundo:SetTexCoord(unpack(COORDS_BOTTOM_SIDE_BAR))
+			--self.baseframe.barra_fundo:SetTexCoord(unpack(COORDS_BOTTOM_SIDE_BAR))
 			self.baseframe.barra_fundo:ClearAllPoints()
 			self.baseframe.barra_fundo:SetPoint("bottomleft", self.baseframe, "bottomleft", 0, -56)
 			self.baseframe.barra_fundo:SetPoint("bottomright", self.baseframe, "bottomright", -1, -56)
@@ -8950,6 +8986,7 @@ function gump:CriaCabecalho(baseframe, instancia)
 	baseframe.cabecalho.atributo_icon = baseframe:CreateTexture("DetailsAttributeIcon" .. instancia.meu_id, "background")
 	local icon_anchor = _detalhes.skins["WoW Interface"].icon_anchor_main
 	baseframe.cabecalho.atributo_icon:SetPoint("topright", baseframe.cabecalho.ball_point, "topright", icon_anchor[1], icon_anchor[2])
+	--baseframe.cabecalho.atributo_icon:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.RIGHT_BALL)
 	baseframe.cabecalho.atributo_icon:SetTexture(DEFAULT_SKIN)
 	baseframe.cabecalho.atributo_icon:SetWidth(32)
 	baseframe.cabecalho.atributo_icon:SetHeight(32)
@@ -8961,16 +8998,16 @@ function gump:CriaCabecalho(baseframe, instancia)
 	baseframe.cabecalho.ball:SetWidth(128)
 	baseframe.cabecalho.ball:SetHeight(128)
 
-	baseframe.cabecalho.ball:SetTexture(DEFAULT_SKIN)
-	baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL))
+	baseframe.cabecalho.ball:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.LEFT_BALL)
+	--baseframe.cabecalho.ball:SetTexCoord(unpack(COORDS_LEFT_BALL))
 
 	--> emenda
 	baseframe.cabecalho.emenda = baseframe:CreateTexture(nil, "background")
 	baseframe.cabecalho.emenda:SetPoint("bottomleft", baseframe.cabecalho.ball, "bottomright")
 	baseframe.cabecalho.emenda:SetWidth(8)
 	baseframe.cabecalho.emenda:SetHeight(128)
-	baseframe.cabecalho.emenda:SetTexture(DEFAULT_SKIN)
-	baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR))
+	baseframe.cabecalho.emenda:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.LEFT_CONNECTOR)
+	--baseframe.cabecalho.emenda:SetTexCoord(unpack(COORDS_LEFT_CONNECTOR))
 
 	baseframe.cabecalho.atributo_icon:Hide()
 	baseframe.cabecalho.ball:Hide()
@@ -8980,15 +9017,15 @@ function gump:CriaCabecalho(baseframe, instancia)
 	baseframe.cabecalho.ball_r:SetPoint("bottomright", baseframe, "topright", 96, 0)
 	baseframe.cabecalho.ball_r:SetWidth(128)
 	baseframe.cabecalho.ball_r:SetHeight(128)
-	baseframe.cabecalho.ball_r:SetTexture(DEFAULT_SKIN)
-	baseframe.cabecalho.ball_r:SetTexCoord(unpack(COORDS_RIGHT_BALL))
+	baseframe.cabecalho.ball_r:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.RIGHT_BALL)
+	--baseframe.cabecalho.ball_r:SetTexCoord(unpack(COORDS_RIGHT_BALL))
 
 	--> barra centro
 	baseframe.cabecalho.top_bg = baseframe:CreateTexture(nil, "background")
 	baseframe.cabecalho.top_bg:SetPoint("left", baseframe.cabecalho.emenda, "right", 0, 0)
 	baseframe.cabecalho.top_bg:SetPoint("right", baseframe.cabecalho.ball_r, "left")
-	baseframe.cabecalho.top_bg:SetTexture(DEFAULT_SKIN)
-	baseframe.cabecalho.top_bg:SetTexCoord(unpack(COORDS_TOP_BACKGROUND))
+	baseframe.cabecalho.top_bg:SetTexture(DEFAULT_SKIN .. SKIN_PATH_SUFFIX.TOP_BACKGROUND)
+	--baseframe.cabecalho.top_bg:SetTexCoord(unpack(COORDS_TOP_BACKGROUND))
 	baseframe.cabecalho.top_bg:SetWidth(512)
 	baseframe.cabecalho.top_bg:SetHeight(128)
 
