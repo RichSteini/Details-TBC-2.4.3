@@ -2158,9 +2158,16 @@ function _detalhes:LibGroupTalents_Update(event, guid, unit, dominant_tree_id, n
 
 	local talent_string = n1.."/"..n2.."/"..n3
 	_detalhes.cached_talents [guid] = talent_string
-	local name = UnitName(guid)
-	local class = UnitClass(guid)
-	local specID = DetailsFramework.GetSpecializationID(class, dominant_tree_id)
+	local name = UnitName(unit)
+	local class = UnitClass(unit)
+	if n1 > n2 and n1 > n3 then
+		dominant_tree_id = 1
+	elseif n2 > n3 then
+		dominant_tree_id = 2
+	else
+		dominant_tree_id = 3
+	end
+	local specID = DetailsFramework.GetSpecializationID(string.upper(class), dominant_tree_id)
 	if specID then
 		if (not _detalhes.class_specs_coords [specID]) then
 			_detalhes:Msg("(error) Spec ID Invalid: " .. specID .. " for " .. name)
