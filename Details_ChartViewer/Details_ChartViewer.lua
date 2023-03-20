@@ -29,7 +29,7 @@ local function CreatePluginFrames (data)
 	ChartViewerWindowFrame.bg1:SetTexture ([[Interface\AddOns\Details\images\background]], true)
 	ChartViewerWindowFrame.bg1:SetAlpha (0.7)
 	ChartViewerWindowFrame.bg1:SetVertexColor (0.27, 0.27, 0.27)
-	ChartViewerWindowFrame.bg1:SetVertTile (true)
+	--ChartViewerWindowFrame.bg1:SetVertTile (true)
 	ChartViewerWindowFrame.bg1:SetHorizTile (true)
 	ChartViewerWindowFrame.bg1:SetAllPoints()
 
@@ -1339,6 +1339,7 @@ function ChartViewer:OnEvent (_, event, ...)
 		end
 
 	elseif (ChartViewer.CanShowOrHideButtonEvents [event]) then
+		print("event at CanShowOrHideButtonEvents: ",event)
 		ChartViewer:CanShowOrHideButton()
 
 	end

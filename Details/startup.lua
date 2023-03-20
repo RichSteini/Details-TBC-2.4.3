@@ -260,8 +260,8 @@ function _G._detalhes:Start()
 			self.listener:RegisterEvent ("ZONE_CHANGED_NEW_AREA")
 			self.listener:RegisterEvent ("PLAYER_ENTERING_WORLD")
 
-			self.listener:RegisterEvent ("ENCOUNTER_START")
-			self.listener:RegisterEvent ("ENCOUNTER_END")
+			self.listener:RegisterEvent ("PLAYER_ENTER_COMBAT")
+			self.listener:RegisterEvent ("PLAYER_LEAVE_COMBAT")
 
 			self.listener:RegisterEvent ("CHAT_MSG_BG_SYSTEM_NEUTRAL")
 			self.listener:RegisterEvent ("UNIT_NAME_UPDATE")

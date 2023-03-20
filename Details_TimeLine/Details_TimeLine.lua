@@ -510,8 +510,8 @@ local function CreatePluginFrames()
 	TimeLineFrame.bg1:SetTexture([[Interface\AddOns\Details\images\background]], true)
 	TimeLineFrame.bg1:SetAlpha(0.7)
 	TimeLineFrame.bg1:SetVertexColor(0.27, 0.27, 0.27)
-	TimeLineFrame.bg1:SetVertTile(true)
-	TimeLineFrame.bg1:SetHorizTile(true)
+	--TimeLineFrame.bg1:SetVertTile(true)
+	--TimeLineFrame.bg1:SetHorizTile(true)
 	TimeLineFrame.bg1:SetAllPoints()
 
 	-- statusbar below the timeline chart
