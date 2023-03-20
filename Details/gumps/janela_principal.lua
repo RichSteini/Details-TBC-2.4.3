@@ -354,7 +354,7 @@ function _detalhes:EsconderScrollBar(sem_animacao, force)
 	end
 
 	if(not _detalhes.use_scroll and not force) then
-		self.scroll:Disable()
+		--self.scroll:Disable()
 		self.baseframe:EnableMouseWheel(false)
 		self.rolagem = false
 		return

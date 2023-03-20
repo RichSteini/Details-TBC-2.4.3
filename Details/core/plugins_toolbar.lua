@@ -99,7 +99,7 @@
 				if (Effect == "blink") then
 			--		Button.blink.glow:Play()
 				elseif (Effect == "star") then
-					Button.StarAnim:Play()
+					--Button.StarAnim:Play()
 				end
 			elseif (Effect) then
 			--	Button.blink.glow:Play()
@@ -175,7 +175,7 @@ end
 					next_check = next_check - elapsed
 
 					if (next_check < 0) then
-						if (not GameCooltipFrame1:IsMouseOver() and not button:IsMouseOver()) then
+						if (not MouseIsOver(GameCooltipFrame1) and not MouseIsOver(button)) then
 							GameCooltip2:Hide()
 							button:SetScript ("OnUpdate", nil)
 							return

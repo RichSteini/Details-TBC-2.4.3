@@ -174,9 +174,11 @@ function DF:NewScrollBar (master, slave, x, y)
 	]]
 
 	master:SetScript ("OnMouseWheel", function (self, delta)
+		--[[
 		if (not new_slider:IsEnabled()) then
 			return
 		end
+		]]
 
 		local current = new_slider:GetValue()
 		if (delta < 0) then
@@ -220,7 +222,7 @@ function DF:NewScrollBar (master, slave, x, y)
 				master:EnableMouseWheel (true)
 			end
 		else
-			new_slider:Disable()
+			--new_slider:Disable()
 			new_slider:SetValue(0)
 			new_slider.ativo = false
 			master:EnableMouseWheel (false)
