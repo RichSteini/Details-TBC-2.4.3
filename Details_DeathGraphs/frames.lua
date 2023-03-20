@@ -102,8 +102,8 @@ do
 		f.bg1:SetTexture ([[Interface\AddOns\Details\images\background]], true)
 		f.bg1:SetAlpha (0.7)
 		f.bg1:SetVertexColor (0.27, 0.27, 0.27)
-		f.bg1:SetVertTile (true)
-		f.bg1:SetHorizTile (true)
+		--f.bg1:SetVertTile (true)
+		--f.bg1:SetHorizTile (true)
 		f.bg1:SetAllPoints()
 
 		local bottom_texture = framework:NewImage (f, nil, 922, 25, "background", nil, nil, "$parentBottomTexture")
@@ -133,7 +133,7 @@ do
 
 		local name_bg_texture = f:CreateTexture (nil, "background")
 		name_bg_texture:SetTexture ([[Interface\PetBattles\_PetBattleHorizTile]], true)
-		name_bg_texture:SetHorizTile (true)
+		--name_bg_texture:SetHorizTile (true)
 		name_bg_texture:SetTexCoord (0, 1, 126/256, 19/256)
 		name_bg_texture:SetPoint ("topleft", f, "topleft", 2, -22)
 		name_bg_texture:SetPoint ("bottomright", f, "bottomright")

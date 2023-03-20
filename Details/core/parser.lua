@@ -1401,6 +1401,9 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 			if not cure_efetiva then
 				cura_efetiva = 0
 			end
+			if not overhealing then
+				overhealing = 0
+			end
 			cura_efetiva = cura_efetiva + amount - overhealing
 		end
 

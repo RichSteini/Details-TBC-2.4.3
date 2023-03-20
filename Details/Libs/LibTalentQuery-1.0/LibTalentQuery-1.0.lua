@@ -269,7 +269,8 @@ function lib:INSPECT_TALENT_READY()
 
 			-- Notify of expected talent results
 			local isnotplayer = not UnitIsUnit("player", self.lastInspectName)
-			local group = GetActiveTalentGroup(isnotplayer)
+			--local group = GetActiveTalentGroup(isnotplayer)
+			local group = 1
 			local tree1, _, spent1 = GetTalentTabInfo(1, isnotplayer, nil, group)
 			if (tree1 ~= self.lastInspectTree) then
 				-- Expected talent tree name to be the same as it was when we triggered the NotifyInspect()
