@@ -4528,7 +4528,7 @@ saver:SetScript("OnEvent", function(...)
 		for id, instance in _detalhes:ListInstances() do
 			if instance.baseframe then
 				instance.baseframe:SetUserPlaced(false)
-				instance.baseframe:SetDontSavePosition(true)
+				--instance.baseframe:SetDontSavePosition(true)
 			end
 		end
 	end
