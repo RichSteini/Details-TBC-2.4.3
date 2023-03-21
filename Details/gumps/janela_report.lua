@@ -218,7 +218,7 @@ local _UIParent = UIParent --> wow api locals
 			_G ["Details_Report_CB_2Text"]:SetTextColor (1, 1, 1, 1)
 		end
 
-		_detalhes.janela_report.slider:Enable()
+		_detalhes.janela_report.slider:EnableMouse(true)
 		_detalhes.janela_report.slider.lockTexture:Hide()
 		_detalhes.janela_report.slider.amt:Show()
 
@@ -357,9 +357,10 @@ local function cria_drop_down (este_gump)
 
 			local BnetFriends = GetNumFriends()
 			for i = 1, BnetFriends do
-				local presenceID, presenceName, battleTag, isBattleTagPresence, toonName, toonID, client, isOnline, lastOnline, isAFK, isDND, messageText, noteText, isRIDFriend, broadcastTime, canSoR = BNGetFriendInfo (i)
-				if (isOnline) then
-					output_array [#output_array + 1] = {iconsize = iconsize, value = "REALID|" .. presenceID, label = presenceName, onclick = on_click, icon = [[Interface\FriendsFrame\Battlenet-Battleneticon]], texcoord = {0.125, 0.875, 0.125, 0.875}, iconcolor = {1, 1, 1}}
+				local name, level, class, area, connected, status, note, RAF = GetFriendInfo(i)
+
+				if (connected) then
+					output_array [#output_array + 1] = {iconsize = iconsize, value = "REALID|" .. name, label = name, onclick = on_click, icon = [[Interface\FriendsFrame\Battlenet-Battleneticon]], texcoord = {0.125, 0.875, 0.125, 0.875}, iconcolor = {1, 1, 1}}
 				end
 			end
 
@@ -1014,9 +1015,9 @@ local function cria_drop_down (este_gump)
 			flashTexture:SetTexture (1, 1, 1)
 			flashTexture:SetAllPoints()
 
-			local onShowAnimation = DetailsFramework:CreateAnimationHub (flashTexture, function() flashTexture:Show() end, function() flashTexture:Hide() end)
-			DetailsFramework:CreateAnimation (onShowAnimation, "ALPHA", 1, .2, 0, .10)
-			DetailsFramework:CreateAnimation (onShowAnimation, "ALPHA", 2, .2, .10, 0)
+			--local onShowAnimation = DetailsFramework:CreateAnimationHub (flashTexture, function() flashTexture:Show() end, function() flashTexture:Hide() end)
+			--DetailsFramework:CreateAnimation (onShowAnimation, "ALPHA", 1, .2, 0, .10)
+			--DetailsFramework:CreateAnimation (onShowAnimation, "ALPHA", 2, .2, .10, 0)
 
 			window:SetScript ("OnShow", function (self)
 				local dropdown = window.select.MyObject
@@ -1025,7 +1026,7 @@ local function cria_drop_down (este_gump)
 				local list = window.dropdown_func()
 				local found
 
-				onShowAnimation:Play()
+				--onShowAnimation:Play()
 
 				for index, option in ipairs (list) do
 					if (option.value == where) then

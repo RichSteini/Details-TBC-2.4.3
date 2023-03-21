@@ -3363,10 +3363,9 @@ function _detalhes:envia_relatorio (linhas, custom)
 
 	elseif (is_btag) then
 		local id = to_who:gsub ((".*|"), "")
-		local presenceID = tonumber (id)
 
 		for i = 1, #linhas do
-			BNSendWhisper (presenceID, linhas[i])
+			_SendChatMessage(linhas[i], "WHISPER", nil, id)
 		end
 
 		return
