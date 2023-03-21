@@ -2897,7 +2897,7 @@ function _detalhes:FormatReportLines (report_table, data, f1, f2, f3)
 	if (not _detalhes.fontstring_len) then
 		_detalhes.fontstring_len = _detalhes.listener:CreateFontString (nil, "background", "GameFontNormal")
 	end
-	local _, fontSize = FCF_GetChatWindowInfo (1)
+	local _, fontSize = GetChatWindowInfo(1)
 	if (fontSize < 1) then
 		fontSize = 10
 	end

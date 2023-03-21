@@ -665,7 +665,7 @@ function SlashCmdList.DETAILS (msg, editbox)
 
 	elseif (msg == "chat") then
 
-		local name, fontSize, r, g, b, a, shown, locked = FCF_GetChatWindowInfo (1);
+		local name, fontSize, r, g, b, a, shown, locked = GetChatWindowInfo(1);
 		print (name,"|",fontSize,"|", r,"|", g,"|", b,"|", a,"|", shown,"|", locked)
 
 		--local fontFile, unused, fontFlags = self:GetFont();
