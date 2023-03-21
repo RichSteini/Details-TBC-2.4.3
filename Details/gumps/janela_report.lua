@@ -359,7 +359,7 @@ local function cria_drop_down (este_gump)
 			for i = 1, BnetFriends do
 				local name, level, class, area, connected, status, note, RAF = GetFriendInfo(i)
 
-				if (connected) then
+				if (connected) and (name) then
 					output_array [#output_array + 1] = {iconsize = iconsize, value = "REALID|" .. name, label = name, onclick = on_click, icon = [[Interface\FriendsFrame\Battlenet-Battleneticon]], texcoord = {0.125, 0.875, 0.125, 0.875}, iconcolor = {1, 1, 1}}
 				end
 			end
