@@ -1,4 +1,5 @@
 local AceLocale = LibStub ("AceLocale-3.0")
+local Threat = LibStub("Threat-2.0")
 local Loc = AceLocale:GetLocale ("Details_Threat")
 
 local _GetNumSubgroupMembers = GetNumSubgroupMembers --> wow api
@@ -242,6 +243,8 @@ local function CreatePluginFrames ()
 		local options = ThreatMeter.options
 
 		if (ThreatMeter.Actived and UnitExists ("target") and not _UnitIsFriend ("player", "target")) then
+			local targetGUID = UnitGUID("target")
+			local maxThreat = Threat:GetMaxThreatOnTarget(targetGUID)
 			if (_IsInRaid()) then
 				for i = 1, _GetNumGroupMembers(), 1 do
 
@@ -254,18 +257,18 @@ local function CreatePluginFrames ()
 						ThreatMeter:Start()
 						return
 					end
-
-					local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("raid"..i, "target")
-					if (status) then
-						threat_table [2] = threatpct
-						threat_table [3] = isTanking
-						threat_table [6] = threatvalue
+					--local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("raid"..i, "target")
+					local threat = Threat:GetThreat(UnitGUID("raid"..i), targetGUID)
+					if (threat ~= 0) then
+						threat_table [2] = threat/maxThreat * 100
+						threat_table [3] = maxThreat == threat
+						threat_table [6] = threat
 					else
 						threat_table [2] = 0
 						threat_table [3] = false
 						threat_table [6] = 0
 					end
-
+					
 				end
 
 			elseif (_IsInGroup()) then
@@ -280,11 +283,12 @@ local function CreatePluginFrames ()
 						return
 					end
 
-					local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("party"..i, "target")
-					if (status) then
-						threat_table [2] = threatpct
-						threat_table [3] = isTanking
-						threat_table [6] = threatvalue
+					--local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("party"..i, "target")
+					local threat = Threat:GetThreat(UnitGUID("party"..i), targetGUID)
+					if (threat ~= 0) then
+						threat_table [2] = threat/maxThreat * 100
+						threat_table [3] = maxThreat == threat
+						threat_table [6] = threat
 					else
 						threat_table [2] = 0
 						threat_table [3] = false
@@ -296,11 +300,12 @@ local function CreatePluginFrames ()
 				local threat_table_index = ThreatMeter.player_list_hash [thisplayer_name]
 				local threat_table = ThreatMeter.player_list_indexes [threat_table_index]
 
-				local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("player", "target")
-				if (status) then
-					threat_table [2] = threatpct
-					threat_table [3] = isTanking
-					threat_table [6] = threatvalue
+				--local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("player", "target")
+				local threat = Threat:GetThreat(UnitGUID("player"), targetGUID)
+				if (threat ~= 0) then
+					threat_table [2] = threat/maxThreat * 100
+					threat_table [3] = maxThreat == threat
+					threat_table [6] = threat
 				else
 					threat_table [2] = 0
 					threat_table [3] = false
@@ -314,11 +319,12 @@ local function CreatePluginFrames ()
 				local threat_table_index = ThreatMeter.player_list_hash [thisplayer_name]
 				local threat_table = ThreatMeter.player_list_indexes [threat_table_index]
 
-				local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("player", "target")
-				if (status) then
-					threat_table [2] = threatpct
-					threat_table [3] = isTanking
-					threat_table [6] = threatvalue
+				--local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("player", "target")
+				local threat = Threat:GetThreat(UnitGUID("player"), targetGUID)
+				if (threat ~= 0) then
+					threat_table [2] = threat/maxThreat * 100
+					threat_table [3] = maxThreat == threat
+					threat_table [6] = threat
 				else
 					threat_table [2] = 0
 					threat_table [3] = false
@@ -332,11 +338,12 @@ local function CreatePluginFrames ()
 					local threat_table = ThreatMeter.player_list_indexes [threat_table_index]
 
 					if (threat_table) then
-						local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("pet", "target")
-						if (status) then
-							threat_table [2] = threatpct
-							threat_table [3] = isTanking
-							threat_table [6] = threatvalue
+						--local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("pet", "target")
+						local threat = Threat:GetThreat(UnitGUID("pet"), targetGUID)
+						if (threat ~= 0) then
+							threat_table [2] = threat/maxThreat * 100
+							threat_table [3] = maxThreat == threat
+							threat_table [6] = threat
 						else
 							threat_table [2] = 0
 							threat_table [3] = false
@@ -381,7 +388,8 @@ local function CreatePluginFrames ()
 				local r, g = ThreatMeter:percent_color (myPercentToAggro)
 				--local r, g = myPercentToAggro / 100, (100-myPercentToAggro) / 100
 				pullRow:SetColor (r, g, 0)
-				pullRow._icon:SetTexture ([[Interface\PVPFrame\Icon-Combat]])
+				--pullRow._icon:SetTexture ([[Interface\PVPFrame\Icon-Combat]])
+				pullRow._icon:SetTexture ([[Interface\Icons\Temp]])
 				--pullRow._icon:SetVertexColor (r, g, 0)
 				pullRow._icon:SetTexCoord (0, 1, 0, 1)
 
