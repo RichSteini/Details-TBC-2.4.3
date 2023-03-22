@@ -695,6 +695,7 @@ local build_statusbar = function (self)
 
 	self.texture = self:CreateTexture ("$parent_statusbarTexture", "ARTWORK")
 	self.texture:SetSize (300, 14)
+	self.texture:SetAllPoints(self)
 	self.texture:SetTexture ([[Interface\PaperDollInfoFrame\UI-Character-Skills-Bar]])
 
 	self:SetStatusBarTexture (self.texture)
