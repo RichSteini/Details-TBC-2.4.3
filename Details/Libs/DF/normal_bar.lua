@@ -452,7 +452,7 @@ local BarMetaFunctions = _G [DF.GlobalWidgetControlNames ["normal_bar"]]
 	end
 
 -- frame stratas
-	function BarMetaFunctions:SetFrameStrata()
+	function BarMetaFunctions:GetFrameStrata()
 		return self.statusbar:GetFrameStrata()
 	end
 	function BarMetaFunctions:SetFrameStrata (strata)
