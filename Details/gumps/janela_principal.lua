@@ -4011,6 +4011,7 @@ function gump:CriaNovaBarra(instancia, index)
 
 	--> create textures and icons
 	new_row.textura = new_row.statusbar:CreateTexture(nil, "artwork")
+	new_row.textura:SetAllPoints(new_row.statusbar)
 	--new_row.textura:SetHorizTile(false)
 	--new_row.textura:SetVertTile(false)
 
