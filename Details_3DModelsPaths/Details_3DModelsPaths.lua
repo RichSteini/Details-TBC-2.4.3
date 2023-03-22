@@ -319,7 +319,10 @@ function Lib3DModelList:SelectModel (callback, current, use_on_click)
 
 		end
 
-		folder_scroll:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 13, Lib3DModelList.RefreshFolders) end)
+		folder_scroll:SetScript ("OnVerticalScroll", function (self, offset) 
+			FauxScrollFrame_OnVerticalScroll (13, function() end)
+			Lib3DModelList.RefreshFolders(self) 
+		end)
 
 	end
 

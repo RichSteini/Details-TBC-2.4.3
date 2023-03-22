@@ -857,10 +857,12 @@ do
 	end
 
 	avatar_list:SetScript("OnVerticalScroll", function(self, offset)
-		FauxScrollFrame_OnVerticalScroll(avatar_list, offset, 64, avatar_scroll_update)
+		FauxScrollFrame_OnVerticalScroll(64, function() end)
+		avatar_scroll_update(self)
 	end)
 	background_list:SetScript("OnVerticalScroll", function(self, offset)
-		FauxScrollFrame_OnVerticalScroll(background_list, offset, 40, background_scroll_update)
+		FauxScrollFrame_OnVerticalScroll(40, function() end)
+		background_scroll_update(self)
 	end)
 
 	avatar_scroll_update(avatar_list)

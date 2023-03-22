@@ -4585,7 +4585,10 @@ function gump:CriaJanelaInfo()
 			end
 
 			local frame1 = CreateFrame ("scrollframe", "DetailsPlayerComparisonBox1", frame, "FauxScrollFrameTemplate")
-			frame1:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 14, refresh_comparison_box) end)
+			frame1:SetScript ("OnVerticalScroll", function (self, offset) 
+				FauxScrollFrame_OnVerticalScroll (14, function() end) 
+				refresh_comparison_box(self)
+			end)
 			frame1:SetSize (spell_compare_frame_width[1], spell_compare_frame_height)
 			frame1:SetPoint ("TOPLEFT", frame, "TOPLEFT", xLocation, yLocation)
 			_detalhes.gump:ReskinSlider (frame1)
@@ -4614,7 +4617,10 @@ function gump:CriaJanelaInfo()
 
 			--cria o box dos targets
 			local target1 = CreateFrame ("scrollframe", "DetailsPlayerComparisonTarget1", frame, "FauxScrollFrameTemplate")
-			target1:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 14, refresh_target_box) end)
+			target1:SetScript ("OnVerticalScroll", function (self, offset) 
+				FauxScrollFrame_OnVerticalScroll (14, function() end)
+				refresh_target_box(self) 
+			end)
 			target1:SetSize (spell_compare_frame_width[1], target_compare_frame_height)
 			target1:SetPoint ("TOPLEFT", frame1, "BOTTOMLEFT", 0, -10)
 			_detalhes.gump:ReskinSlider (target1)

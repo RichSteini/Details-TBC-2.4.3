@@ -1389,7 +1389,10 @@ function DF:NewFillPanel (parent, rows, name, member, w, h, total_lines, fill_ro
 	end
 
 	local scrollframe = CreateFrame ("scrollframe", name .. "Scroll", panel.widget, "FauxScrollFrameTemplate")
-	scrollframe:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 20, panel.Refresh) end)
+	scrollframe:SetScript ("OnVerticalScroll", function (self, offset) 
+		FauxScrollFrame_OnVerticalScroll (20, function() end) 
+		panel.Refresh(self)
+	end)
 	scrollframe:SetPoint ("topleft", panel.widget, "topleft", 0, -21)
 	scrollframe:SetPoint ("topright", panel.widget, "topright", -23, -21)
 	scrollframe:SetPoint ("bottomleft", panel.widget, "bottomleft")
@@ -1861,7 +1864,10 @@ function DF:IconPick (callback, close_when_select, param1, param2)
 		scroll:SetPoint ("topleft", DF.IconPickFrame, "topleft", -18, -58)
 		scroll:SetWidth (330)
 		scroll:SetHeight (178)
-		scroll:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (scroll, offset, 20, ChecksFrame_Update) end)
+		scroll:SetScript ("OnVerticalScroll", function (self, offset) 
+			FauxScrollFrame_OnVerticalScroll (20, function() end)
+			ChecksFrame_Update(self) 
+		end)
 		scroll.update = ChecksFrame_Update
 		DF.IconPickFrameScroll = scroll
 		DF.IconPickFrame:Hide()
@@ -4242,7 +4248,8 @@ DF.ScrollBoxFunctions.Refresh = function (self)
 end
 
 DF.ScrollBoxFunctions.OnVerticalScroll = function (self, offset)
-	FauxScrollFrame_OnVerticalScroll (self, offset, self.LineHeight, self.Refresh)
+	FauxScrollFrame_OnVerticalScroll (self.LineHeight, function() end)
+	self.Refresh(self)
 	return true
 end
 
@@ -4766,7 +4773,8 @@ function DF:CreateKeybindBox (parent, name, data, callback, width, height, line_
 
 
 	keybindScroll:SetScript ("OnVerticalScroll", function (self, offset)
-		FauxScrollFrame_OnVerticalScroll (self, offset, 21, update_keybind_list)
+		FauxScrollFrame_OnVerticalScroll (21, function() end)
+		update_keybind_list(self)
 	end)
 	keybindScroll.UpdateScroll = update_keybind_list
 

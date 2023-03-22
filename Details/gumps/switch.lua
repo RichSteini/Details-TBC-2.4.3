@@ -1282,7 +1282,10 @@ end
 
 local scroll = CreateFrame ("scrollframe", "DetailsSwitchPanelScroll", DetailsSwitchPanel, "FauxScrollFrameTemplate")
 scroll:SetAllPoints()
-scroll:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 20, _detalhes.switch.Update) end) --altura
+scroll:SetScript ("OnVerticalScroll", function (self, offset) 
+	FauxScrollFrame_OnVerticalScroll (20, function() end) 
+	_detalhes.switch.Update(self)
+end) --altura
 DetailsSwitchPanelScrollScrollBar:Hide()
 DetailsSwitchPanelScrollScrollBarScrollUpButton:Hide()
 DetailsSwitchPanelScrollScrollBarScrollDownButton:Hide()

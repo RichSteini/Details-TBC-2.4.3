@@ -1548,7 +1548,10 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 	tinsert (BossFrame.EmoteWidgets, bar_div_emotes)
 
 	scrollframe = CreateFrame ("ScrollFrame", "EncounterDetails_EmoteScroll", BossFrame, "FauxScrollFrameTemplate")
-	scrollframe:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 14, refresh_emotes) end)
+	scrollframe:SetScript ("OnVerticalScroll", function (self, offset) 
+		FauxScrollFrame_OnVerticalScroll (14, function() end)
+		refresh_emotes(self) 
+	end)
 	scrollframe:SetPoint ("topleft", BossFrame, "topleft", 249, -75)
 	scrollframe:SetPoint ("bottomright", BossFrame, "bottomright", -33, 42)
 	scrollframe.Update = refresh_emotes
@@ -2005,7 +2008,10 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 	end
 
 	local spell_scrollframe = CreateFrame ("ScrollFrame", "EncounterDetails_SpellAurasScroll", BossFrame, "FauxScrollFrameTemplate")
-	spell_scrollframe:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 14, refresh_spellauras) end)
+	spell_scrollframe:SetScript ("OnVerticalScroll", function (self, offset) 
+		FauxScrollFrame_OnVerticalScroll (14, function() end) 
+		refresh_spellauras(self)
+	end)
 	spell_scrollframe:SetPoint ("topleft", BossFrame, "topleft", 200, -75)
 	spell_scrollframe:SetPoint ("bottomright", BossFrame, "bottomright", -33, 42)
 	spell_scrollframe.Update = refresh_spellauras

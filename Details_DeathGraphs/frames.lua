@@ -508,7 +508,10 @@ do
 		DeathGraphs.selected_texture_segment2:SetAllPoints (DeathGraphs.selected_texture_segment.widget)
 
 		local player_scroll = CreateFrame ("scrollframe", "DeathGraphsPlayerScroll", f, "FauxScrollFrameTemplate")
-		player_scroll:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 20, player_refresh) end)
+		player_scroll:SetScript ("OnVerticalScroll", function (self, offset) 
+			FauxScrollFrame_OnVerticalScroll (20, function() end)
+			player_refresh(self) 
+		end)
 		player_scroll:SetPoint ("topleft", player_overall_anchor, "topleft", 0, 0)
 		player_scroll:SetSize (100, 360)
 		player_scroll:SetFrameLevel (f:GetFrameLevel()+2)
@@ -636,7 +639,10 @@ do
 		end
 
 		local segments_scroll = CreateFrame ("scrollframe", "DeathGraphsSegmentScroll", f, "FauxScrollFrameTemplate")
-		segments_scroll:SetScript ("OnVerticalScroll", function (self, offset) FauxScrollFrame_OnVerticalScroll (self, offset, 20, segment_refresh) end)
+		segments_scroll:SetScript ("OnVerticalScroll", function (self, offset) 
+			FauxScrollFrame_OnVerticalScroll (20, function() end)
+			segment_refresh(self)
+		 end)
 		segments_scroll:SetPoint ("topleft", enduranceFrameMenuAnchor, "topleft", 320, -45)
 		segments_scroll:SetSize (100, 360)
 		segments_scroll:SetFrameLevel (f:GetFrameLevel()+2)

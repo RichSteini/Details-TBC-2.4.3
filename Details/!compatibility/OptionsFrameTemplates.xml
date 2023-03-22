@@ -238,7 +238,8 @@
 					</OnLoad>
 					<OnMouseWheel function="ScrollFrameTemplate_OnMouseWheel"/>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(self, offset, self:GetParent().buttonHeight, OptionsListScroll_Update);
+						FauxScrollFrame_OnVerticalScroll(self:GetParent().buttonHeight, function() end);
+						OptionsListScroll_Update(self);
 					</OnVerticalScroll>
 				</Scripts>
 				<Frames>

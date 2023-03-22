@@ -57,7 +57,7 @@ local sort_by_name = function (t1, t2) return t1.nome < t2.nome end
 local CLASS_ICON_TCOORDS = _G.CLASS_ICON_TCOORDS
 
 EncounterDetails.name = "Encounter Breakdown"
-EncounterDetails.debugmode = true
+EncounterDetails.debugmode = false
 
 function EncounterDetails:FormatCooltipSettings()
 	GameCooltip:SetType ("tooltip")
