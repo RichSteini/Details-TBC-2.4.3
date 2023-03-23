@@ -1773,6 +1773,8 @@
 			f:SetMovable (true)
 			f:SetToplevel (true)
 
+			tinsert(UISpecialFrames, f:GetName())
+
 			--background
 			f.bg1 = f:CreateTexture (nil, "background")
 			f.bg1:SetTexture ([[Interface\AddOns\Details\images\background]], true)
@@ -1819,7 +1821,7 @@
 			f.Close:GetHighlightTexture():SetTexCoord (0, 16/128, 0, 1)
 			f.Close:GetPushedTexture():SetTexCoord (0, 16/128, 0, 1)
 			f.Close:SetAlpha (0.7)
-			f.Close:SetScript ("OnClick", function() f:Hide() end)
+			f.Close:SetScript ("OnClick", function() f:Hide(); _detalhes.pluginContainerWindowFrame:Hide() end)
 
 			--title
 			f.Title = f.TitleBar:CreateFontString ("$parentTitle", "overlay", "GameFontNormal")
@@ -2358,7 +2360,7 @@
 					_detalhes:Msg ("No Aura Addon selected. Addons currently supported: WeakAuras 2.")
 				end
 
-				f:Hide()
+				--f:Hide()
 			end
 
 			local create_button = fw:CreateButton (f, create_func, 106, 20, L["STRING_CREATEAURA"])

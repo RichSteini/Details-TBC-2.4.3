@@ -222,6 +222,7 @@
 				f.Close:SetScript ("OnClick", function() _detalhes:CloseCustomDisplayWindow() end)
 				f.Close:SetScript ("OnHide", function()
 					_detalhes:CloseCustomDisplayWindow()
+					_detalhes.pluginContainerWindowFrame:Hide()
 				end)
 
 			--> background

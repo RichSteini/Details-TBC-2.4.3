@@ -1939,7 +1939,8 @@ local simple_panel_settitle = function (self, title)
 end
 
 local simple_panel_close_click = function (self)
-	self:GetParent():GetParent():Hide()
+	self:GetParent():GetParent():Hide() -- close the plugin itself
+	if _detalhes.pluginContainerWindowFrame then _detalhes.pluginContainerWindowFrame:Hide() end -- close the whole window.
 end
 
 local SimplePanel_frame_backdrop = {edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, bgFile = [[Interface\Tooltips\UI-Tooltip-Background]], tileSize = 64, tile = true}

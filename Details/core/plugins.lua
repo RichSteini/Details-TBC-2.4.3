@@ -429,6 +429,8 @@
 		f:SetBackdrop (_detalhes.PluginDefaults and _detalhes.PluginDefaults.Backdrop or {bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 16, edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1})
 		f:SetBackdropColor (0, 0, 0, 0.3)
 
+		_detalhes.pluginContainerWindowFrame = f -- this frame isn't really saved anywhere. Saving so we can _at least_ close windows properly
+		tinsert(UISpecialFrames, f:GetName())
 		f:Hide()
 
 		--> members
