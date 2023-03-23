@@ -294,8 +294,11 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 		g:ResetData()
 
 		local combat = EncounterDetails:GetCombat (segment)
-		local graphicData = combat:GetTimeData ("Raid Damage Done")
-
+		local graphicData
+		if combat then
+			graphicData = combat:GetTimeData ("Raid Damage Done")
+		end
+		
 		if (not graphicData or not combat.start_time or not combat.end_time) then
 			EncounterDetails:Msg ("This segment doesn't have chart data.")
 			return
