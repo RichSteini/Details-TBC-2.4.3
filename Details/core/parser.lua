@@ -1075,6 +1075,8 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 
 		if(missType == "ABSORB") then
 
+			if amountMissed == nil then amountMissed = 0 end
+
 			if(token == "SWING_MISSED") then
 				este_jogador.totalabsorbed = este_jogador.totalabsorbed + amountMissed
 				return parser:swing("SWING_DAMAGE", time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, amountMissed, -1, 1, nil, nil, nil, false, false, false, false)
