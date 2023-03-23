@@ -4534,7 +4534,7 @@ function gump:CriaJanelaInfo()
 					bar.lefttext:SetJustifyH ("LEFT")
 					bar.lefttext:SetTextColor (1, 1, 1, 1)
 					bar.lefttext:SetNonSpaceWrap (true)
-					bar.lefttext:SetWordWrap (false)
+					--bar.lefttext:SetWordWrap (false)
 
 					if (name:find ("1")) then
 						bar.lefttext:SetWidth (110)

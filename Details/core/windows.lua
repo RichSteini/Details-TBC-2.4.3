@@ -1335,11 +1335,11 @@ local _utf8sub = string.utf8sub
 					f.SyncTextureGrade:SetTexture ([[Interface\COMMON\StreamFrame]])
 					f.SyncTextureGrade:SetSize (32, 32)
 
-					local animationHub = _detalhes.gump:CreateAnimationHub (workingFrame)
-					animationHub:SetLooping ("Repeat")
-					f.WorkingAnimation = animationHub
+					--local animationHub = _detalhes.gump:CreateAnimationHub (workingFrame)
+					--animationHub:SetLooping ("Repeat")
+					--f.WorkingAnimation = animationHub
 
-					local rotation = _detalhes.gump:CreateAnimation (animationHub, "ROTATION", 1, 3, -360)
+					--local rotation = _detalhes.gump:CreateAnimation (animationHub, "ROTATION", 1, 3, -360)
 				--	rotation:SetTarget (f.SyncTextureCircle) -- TEMP
 					--_detalhes.gump:CreateAnimation (animationHub, "ALPHA", 1, 0.5, 0, 1)
 
@@ -1347,21 +1347,23 @@ local _utf8sub = string.utf8sub
 					f.SyncText:SetPoint ("RIGHT", f.SyncTextureBackground, "LEFT", 0, 0)
 					f.SyncText:SetText ("working")
 
-					local endAnimationHub = _detalhes.gump:CreateAnimationHub (workingFrame, nil, function() workingFrame:Hide() end)
-					_detalhes.gump:CreateAnimation (endAnimationHub, "ALPHA", 1, 0.5, 1, 0)
-					f.EndAnimationHub = endAnimationHub
+					--local endAnimationHub = _detalhes.gump:CreateAnimationHub (workingFrame, nil, function() workingFrame:Hide() end)
+					--_detalhes.gump:CreateAnimation (endAnimationHub, "ALPHA", 1, 0.5, 1, 0)
+					--f.EndAnimationHub = endAnimationHub
 				end
 
 				f.WorkingFrame:Show()
-				f.WorkingAnimation:Play()
+				--f.WorkingAnimation:Play()
 
 				C_Timer.NewTicker (10, function (self)
 					if (not _detalhes.LastGuildSyncReceived) then
 						f.GuildSyncButton:Enable()
-						f.EndAnimationHub:Play()
+						--f.EndAnimationHub:Play()
+						f.WorkingFrame:Hide()
 					elseif (_detalhes.LastGuildSyncReceived+10 < GetTime()) then
 						f.GuildSyncButton:Enable()
-						f.EndAnimationHub:Play()
+						f.WorkingFrame:Hide()
+						--f.EndAnimationHub:Play()
 						self:Cancel()
 					end
 				end)
@@ -1379,7 +1381,7 @@ local _utf8sub = string.utf8sub
 					if (prefix == CONST_GUILD_SYNC) then
 						--received a list of encounter IDs
 						if (guildSyncID == "L") then
-
+								-- this doens't actually do anything?..
 						--received one encounter table
 						elseif (guildSyncID == "A") then
 							f.DownloadedAmount = (f.DownloadedAmount or 0) + 1
@@ -1398,7 +1400,7 @@ local _utf8sub = string.utf8sub
 					if (prefix == CONST_GUILD_SYNC) then
 						--requested a list of encounters
 						if (guildSyncID == "R") then
-
+							-- this doesn't actually do anything?..
 
 						--requested to download a selected list of encounter tables
 						elseif (guildSyncID == "G") then

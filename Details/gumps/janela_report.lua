@@ -114,7 +114,7 @@ local _UIParent = UIParent --> wow api locals
 		end
 
 		if (_slider) then
-			_detalhes.janela_report.slider:Enable()
+			_detalhes.janela_report.slider:EnableMouse(true)
 			_detalhes.janela_report.slider.lockTexture:Hide()
 			_detalhes.janela_report.slider.amt:Show()
 		else
