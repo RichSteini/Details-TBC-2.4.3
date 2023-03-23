@@ -336,6 +336,8 @@
 			local options_frame = CreateFrame ("Frame", name, UIParent, "ButtonFrameTemplate")
 			tinsert (UISpecialFrames, name)
 			options_frame:SetSize (500, 200)
+			local frame_bg_tex = _G[options_frame:GetName().."Bg"]
+			frame_bg_tex:SetTexture(0,0,0,0.7)
 
 			options_frame:SetScript ("OnMouseDown", function(self, button)
 				if (button == "RightButton") then
@@ -364,8 +366,8 @@
 			options_frame:Hide()
 
 			options_frame:SetPoint ("CENTER", UIParent, "CENTER")
-			options_frame.TitleText:SetText (title)
-			options_frame.portrait:SetTexture ([[Interface\CHARACTERFRAME\TEMPORARYPORTRAIT-FEMALE-BLOODELF]])
+			_G[options_frame:GetName().."TitleText"]:SetText (title)
+			_G[options_frame:GetName().."Portrait"]:SetTexture ([[Interface\CHARACTERFRAME\TEMPORARYPORTRAIT-FEMALE-BLOODELF]])
 
 			return options_frame
 
