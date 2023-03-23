@@ -76,6 +76,10 @@ function _detalhes:CreateOrOpenNewsWindow()
 		frame:SetWidth (512)
 		frame:SetHeight (512)
 		tinsert (UISpecialFrames, "DetailsNewsWindow")
+		
+		-- bad fix for bg texture
+		local frame_bg_tex = _G[frame:GetName().."Bg"]
+		frame_bg_tex:SetTexture(0.27,0.27,0.27,1)
 
 		frame:SetScript ("OnMouseDown", function(self, button)
 			if (self.isMoving) then
@@ -187,7 +191,8 @@ function _detalhes:CreateOrOpenNewsWindow()
 		forum_button_texto:SetTextColor (.7, .7, .7, 1)
 
 		function frame:Title (title)
-			frame.TitleText:SetText (title or "")
+			--frame.TitleText:SetText (title or "")
+			_G[frame:GetName().."TitleText"]:SetText(title or "")
 		end
 
 		function frame:Text (text)
@@ -195,11 +200,14 @@ function _detalhes:CreateOrOpenNewsWindow()
 		end
 
 		function frame:Icon (path, coords)
-			frame.portrait:SetTexture (path or nil)
+			--frame.portrait:SetTexture (path or nil)
+			_G[frame:GetName().."Portrait"]:SetTexture(path or nil)
 			if (coords) then
-				frame.portrait:SetTexCoord (unpack (coords))
+				--frame.portrait:SetTexCoord (unpack (coords))
+				_G[frame:GetName().."Portrait"]:SetTexCoord (unpack (coords))
 			else
-				frame.portrait:SetTexCoord (0, 1, 0, 1)
+				--frame.portrait:SetTexCoord (0, 1, 0, 1)
+				_G[frame:GetName().."Portrait"]:SetTexCoord (0, 1, 0, 1)
 			end
 		end
 
