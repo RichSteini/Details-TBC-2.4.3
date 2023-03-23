@@ -1983,7 +1983,7 @@
 				{name = "Buff on Focus", value = 13},
 				{name = "Spell Cast Started", value = 21}, --7
 				{name = "Spell Cast Successful", value = 22},
-				{name = "DBM Time Bar", value = 31},
+				--{name = "DBM Time Bar", value = 31},
 				{name = "BigWigs Time Bar", value = 32},
 				{name = "Spell Interrupt", value = 41},
 				{name = "Spell Dispell", value = 42},
@@ -2596,7 +2596,7 @@
 	end
 
 	function _detalhes:BossModsLink()
-		if (_G.DBM) then
+		if (_G.DBM) and false then -- DBM disabled for 2.4.3 as 2.4.3 DBM does not support callbacks
 			local dbm_callback_phase = function (event, msg, ...)
 
 				local mod = _detalhes.encounter_table.DBM_Mod
@@ -2718,7 +2718,7 @@
 		_detalhes:RegisterEvent(event_frame, "COMBAT_ENCOUNTER_END")
 		_detalhes:RegisterEvent(event_frame, "COMBAT_PLAYER_LEAVE")
 
-		if (_G.DBM) then
+		if (_G.DBM) and false then -- disabled as 2.4.3 DBM doesn't support callback
 			local dbm_timer_callback = function (bar_type, id, msg, timer, icon, bartype, spellId, colorId, modid)
 				local spell = tostring (spellId)
 				if (spell and not current_table_dbm [spell]) then
@@ -3783,7 +3783,7 @@
 					end
 				end,
 				fill_name = "DetailsForgeDBMBarsFillPanel",
-			}
+			} 
 
 			-----------------------------------------------
 
@@ -3983,7 +3983,7 @@
 
 			f:InstallModule (npc_ids_module)
 
-			f:InstallModule (dbm_timers_module)
+			--f:InstallModule (dbm_timers_module)
 			f:InstallModule (bigwigs_timers_module)
 
 			f:InstallModule (all_players_module)

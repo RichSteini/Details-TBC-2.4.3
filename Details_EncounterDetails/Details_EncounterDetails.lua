@@ -279,7 +279,7 @@ local function CreatePluginFrames ()
 			elseif (event == "ENCOUNTER_END" or event == "PLAYER_REGEN_ENABLED") then
 				if (current_encounter) then
 
-					if (_G.DBM) then
+					if (_G.DBM) and false then
 						local db = _detalhes.global_plugin_database ["DETAILS_PLUGIN_ENCOUNTER_DETAILS"]
 						for spell, timer_table in pairs (current_table_dbm) do
 							if (not db.encounter_timers_dbm [timer_table[1]]) then
@@ -313,7 +313,7 @@ local function CreatePluginFrames ()
 --DBM_TimerStart Timer183828cdcount	3 Death Brand CD (3) 42.5 Interface\Icons\warlock_summon_doomguard cdcount 183828 1 1438
 
 		--EncounterDetails.DBM_timers
-		if (_G.DBM) then
+		if (_G.DBM)  and false then
 			local dbm_timer_callback = function (bar_type, id, msg, timer, icon, bartype, spellId, colorId, modid)
 				--print (bar_type, id, msg, timer, icon, bartype, spellId, colorId, modid)
 				local spell = tostring (spellId)

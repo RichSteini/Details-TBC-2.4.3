@@ -1205,9 +1205,9 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 			Details:OpenPlugin ("DETAILS_PLUGIN_ENCOUNTER_DETAILS")
 		end
 
-		BossFrame.DBMBars:Hide()
+		--BossFrame.DBMBars:Hide()
 		BossFrame.BigWigsBars:Hide()
-		BossFrame.label_dbm_bars:Hide()
+		--BossFrame.label_dbm_bars:Hide()
 		BossFrame.label_bw_bars:Hide()
 
 		EncounterDetailsPhaseFrame:Hide()
@@ -1259,12 +1259,12 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 
 			BossFrame.segmentosDropdown:Enable()
 
-			BossFrame.DBMBars:Show()
+			--BossFrame.DBMBars:Show()
 			BossFrame.BigWigsBars:Show()
-			BossFrame.label_dbm_bars:Show()
+			--BossFrame.label_dbm_bars:Show()
 			BossFrame.label_bw_bars:Show()
 
-			BossFrame.DBMBars:Refresh()
+			--BossFrame.DBMBars:Refresh()
 			BossFrame.BigWigsBars:Refresh()
 
 			BossFrame.buttonSwitchSpellsAuras:SetTemplate (DetailsFrameWork:GetTemplate ("button", "DETAILS_PLUGIN_BUTTONSELECTED_TEMPLATE"))
@@ -1816,7 +1816,7 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 	end
 
 	local on_enter_spell = function (self)
-		if (self.MyObject._spellid) then
+		if (self.MyObject._spellid) and false then -- no SetSpellByID in 2.4.3, not fixing for now
 			GameTooltip:SetOwner (self, "ANCHOR_TOPLEFT")
 			GameTooltip:SetSpellByID (self.MyObject._spellid)
 			GameTooltip:Show()
@@ -2067,13 +2067,13 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 	npc_id2:Hide()
 
 	--
-	local label_dbm_bars = DetailsFrameWork:CreateLabel (BossFrame, "Create Big Timer Announcer (DBM):", 11, nil, "GameFontHighlightSmall")
-	label_dbm_bars:SetPoint ("topleft", BossFrame, "topleft", 10, -200)
+	--local label_dbm_bars = DetailsFrameWork:CreateLabel (BossFrame, "Create Big Timer Announcer (DBM):", 11, nil, "GameFontHighlightSmall")
+	--label_dbm_bars:SetPoint ("topleft", BossFrame, "topleft", 10, -200)
 
 	local label_bw_bars = DetailsFrameWork:CreateLabel (BossFrame, "Create Big Timer Announcer (BW):", 11, nil, "GameFontHighlightSmall")
 	label_bw_bars:SetPoint ("topleft", BossFrame, "topleft", 10, -250)
 
-	BossFrame.label_dbm_bars = label_dbm_bars
+	--BossFrame.label_dbm_bars = label_dbm_bars
 	BossFrame.label_bw_bars = label_bw_bars
 
 	local on_select_dbm_bar = function (_, _, value)
@@ -2142,11 +2142,11 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 		return t
 	end
 
-	local dropdown_dbm_bars = DetailsFrameWork:NewDropDown (BossFrame, _, "$parentDBMBarsDropdown", "DBMBars", 160, 20, build_dbm_bars, 1)
-	dropdown_dbm_bars:SetPoint ("topleft", label_dbm_bars, "bottomleft", -1, -2)
-	dropdown_dbm_bars:SetTemplate (DetailsFrameWork:GetTemplate ("dropdown", "OPTIONS_DROPDOWN_TEMPLATE"))
-	dropdown_dbm_bars:SetWidth (200)
-	dropdown_dbm_bars.tooltip = "Create a weakaura to show a big countdown when a boss ability is coming"
+	--local dropdown_dbm_bars = DetailsFrameWork:NewDropDown (BossFrame, _, "$parentDBMBarsDropdown", "DBMBars", 160, 20, build_dbm_bars, 1)
+	--dropdown_dbm_bars:SetPoint ("topleft", label_dbm_bars, "bottomleft", -1, -2)
+	--dropdown_dbm_bars:SetTemplate (DetailsFrameWork:GetTemplate ("dropdown", "OPTIONS_DROPDOWN_TEMPLATE"))
+	--dropdown_dbm_bars:SetWidth (200)
+	--dropdown_dbm_bars.tooltip = "Create a weakaura to show a big countdown when a boss ability is coming"
 
 	local dropdown_bw_bars = DetailsFrameWork:NewDropDown (BossFrame, _, "$parentBigWigsBarsDropdown", "BigWigsBars", 160, 20, build_bigwigs_bars, 1)
 	dropdown_bw_bars:SetPoint ("topleft", label_bw_bars, "bottomleft", -1, -2)
@@ -2154,9 +2154,9 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 	dropdown_bw_bars:SetWidth (200)
 	dropdown_bw_bars.tooltip = "Create a weakaura to show a big countdown when a boss ability is coming"
 
-	dropdown_dbm_bars:Hide()
+	--dropdown_dbm_bars:Hide()
 	dropdown_bw_bars:Hide()
-	label_dbm_bars:Hide()
+	--label_dbm_bars:Hide()
 	label_bw_bars:Hide()
 
 	--
