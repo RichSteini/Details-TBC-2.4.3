@@ -142,10 +142,11 @@ function UnitAura(unit, indexOrName, rank, filter)
 		end
 	end
 	--]]
-	
+	local argCount = filter and 4 or 3
+
 	if ((filter and filter:find("HARMFUL")) or ((rank and rank:find("HARMFUL")) and filter == nil)) then
 		debuffType = "HARMFUL";
-	elseif ((filter and filter:find("HELPFUL")) or ((rank and rank:find("HARMFUL")) and filter == nil)) then
+	elseif ((filter and filter:find("HELPFUL")) or ((rank and rank:find("HELPFUL")) and filter == nil)) then
 		debuffType = "HELPFUL";
 	else
 		debuffType = nil;
@@ -170,10 +171,18 @@ function UnitAura(unit, indexOrName, rank, filter)
 				duration = duration or 15
 				remaining = remaining or GetPlayerBuffTimeLeft(x)
 				local spellLink = GetSpellLink(name, r or "")
-				if spellLink then
-					return name, r, icon, count, debuffType, duration, GetTime() + (remaining or 0), (castable and "player"), nil, nil, tonumber(spellLink:match("spell:(%d+)"))
+
+				local maxDurationOrExpirationTime
+				if argCount == 4 then
+					maxDurationOrExpirationTime = GetTime() + (remaining or 0)
 				else
-					return name, r, icon, count, debuffType, duration, GetTime() + (remaining or 0), (castable and "player")
+					maxDurationOrExpirationTime = remaining or 0
+				end
+
+				if spellLink then
+					return name, r, icon, count, debuffType, duration, maxDurationOrExpirationTime, (castable and "player"), nil, nil, tonumber(spellLink:match("spell:(%d+)"))
+				else
+					return name, r, icon, count, debuffType, duration, maxDurationOrExpirationTime, (castable and "player")
 				end
 			end
 			x = x + 1;
@@ -192,10 +201,18 @@ function UnitAura(unit, indexOrName, rank, filter)
 		while (name ~= nil) do
 			if ((name == indexOrName or x == indexOrName) and (rank == nil or rank:find("HARMFUL") or rank:find("HELPFUL") or rank == r)) then
 				local spellLink = GetSpellLink(name, r or "")
-				if spellLink then
-					return name, r, icon, count, dispelType, duration, GetTime() + (expirationTime or 0), nil, nil, nil, tonumber(spellLink:match("spell:(%d+)"))
+
+				local maxDurationOrExpirationTime
+				if argCount == 4 then
+					maxDurationOrExpirationTime = GetTime() + (remaining or 0)
 				else
-					return name, r, icon, count, dispelType, duration, GetTime() + (expirationTime or 0)
+					maxDurationOrExpirationTime = remaining or 0
+				end
+
+				if spellLink then
+					return name, r, icon, count, dispelType, duration, maxDurationOrExpirationTime, nil, nil, nil, tonumber(spellLink:match("spell:(%d+)"))
+				else
+					return name, r, icon, count, dispelType, duration, maxDurationOrExpirationTime
 				end
 			end
 			x = x + 1;
