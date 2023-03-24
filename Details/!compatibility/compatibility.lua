@@ -143,6 +143,7 @@ function UnitAura(unit, indexOrName, rank, filter)
 	end
 	--]]
 	local argCount = filter and 4 or 3
+	local debuffType
 
 	if ((filter and filter:find("HARMFUL")) or ((rank and rank:find("HARMFUL")) and filter == nil)) then
 		debuffType = "HARMFUL";
@@ -197,7 +198,7 @@ function UnitAura(unit, indexOrName, rank, filter)
 		else
 			x = 1
 		end
-		local name, r, icon, count, dispelType, duration, expirationTime = UnitDebuff(unit, x, removable);
+		local name, r, icon, count, dispelType, duration, remaining = UnitDebuff(unit, x, removable);
 		while (name ~= nil) do
 			if ((name == indexOrName or x == indexOrName) and (rank == nil or rank:find("HARMFUL") or rank:find("HELPFUL") or rank == r)) then
 				local spellLink = GetSpellLink(name, r or "")
@@ -216,10 +217,10 @@ function UnitAura(unit, indexOrName, rank, filter)
 				end
 			end
 			x = x + 1;
-			name, r, icon, count, dispelType, duration, expirationTime = UnitDebuff(unit, x, removable);
+			name, r, icon, count, dispelType, duration, remaining = UnitDebuff(unit, x, removable);
 		end
 	end
-	return nil;
+	return nil, nil, nil, nil, nil, 0, 0; 
 end
 
 function UnitInVehicle(unit)
