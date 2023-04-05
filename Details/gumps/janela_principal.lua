@@ -3996,7 +3996,7 @@ function gump:CriaNovaBarra(instancia, index)
 	--> frame for hold the backdrop border
 	new_row.border = CreateFrame("Frame", "DetailsBarra_Border_" .. instancia.meu_id .. "_" .. index, new_row.statusbar)
 	new_row.border:SetFrameLevel(new_row.statusbar:GetFrameLevel()+2)
-	--new_row.border:SetAllPoints(new_row)
+	new_row.border:SetAllPoints(new_row)
 
 	-- search key: ~model
 
