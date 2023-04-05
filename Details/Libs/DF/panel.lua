@@ -4999,7 +4999,6 @@ function DF:ApplyStandardBackdrop (f, darkTheme, alphaScale)
 	if (not f.__background) then
 		f.__background = f:CreateTexture (nil, "background")
 	end
-
 	f.__background:SetTexture (0.2317647, 0.2317647, 0.2317647)
 	f.__background:SetVertexColor (0.27, 0.27, 0.27)
 	f.__background:SetAlpha (0.8 * alphaScale)

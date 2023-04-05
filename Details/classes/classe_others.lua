@@ -212,7 +212,8 @@ function _detalhes:ToolTipDead (instancia, morte, esta_barra, keydown)
 	GameCooltip:SetType ("tooltipbar")
 
 	GameCooltip:AddLine (Loc ["STRING_REPORT_LEFTCLICK"], nil, 1, _unpack (self.click_to_report_color))
-	GameCooltip:AddIcon ([[Interface\TUTORIALFRAME\UI-TUTORIAL-FRAME]], 1, 1, 12, 16, 0.015625, 0.13671875, 0.4375, 0.59765625)
+	--GameCooltip:AddIcon ([[Interface\TUTORIALFRAME\UI-TUTORIAL-FRAME]], 1, 1, 12, 16, 0.015625, 0.13671875, 0.4375, 0.59765625)
+	GameCooltip:AddIcon ([[Interface\TUTORIALFRAME\TutorialFrameAlert]], 1, 1, 12, 16, 0.015625, 0.13671875, 0.4375, 0.59765625)
 	GameCooltip:AddStatusBar (0, 1, 1, 1, 1, 1, false, {value = 100, color = {.3, .3, .3, 1}, specialSpark = false, texture = [[Interface\AddOns\Details\images\bar_serenity]]})
 
 	--death parser
@@ -324,8 +325,8 @@ function _detalhes:ToolTipDead (instancia, morte, esta_barra, keydown)
 	GameCooltip:SetOption ("TextSize", _detalhes.tooltip.fontsize)
 	GameCooltip:SetOption ("TextFont",  _detalhes.tooltip.fontface)
 
-	GameCooltip:SetOption ("LeftBorderSize", -4)
-	GameCooltip:SetOption ("RightBorderSize", 5)
+	GameCooltip:SetOption ("LeftBorderSize", -3)
+	GameCooltip:SetOption ("RightBorderSize", 2)
 	GameCooltip:SetOption ("StatusBarTexture", [[Interface\AddOns\Details\images\bar4_reverse]])
 	GameCooltip:SetOption ("StatusBarTexture", [[Interface\AddOns\Details\images\BantoBar]])
 	GameCooltip:SetWallpaper (1, [[Interface\SPELLBOOK\Spellbook-Page-1]], {.6, 0.1, 0.64453125, 0}, {.8, .8, .8, 0.2}, true)

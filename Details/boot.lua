@@ -350,7 +350,7 @@ do
 
 		--> tooltip
 			_detalhes.tooltip_backdrop = {
-				bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]],
+				bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
 				edgeFile = [[Interface\Tooltips\UI-Tooltip-Border]],
 				tile = true,
 				edgeSize = 16,

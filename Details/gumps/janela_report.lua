@@ -124,7 +124,7 @@ local _UIParent = UIParent --> wow api locals
 		end
 
 		if (_detalhes.janela_report.ativa) then
-			_detalhes.janela_report:Flash (0.2, 0.2, 0.4, true, 0, 0, "NONE")
+			--_detalhes.janela_report:Flash (0.2, 0.2, 0.4, true, 0, 0, "NONE")
 		end
 
 		_detalhes.janela_report.ativa = true
@@ -229,7 +229,7 @@ local _UIParent = UIParent --> wow api locals
 		end
 
 		if (_detalhes.janela_report.ativa) then
-			_detalhes.janela_report:Flash (0.2, 0.2, 0.4, true, 0, 0, "NONE")
+			--_detalhes.janela_report:Flash (0.2, 0.2, 0.4, true, 0, 0, "NONE")
 		end
 
 		_detalhes.janela_report.ativa = true

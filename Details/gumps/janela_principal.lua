@@ -3942,7 +3942,8 @@ end
 _detalhes.barras_criadas = 0
 
 local function statusbar_on_size_changed(self, width)
-	self:GetStatusBarTexture():SetPoint("TOPRIGHT", -(width * ((100 - self.value) / 100)), 0)
+	--self:GetStatusBarTexture():SetPoint("TOPRIGHT", -(width * ((100 - self.value) / 100)), 0)
+	--self.textura:SetAllPoints(self.statusbar)
 end
 
 --> search key: ~row ~barra
@@ -3982,6 +3983,7 @@ function gump:CriaNovaBarra(instancia, index)
 	--> statusbar
 	new_row.statusbar = CreateFrame("StatusBar", "DetailsBarra_Statusbar_"..instancia.meu_id.."_"..index, new_row)
 	new_row.statusbar:SetScript("OnSizeChanged", statusbar_on_size_changed)
+	new_row.statusbar:SetAllPoints(new_row)
 	new_row.statusbar.value = 0
 	--> right to left texture
 	new_row.statusbar.right_to_left_texture = new_row.statusbar:CreateTexture(nil, "overlay")
@@ -3994,7 +3996,7 @@ function gump:CriaNovaBarra(instancia, index)
 	--> frame for hold the backdrop border
 	new_row.border = CreateFrame("Frame", "DetailsBarra_Border_" .. instancia.meu_id .. "_" .. index, new_row.statusbar)
 	new_row.border:SetFrameLevel(new_row.statusbar:GetFrameLevel()+2)
-	new_row.border:SetAllPoints(new_row)
+	--new_row.border:SetAllPoints(new_row)
 
 	-- search key: ~model
 
