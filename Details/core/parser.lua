@@ -245,12 +245,12 @@ local spell_create_is_summon = {
 	--> DAMAGE 	serach key: ~damage											|
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-function parser:swing(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing)
-	return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, 1, "Corpo-a-Corpo", 00000001, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing) --> localize-me
+function parser:swing(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, amount, school, resisted, blocked, absorbed, critical, glacing, crushing)
+	return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, 1, "Corpo-a-Corpo", 00000001, amount, school, resisted, blocked, absorbed, critical, glacing, crushing) --> localize-me
 end
 
-function parser:range(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing)
-	return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing) --> localize-me
+function parser:range(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, school, resisted, blocked, absorbed, critical, glacing, crushing)
+	return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, school, resisted, blocked, absorbed, critical, glacing, crushing) --> localize-me
 end
 
 --	/run local f=CreateFrame("Frame");f:RegisterAllEvents();f:SetScript("OnEvent", function(self, ...)print(...);end)
@@ -384,7 +384,7 @@ local function check_boss(npcID)
 	end
 end
 
-function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing)
+function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, school, resisted, blocked, absorbed, critical, glacing, crushing)
 ------------------------------------------------------------------------------------------------
 --> early checks and fixes
 	if who_serial == "" then
@@ -450,7 +450,7 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 			spelltype = reflection.spelltype
 			--> data of the aura that caused the reflection
 
-			return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, -1, nil, nil, nil, nil, false, false, false)
+			return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, nil, nil, nil, nil, false, false, false)
 		else
 			--> saving information about this damage because it may occurred before a reflect event
 			reflection_damage[who_serial] = reflection_damage[who_serial] or {}
@@ -1079,15 +1079,15 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 
 			if(token == "SWING_MISSED") then
 				este_jogador.totalabsorbed = este_jogador.totalabsorbed + amountMissed
-				return parser:swing("SWING_DAMAGE", time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, amountMissed, -1, 1, nil, nil, nil, false, false, false, false)
+				return parser:swing("SWING_DAMAGE", time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, amountMissed, -1, nil, nil, nil, false, false, false, false)
 
 			elseif(token == "RANGE_MISSED") then
 				este_jogador.totalabsorbed = este_jogador.totalabsorbed + amountMissed
-				return parser:range("RANGE_DAMAGE", time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amountMissed, -1, 1, nil, nil, nil, false, false, false, false)
+				return parser:range("RANGE_DAMAGE", time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amountMissed, -1, nil, nil, nil, false, false, false, false)
 
 			else
 				este_jogador.totalabsorbed = este_jogador.totalabsorbed + amountMissed
-				return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amountMissed, -1, 1, nil, nil, nil, false, false, false, false)
+				return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amountMissed, -1, nil, nil, nil, false, false, false, false)
 
 			end
 	------------------------------------------------------------------------------------------------
@@ -1128,7 +1128,7 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 					--> this is so bad at clearing, there should be a better way of handling this
 					reflection_damage[who_serial] = nil
 				end
-				return parser:spell_dmg(token, time, alvo_serial, alvo_name, alvo_flags, who_serial, who_name, who_flags, spellid, spellname, spelltype, amount, -1, nil, nil, nil, nil, false, false, false)
+				return parser:spell_dmg(token, time, alvo_serial, alvo_name, alvo_flags, who_serial, who_name, who_flags, spellid, spellname, spelltype, amount, nil, nil, nil, nil, false, false, false)
 			else
 				--> saving information about this reflect because it occurred before the damage event
 				reflection_events[who_serial] = reflection_events[who_serial] or {}
@@ -1354,11 +1354,11 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 			end
 		end
 		if found_absorb then
-			return parser:heal(token, time, found_absorb.serial, found_absorb.name, found_absorb.flags, alvo_serial, alvo_name, alvo_flags, found_absorb.spellid, found_absorb.spellname, nil, absorbed, 0, 0, nil, true)
+			return parser:heal(token, time, found_absorb.serial, found_absorb.name, found_absorb.flags, alvo_serial, alvo_name, alvo_flags, found_absorb.spellid, found_absorb.spellname, nil, absorbed, nil, true)
 		end -- should we do something if it expected to absorb but couldn't?
 	end
 
-	function parser:heal(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, overhealing, absorbed, critical, is_shield)
+	function parser:heal(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spellid, spellname, spelltype, amount, critical, is_shield) --is_shield does not exist
 
 	------------------------------------------------------------------------------------------------
 	--> early checks and fixes
@@ -3319,7 +3319,7 @@ local energy_types = {
 		end
 	end
 
-	function parser:environment(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, env_type, amount, overkill, school, resisted, blocked, absorbed, critical, glacing, crushing)
+	function parser:environment(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, env_type, amount, school, resisted, blocked, absorbed, critical, glacing, crushing)
 
 		local spelid
 
@@ -3347,7 +3347,7 @@ local energy_types = {
 			parser:heal_absorb(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, absorbed, 0)
 		end
 
-		return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spelid or 1, env_type, 00000003, amount, -1, 1) --> localize-me
+		return parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_serial, alvo_name, alvo_flags, spelid or 1, env_type, 00000003, amount, 1) --> localize-me
 	end
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

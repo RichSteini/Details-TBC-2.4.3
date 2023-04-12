@@ -484,13 +484,14 @@ do
 
 	--> constants
 		--[[global]] DETAILS_HEALTH_POTION_LIST = {
-			[250870] = true, --Coastal Healing Potion
-			[250872] = true, --Coastal Rejuvenation Potion
-			[6262] = true, --Warlock's Healthstone
+			[28495] = true, --Super Healing Potion
+			[28586] = true, --Super Rejuvenation Potion
+			[27237] = true, --Warlock's Healthstone
+			[27236] = true, --Warlock's Healthstone
 		}
-		--[[global]] DETAILS_HEALTH_POTION_ID = 250870
-		--[[global]] DETAILS_REJU_POTION_ID = 250872
-		--[[global]] DETAILS_MANA_POTION_ID = 250871
+		--[[global]] DETAILS_HEALTH_POTION_ID = 28495
+		--[[global]] DETAILS_REJU_POTION_ID = 22850
+		--[[global]] DETAILS_MANA_POTION_ID = 22832
 		--[[global]] DETAILS_FOCUS_POTION_ID = 252753
 
 		--[[global]] DETAILS_INT_POTION_ID = 279151
