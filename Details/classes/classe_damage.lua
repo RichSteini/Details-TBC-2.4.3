@@ -351,13 +351,18 @@
 
 --[[exported]]	function _detalhes:GameTooltipSetSpellByID (spellid)
 				if (spellid == 1) then
-					GameTooltip:SetSpellByID (6603)
+					--GameTooltip:SetSpellByID (6603)
+					spellid = 6603
 				elseif (spellid == 2) then
-					GameTooltip:SetSpellByID (75)
-				elseif (spellid > 10) then
-					GameTooltip:SetSpellByID (spellid)
-				else
-					GameTooltip:SetSpellByID (spellid)
+					--GameTooltip:SetSpellByID (75)
+					spellid = 75
+				end
+				local spellBookId, bookType = GetSpellBookID(spellid, BOOKTYPE_SPELL), BOOKTYPE_SPELL
+				if not spellBookId then
+					spellBookId, bookType = GetSpellBookID(spellid, BOOKTYPE_PET), BOOKTYPE_PET
+				end
+				if spellBookId then
+					GameTooltip:SetSpell(spellBookId, bookType);
 				end
 			end
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
