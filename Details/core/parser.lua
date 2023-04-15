@@ -29,6 +29,7 @@ local _str_sub = string.sub --lua local
 local _table_insert = table.insert --lua local
 local _select = select --lua local
 local _bit_band = bit.band --lua local
+local _bit_rshift = bit.rshift --lua local
 local _math_floor = math.floor --lua local
 local _table_remove = table.remove --lua local
 local _ipairs = ipairs --lua local
@@ -761,6 +762,7 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 
 	------------------------------------------------------------------------------------------------
 	--> amount add
+		local targetRaidFlags = _bit_rshift(alvo_flags, 20)
 
 		--> actor owner(if any)
 		if(meu_dono) then --> se for dano de um Pet
@@ -770,6 +772,15 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 			meu_dono.targets[alvo_name] =(meu_dono.targets[alvo_name] or 0) + amount
 
 			meu_dono.last_event = _tempo
+			if (RAID_TARGET_FLAGS [targetRaidFlags]) then
+				--add the amount done for the owner
+				meu_dono.raid_targets [targetRaidFlags] = (meu_dono.raid_targets [targetRaidFlags] or 0) + amount
+			end
+		end
+
+		--raid targets
+		if (RAID_TARGET_FLAGS[targetRaidFlags]) then
+			este_jogador.raid_targets[targetRaidFlags] = (este_jogador.raid_targets[targetRaidFlags] or 0) + amount
 		end
 
 		--> actor
