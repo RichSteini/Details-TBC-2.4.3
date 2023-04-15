@@ -3466,7 +3466,7 @@ local _utf8sub = string.utf8sub
 
 						--> reset
 						GameCooltip:AddMenu (1, _detalhes.tabela_historico.resetar, true, nil, nil, Loc ["STRING_ERASE_DATA"], nil, true)
-						GameCooltip:AddIcon ([[Interface\COMMON\VOICECHAT-MUTED]], 1, 1, 14, 14)
+						GameCooltip:AddIcon ([[Interface\Details\images\VOICECHAT-MUTED]], 1, 1, 14, 14)
 
 						GameCooltip:AddLine ("$div")
 
@@ -3477,10 +3477,10 @@ local _utf8sub = string.utf8sub
 
 						--> reopen all windows
 						GameCooltip:AddMenu (1, _detalhes.ReabrirTodasInstancias, true, nil, nil, Loc ["STRING_MINIMAPMENU_REOPENALL"], nil, true)
-						GameCooltip:AddIcon ([[Interface\Buttons\UI-MicroStream-Green]], 1, 1, 14, 14, 0.1875, 0.8125, 0.84375, 0.15625)
+						GameCooltip:AddIcon ([[Interface\Addons\Details\images\UI-MicroStream-Green]], 1, 1, 14, 14, 0.1875, 0.8125, 0.84375, 0.15625)
 						--> close all windows
 						GameCooltip:AddMenu (1, _detalhes.ShutDownAllInstances, true, nil, nil, Loc ["STRING_MINIMAPMENU_CLOSEALL"], nil, true)
-						GameCooltip:AddIcon ([[Interface\Buttons\UI-MicroStream-Red]], 1, 1, 14, 14, 0.1875, 0.8125, 0.15625, 0.84375)
+						GameCooltip:AddIcon ([[Interface\Addons\Details\images\UI-MicroStream-Red]], 1, 1, 14, 14, 0.1875, 0.8125, 0.15625, 0.84375)
 
 						GameCooltip:AddLine ("$div")
 

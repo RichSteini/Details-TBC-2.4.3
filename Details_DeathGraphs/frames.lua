@@ -1498,7 +1498,7 @@ do
 
 		local delete = framework:NewButton (f, _, "$parentDeleteButton", "DeleteButton", w, mode_buttons_height, wipe_data, nil, nil, nil, Loc ["STRING_RESET"], 1, framework:GetTemplate ("button", "DETAILS_PLUGIN_BUTTON_TEMPLATE"))
 		delete:SetPoint ("bottomright", f, "bottomright", -10, 10)
-		delete:SetIcon ([[Interface\Buttons\UI-StopButton]], nil, nil, nil, {0, 1, 0, 1}, nil, nil, 2)
+		delete:SetIcon ([[Interface\Addons\Details\images\UI-StopButton]], nil, nil, nil, {0, 1, 0, 1}, nil, nil, 2)
 		--delete:SetTextColor ("orange")
 
 	--> configure threshold

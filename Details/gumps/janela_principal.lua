@@ -8378,13 +8378,13 @@ end
 		_detalhes:SetTooltipMinWidth()
 
 		GameCooltip:AddLine(Loc["STRING_ERASE_DATA_OVERALL"], nil, 1, "white", nil, _detalhes.font_sizes.menus, _detalhes.font_faces.menus)
-		GameCooltip:AddIcon([[Interface\Buttons\UI-StopButton]], 1, 1, 14, 14, 0, 1, 0, 1, "orange")
+		GameCooltip:AddIcon([[Interface\Addons\Details\images\UI-StopButton]], 1, 1, 14, 14, 0, 1, 0, 1, "orange")
 		GameCooltip:AddMenu(1, _detalhes.tabela_historico.resetar_overall)
 
 		GameCooltip:AddLine("$div", nil, 1, nil, -5, -11)
 
 		GameCooltip:AddLine(Loc["STRING_ERASE_DATA"], nil, 1, "white", nil, _detalhes.font_sizes.menus, _detalhes.font_faces.menus)
-		GameCooltip:AddIcon([[Interface\Buttons\UI-StopButton]], 1, 1, 14, 14, 0, 1, 0, 1, "red")
+		GameCooltip:AddIcon([[Interface\Addons\Details\images\UI-StopButton]], 1, 1, 14, 14, 0, 1, 0, 1, "red")
 		GameCooltip:AddMenu(1, _detalhes.tabela_historico.resetar)
 
 		_detalhes:FormatCooltipBackdrop()
@@ -8492,7 +8492,7 @@ end
 		GameCooltip:AddMenu(1, close_button_onclick, self)
 
 		GameCooltip:AddLine(Loc["STRING_MENU_CLOSE_INSTANCE_DESC"], nil, 2, "white", nil, _detalhes.font_sizes.menus, _detalhes.font_faces.menus)
-		GameCooltip:AddIcon([[Interface\CHATFRAME\UI-ChatIcon-Minimize-Up]], 2, 1, 18, 18)
+		GameCooltip:AddIcon([[Interface\Addons\Details\images\UI-ChatIcon-Minimize-Up]], 2, 1, 18, 18)
 
 		GameCooltip:AddLine(Loc["STRING_MENU_CLOSE_INSTANCE_DESC2"], nil, 2, "white", nil, _detalhes.font_sizes.menus, _detalhes.font_faces.menus)
 		GameCooltip:AddIcon([[Interface\PaperDollInfoFrame\UI-GearManager-LeaveItem-Transparent]], 2, 1, 18, 18)

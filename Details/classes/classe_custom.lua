@@ -1351,10 +1351,10 @@ function _detalhes:AddDefaultCustomDisplays()
 		local GameCooltip = GameCooltip
 		local R, G, B, A = 0, 0, 0, 0.75
 
-		local hs = actor:GetSpell(6262)
+		local hs = actor:GetSpell(DETAILS_HEALTHSTONE_UNO_ID) or actor:GetSpell(DETAILS_HEALTHSTONE_DUE_ID)
 		if(hs) then
-			GameCooltip:AddLine(select(1, GetSpellInfo(6262)),  _detalhes:ToK(hs.total))
-			GameCooltip:AddIcon(select(3, GetSpellInfo(6262)), 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
+			GameCooltip:AddLine(select(1, GetSpellInfo(DETAILS_HEALTHSTONE_UNO_ID)),  _detalhes:ToK(hs.total))
+			GameCooltip:AddIcon(select(3, GetSpellInfo(DETAILS_HEALTHSTONE_UNO_ID)), 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
 			GameCooltip:AddStatusBar(100, 1, R, G, B, A)
 		end
 
@@ -1401,7 +1401,8 @@ function _detalhes:AddDefaultCustomDisplays()
 
 	local DamageActivityTime = {
 		name = Loc["STRING_CUSTOM_ACTIVITY_DPS"],
-		icon =[[Interface\Buttons\UI-MicroStream-Red]],
+		icon =[[Interface\Addons\Details\images\UI-MicroStream-Red]],
+		--icon =[[Interface\Icons\Ability_Hunter_AimedShot]],
 		attribute = false,
 		spellid = false,
 		author = "Details!",
@@ -1465,7 +1466,8 @@ function _detalhes:AddDefaultCustomDisplays()
 
 	local HealActivityTime = {
 		name = Loc["STRING_CUSTOM_ACTIVITY_HPS"],
-		icon =[[Interface\Buttons\UI-MicroStream-Green]],
+		icon =[[Interface\Addons\Details\images\UI-MicroStream-Green]],
+		--icon =[[Interface\ICONS\Spell_Holy_Heal]],
 		attribute = false,
 		spellid = false,
 		author = "Details!",
@@ -1771,7 +1773,7 @@ function _detalhes:AddDefaultCustomDisplays()
 
 	local MySpells = {
 		name = Loc["STRING_CUSTOM_MYSPELLS"],
-		icon =[[Interface\CHATFRAME\UI-ChatIcon-Battlenet]],
+		icon =[[Interface\Addons\Details\images\UI-ChatIcon-Battlenet]],
 		attribute = false,
 		spellid = false,
 		author = "Details!",

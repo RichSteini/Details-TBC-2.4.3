@@ -483,21 +483,41 @@ do
 				_detalhes.StatusBar.NameTable = {}
 
 	--> constants
+		-- healing stuff
+		DETAILS_HEALTH_POTION_ID = 28495 --Super Healing Potion
+		DETAILS_REJU_POTION_ID = 28586 --Super Rejuvenation Potion
+		DETAILS_HEALTHSTONE_UNO_ID = 27236 --Warlock's Healthstone
+		DETAILS_HEALTHSTONE_DUE_ID = 27237 --Warlock's Healthstone
 		--[[global]] DETAILS_HEALTH_POTION_LIST = {
-			[28495] = true, --Super Healing Potion
-			[28586] = true, --Super Rejuvenation Potion
-			[27237] = true, --Warlock's Healthstone
-			[27236] = true, --Warlock's Healthstone
+			[DETAILS_HEALTH_POTION_ID] = true, --Super Healing Potion
+			[DETAILS_REJU_POTION_ID] = true, --Super Rejuvenation Potion
+			[DETAILS_HEALTHSTONE_UNO_ID] = true, --Warlock's Healthstone
+			[DETAILS_HEALTHSTONE_DUE_ID] = true, --Warlock's Healthstone
 		}
-		--[[global]] DETAILS_HEALTH_POTION_ID = 28495
-		--[[global]] DETAILS_REJU_POTION_ID = 22850
-		--[[global]] DETAILS_MANA_POTION_ID = 22832
-		--[[global]] DETAILS_FOCUS_POTION_ID = 252753
 
 		--[[global]] DETAILS_INT_POTION_ID = 279151
 		--[[global]] DETAILS_AGI_POTION_ID = 279152
 		--[[global]] DETAILS_STR_POTION_ID = 279153
 		--[[global]] DETAILS_STAMINA_POTION_ID = 279154
+		--[[global]] DETAILS_FOCUS_POTION_ID = 252753
+
+		-- combat potions
+		DETAILS_HASTE_POTION_ID = 28564
+		DETAILS_MANA_POTION_ID = 28555
+		DETAILS_FEL_MANA_POTION_ID = 38961
+		DETAILS_DESTRUCTION_POTION_ID = 28565
+		DETAILS_MA_POTION_ID = 45061
+		DETAILS_ISS_POTION_ID = 28494
+		DETAILS_IRONSHIELD_POTION_ID = 28579
+		--[[global]] DETAILS_COMBAT_POTION_LIST = {
+			[DETAILS_HASTE_POTION_ID] = true,
+			[DETAILS_MANA_POTION_ID] = true,
+			[DETAILS_FEL_MANA_POTION_ID] = true,
+			[DETAILS_DESTRUCTION_POTION_ID] = true,
+			[DETAILS_MA_POTION_ID] = true,
+			[DETAILS_ISS_POTION_ID] = true,
+			[DETAILS_IRONSHIELD_POTION_ID] = true
+		}
 
 		_detalhes._detalhes_props = {
 			DATA_TYPE_START = 1,	--> Something on start

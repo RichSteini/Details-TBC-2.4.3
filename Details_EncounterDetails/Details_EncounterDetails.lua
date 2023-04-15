@@ -1789,7 +1789,7 @@ function EncounterDetails:OpenAndRefresh (_, segment)
 				add_damage_done:SetBackdropColor (.5, .0, .0, 0.5)
 
 				add_damage_done.textura = add_damage_done:CreateTexture (nil, "overlay")
-				add_damage_done.textura:SetTexture ("Interface\\Buttons\\UI-MicroStream-Red")
+				add_damage_done.textura:SetTexture ("Interface\\Addons\\Details\\images\\UI-MicroStream-Red")
 				add_damage_done.textura:SetWidth (16)
 				add_damage_done.textura:SetHeight (16)
 				add_damage_done.textura:SetPoint ("topleft", add_damage_done, "topleft")

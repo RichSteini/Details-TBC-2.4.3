@@ -682,7 +682,7 @@ local function CreatePluginFrames()
 
 	local delete_button = framework:NewButton(TimeLineFrame, _, "$parentDeleteButton", "DeleteButton", 100, 20, delete_button_func, nil, nil, nil, Loc["STRING_RESET"], 1, TimeLine:GetFramework():GetTemplate("button", "DETAILS_PLUGIN_BUTTON_TEMPLATE"))
 	delete_button:SetPoint("bottomright", TimeLineFrame, "bottomright", -10, CONST_MENU_Y_POS)
-	delete_button:SetIcon([[Interface\Buttons\UI-StopButton]], nil, nil, nil, {0, 1, 0, 1}, nil, nil, 2)
+	delete_button:SetIcon([[Interface\Addons\Details\images\UI-StopButton]], nil, nil, nil, {0, 1, 0, 1}, nil, nil, 2)
 
 	local options_button = framework:NewButton(TimeLineFrame, _, "$parentOptionsPanelButton", "OptionsPanelButton", 100, 20, TimeLine.OpenOptionsPanel, nil, nil, nil, Loc["STRING_OPTIONS"], 1, TimeLine:GetFramework():GetTemplate("button", "DETAILS_PLUGIN_BUTTON_TEMPLATE"))
 	options_button:SetPoint("right", delete_button, "left", 2, 0)

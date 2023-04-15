@@ -4818,7 +4818,7 @@ function DF:CreateKeybindBox (parent, name, data, callback, width, height, line_
 		f.Delete:SetPoint ("left", f, "left", 990, 0)
 
 		f.Copy:SetIcon ([[Interface\Buttons\UI-GuildButton-PublicNote-Up]], nil, nil, nil, nil, nil, nil, 4)
-		f.Delete:SetIcon ([[Interface\Buttons\UI-StopButton]], nil, nil, nil, nil, nil, nil, 4)
+		f.Delete:SetIcon ([[Interface\Addons\Details\images\UI-StopButton]], nil, nil, nil, nil, nil, nil, 4)
 
 		f.Copy.tooltip = "copy this keybind to other specs"
 		f.Delete.tooltip = "erase this keybind"

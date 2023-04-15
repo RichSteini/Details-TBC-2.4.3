@@ -3291,7 +3291,7 @@ function atributo_damage:ToolTip_Enemies (instancia, numero, barra, keydown)
 	_table_sort (tooltip_temp_table, _detalhes.Sort2)
 
 	-- enemy damage taken
-	_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_DAMAGE_TAKEN_FROM"], headerColor, i-1, [[Interface\Buttons\UI-MicroStream-Red]], 0.1875, 0.8125, 0.15625, 0.78125)
+	_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_DAMAGE_TAKEN_FROM"], headerColor, i-1, [[Interface\Addons\Details\images\UI-MicroStream-Red]], 0.1875, 0.8125, 0.15625, 0.78125)
 	GameCooltip:AddIcon ([[Interface\AddOns\Details\images\key_shift]], 1, 2, _detalhes.tooltip_key_size_width, _detalhes.tooltip_key_size_height, 0, 1, 0, 0.640625, _detalhes.tooltip_key_overlay2)
 
 	_detalhes:AddTooltipHeaderStatusbar (1, 1, 1, 0.5)
@@ -3417,7 +3417,7 @@ function atributo_damage:ToolTip_DamageTaken (instancia, numero, barra, keydown)
 	end
 
 	if (instancia.sub_atributo == 6) then
-		_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_DAMAGE_TAKEN_FROM"], headerColor, #meus_agressores, [[Interface\Buttons\UI-MicroStream-Red]], 0.1875, 0.8125, 0.15625, 0.78125)
+		_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_DAMAGE_TAKEN_FROM"], headerColor, #meus_agressores, [[Interface\Addons\Details\images\UI-MicroStream-Red]], 0.1875, 0.8125, 0.15625, 0.78125)
 	else
 		_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_FROM"], headerColor, #meus_agressores, [[Interface\Addons\Details\images\icons]], 0.126953125, 0.1796875, 0, 0.0546875)
 	end

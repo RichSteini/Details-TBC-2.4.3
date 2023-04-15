@@ -1861,7 +1861,7 @@ function window:CreateFrame20()
 		end
 		local edit_menu_bg = g:NewButton (frame20, nil, "$parentEditMenuBgButton", "EditMenuBgButton", window.buttons_width, 18, edit_menu_bg_func, nil, nil, nil, Loc ["STRING_OPTIONS_TOOLTIPS_MENU_WALLP"], nil, options_button_template)
 		--edit_menu_bg:InstallCustomTexture (nil, nil, nil, nil, nil, true)
-		edit_menu_bg:SetIcon ([[Interface\CHATFRAME\UI-ChatIcon-Maximize-Down]], 12, 12, nil, {6/32, 23/32, 10/32, 25/32}, nil, 4, 2)
+		edit_menu_bg:SetIcon ([[Interface\Addons\Details\images\UI-ChatIcon-Maximize-Down]], 12, 12, nil, {6/32, 23/32, 10/32, 25/32}, nil, 4, 2)
 		window:CreateLineBackground2 (frame20, "EditMenuBgButton", "EditMenuBgButton", Loc ["STRING_OPTIONS_TOOLTIPS_MENU_WALLP_DESC"], nil, {1, 0.8, 0}, button_color_rgb)
 
 	--> disable cooltip wallpaper on submenus
@@ -7736,11 +7736,11 @@ function window:CreateFrame6()
 				_detalhes:SendOptionsModifiedEvent (DetailsOptionsWindow.instance)
 			end
 			local strataTable = {
-				{value = "BACKGROUND", label = "Background", onclick = onStrataSelect, icon = [[Interface\Buttons\UI-MicroStream-Green]], iconcolor = {0, .5, 0, .8}, texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
-				{value = "LOW", label = "Low", onclick = onStrataSelect, icon = [[Interface\Buttons\UI-MicroStream-Green]] , texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
-				{value = "MEDIUM", label = "Medium", onclick = onStrataSelect, icon = [[Interface\Buttons\UI-MicroStream-Yellow]] , texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
-				{value = "HIGH", label = "High", onclick = onStrataSelect, icon = [[Interface\Buttons\UI-MicroStream-Yellow]] , iconcolor = {1, .7, 0, 1}, texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
-				{value = "DIALOG", label = "Dialog", onclick = onStrataSelect, icon = [[Interface\Buttons\UI-MicroStream-Red]] , iconcolor = {1, 0, 0, 1},  texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
+				{value = "BACKGROUND", label = "Background", onclick = onStrataSelect, icon = [[Interface\Addons\Details\images\UI-MicroStream-Green]], iconcolor = {0, .5, 0, .8}, texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
+				{value = "LOW", label = "Low", onclick = onStrataSelect, icon = [[Interface\Addons\Details\images\UI-MicroStream-Green]] , texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
+				{value = "MEDIUM", label = "Medium", onclick = onStrataSelect, icon = [[Interface\Addons\Details\images\UI-MicroStream-Yellow]] , texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
+				{value = "HIGH", label = "High", onclick = onStrataSelect, icon = [[Interface\Addons\Details\images\UI-MicroStream-Yellow]] , iconcolor = {1, .7, 0, 1}, texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
+				{value = "DIALOG", label = "Dialog", onclick = onStrataSelect, icon = [[Interface\Addons\Details\images\UI-MicroStream-Red]] , iconcolor = {1, 0, 0, 1},  texcoord = nil}, --Interface\Buttons\UI-MicroStream-Green UI-MicroStream-Red UI-MicroStream-Yellow
 			}
 			local buildStrataMenu = function() return strataTable end
 
