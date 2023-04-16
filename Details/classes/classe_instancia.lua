@@ -276,7 +276,9 @@ function _detalhes:GetSkin()
 end
 
 function _detalhes:GetSkinTexture()
-	return _detalhes.skins [self.skin] and _detalhes.skins [self.skin].file
+	local skinTexture = _detalhes.skins [self.skin] and _detalhes.skins [self.skin].file
+	-- yields the folder the skin is in
+	return string.gsub(skinTexture, ".blp", "") .. "\\"
 end
 
 ------------------------------------------------------------------------------------------------------------------------

@@ -45,9 +45,13 @@ SET crop_names[17]=pin_left
 SET crop_dims[17]=32x32+1+308
 SET crop_names[18]=pin_right
 SET crop_dims[18]=32x32+36+308
+SET crop_names[19]=damage_done
+SET crop_dims[19]=32x32+6+371
+SET crop_names[20]=healing_done
+SET crop_dims[20]=32x32+38+371
 
 setlocal enableDelayedExpansion
-SET len=18
+SET len=20
 for /l %%x in (0, 1, %len%) do (
     magick convert "%png_path%" -crop !crop_dims[%%x]! "png32:%complete_path%\!crop_names[%%x]!.png"
 )

@@ -39,6 +39,9 @@
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --> constants
 
+	local DAMAGE_SKIN_FILE_NAME = "damage_done"
+	local HEAL_SKIN_FILE_NAME = "healing_done"
+
 	local alvo_da_habilidade	= 	_detalhes.alvo_da_habilidade
 	local container_habilidades	= 	_detalhes.container_habilidades
 	local container_combatentes =	_detalhes.container_combatentes
@@ -3337,7 +3340,8 @@ function atributo_damage:ToolTip_Enemies (instancia, numero, barra, keydown)
 	GameCooltip:AddLine (" ")
 	GameCooltip:AddLine (Loc ["STRING_ATTRIBUTE_DAMAGE_ENEMIES_DONE"], FormatTooltipNumber (_, _math_floor (self.total)))
 	local half = 0.00048828125
-	GameCooltip:AddIcon (instancia:GetSkinTexture(), 1, 1, 14, 14, 0.005859375 + half, 0.025390625 - half, 0.3623046875, 0.3818359375)
+	--GameCooltip:AddIcon (instancia:GetSkinTexture(), 1, 1, 14, 14, 0.005859375 + half, 0.025390625 - half, 0.3623046875, 0.3818359375)
+	GameCooltip:AddIcon (instancia:GetSkinTexture() .. DAMAGE_SKIN_FILE_NAME, 1, 1, 14, 14, 0, 0.625, 0, 0.625)
 	GameCooltip:AddStatusBar (0, 1, r, g, b, 1, false, enemies_background)
 
 	local heal_actor = instancia.showing (2, self.nome)
@@ -3346,7 +3350,8 @@ function atributo_damage:ToolTip_Enemies (instancia, numero, barra, keydown)
 	else
 		GameCooltip:AddLine (Loc ["STRING_ATTRIBUTE_HEAL_ENEMY"], 0)
 	end
-	GameCooltip:AddIcon (instancia:GetSkinTexture(), 1, 1, 14, 14, 0.037109375 + half, 0.056640625 - half, 0.3623046875, 0.3818359375)
+	--GameCooltip:AddIcon (instancia:GetSkinTexture(), 1, 1, 14, 14, 0.037109375 + half, 0.056640625 - half, 0.3623046875, 0.3818359375)
+	GameCooltip:AddIcon (instancia:GetSkinTexture() .. HEAL_SKIN_FILE_NAME, 1, 1, 14, 14, 0, 0.625, 0, 0.625)
 	GameCooltip:AddStatusBar (0, 1, r, g, b, 1, false, enemies_background)
 
 	GameCooltip:AddLine (" ")
@@ -3503,7 +3508,8 @@ function atributo_damage:ToolTip_DamageTaken (instancia, numero, barra, keydown)
 		GameCooltip:AddLine (" ")
 		GameCooltip:AddLine (Loc ["STRING_ATTRIBUTE_DAMAGE_DONE"], FormatTooltipNumber (_, _math_floor (self.total)))
 		local half = 0.00048828125
-		GameCooltip:AddIcon (instancia:GetSkinTexture(), 1, 1, icon_size.W, icon_size.H, 0.005859375 + half, 0.025390625 - half, 0.3623046875, 0.3818359375)
+		--GameCooltip:AddIcon (instancia:GetSkinTexture(), 1, 1, icon_size.W, icon_size.H, 0.005859375 + half, 0.025390625 - half, 0.3623046875, 0.3818359375)
+		GameCooltip:AddIcon (instancia:GetSkinTexture() .. DAMAGE_SKIN_FILE_NAME, 1, 1, icon_size.W, icon_size.H, 0, 0.625, 0, 0.625)
 		_detalhes:AddTooltipBackgroundStatusbar()
 
 		local heal_actor = instancia.showing (2, self.nome)
@@ -3512,7 +3518,8 @@ function atributo_damage:ToolTip_DamageTaken (instancia, numero, barra, keydown)
 		else
 			GameCooltip:AddLine (Loc ["STRING_ATTRIBUTE_HEAL_DONE"], 0)
 		end
-		GameCooltip:AddIcon (instancia:GetSkinTexture(), 1, 1, icon_size.W, icon_size.H, 0.037109375 + half, 0.056640625 - half, 0.3623046875, 0.3818359375)
+		--GameCooltip:AddIcon (instancia:GetSkinTexture(), 1, 1, icon_size.W, icon_size.H, 0.037109375 + half, 0.056640625 - half, 0.3623046875, 0.3818359375)
+		GameCooltip:AddIcon (instancia:GetSkinTexture() .. HEAL_SKIN_FILE_NAME, 1, 1, icon_size.W, icon_size.H, 0, 0.625, 0, 0.625)
 		_detalhes:AddTooltipBackgroundStatusbar()
 
 	end
