@@ -9,6 +9,7 @@
 	<Include file="AceComm-3.0\AceComm-3.0.xml" />
 	<Include file="AceSerializer-3.0\AceSerializer-3.0.xml" />
 	<Include file="AceTimer-3.0\AceTimer-3.0.xml" />
+	<Include file="AceBucket-3.0\AceBucket-3.0.xml" />
 	<Include file="LibSharedMedia-3.0\lib.xml" />
 	<Include file="NickTag-1.0\NickTag-1.0.xml" />
 	<Script file="LibDataBroker-1.1\LibDataBroker-1.1.lua"/>
@@ -24,4 +25,5 @@
 	
 	<Include file="LibBossIDs-1.0\lib.xml"/>
 	<Include file="LibBabble-Boss-3.0\lib.xml" />
+	<Include file="Threat-2.0\lib.xml" />
 </Ui>

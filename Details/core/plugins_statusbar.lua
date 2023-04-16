@@ -4,6 +4,7 @@
 	local _detalhes = _G._detalhes
 	local Loc = LibStub ("AceLocale-3.0"):GetLocale ( "Details" )
 	local SharedMedia = LibStub:GetLibrary ("LibSharedMedia-3.0")
+	local ThreatLib = LibStub("Threat-2.0")
 
 	local DEFAULT_CHILD_WIDTH = 60
 	local DEFAULT_CHILD_HEIGHT = 16
@@ -1117,7 +1118,11 @@ do
 				local instance = child.instance
 				if (child.enabled and instance:IsEnabled()) then
 					-- atualiza a threat
-					local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("player", "target")
+					--local isTanking, status, threatpct, rawthreatpct, threatvalue = _UnitDetailedThreatSituation ("player", "target")
+					local targetGUID = UnitGUID("target")
+					local maxThreat = ThreatLib:GetMaxThreatOnTarget(targetGUID)
+					local threat = ThreatLib:GetThreat(UnitGUID("player"), targetGUID)
+					local threatpct = threat/maxThreat*100
 					if (threatpct) then
 						child.text:SetText (_math_floor (threatpct).."%")
 --						if (Threat.isTank) then
