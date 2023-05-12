@@ -768,7 +768,7 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 							dlabel.icon.texcoord = _detalhes.class_coords [class]
 
 						else
-							dlabel.icon.texture = [[Interface\LFGFRAME\LFGROLE_BW]]
+							dlabel.icon.texture = [[Interface\AddOns\Details\images\LFGROLE_BW]]
 							dlabel.icon:SetTexCoord (.25, .5, 0, 1)
 						end
 
@@ -798,7 +798,7 @@ _detalhes.EncounterDetailsTempWindow = function (EncounterDetails)
 							hlabel.icon:SetTexture ([[Interface\AddOns\Details\images\classes_small_alpha]])
 							hlabel.icon:SetTexCoord (unpack (_detalhes.class_coords [classe]))
 						else
-							hlabel.icon:SetTexture ([[Interface\LFGFRAME\LFGROLE_BW]])
+							hlabel.icon:SetTexture ([[Interface\AddOns\Details\images\LFGROLE_BW]])
 							hlabel.icon:SetTexCoord (.25, .5, 0, 1)
 						end
 
@@ -2653,7 +2653,7 @@ end
 		local options = DetailsFrameWork:NewButton (frame, nil, "$parentOptionsButton", "OptionsButton", 120, 20, EncounterDetails.OpenOptionsPanel, nil, nil, nil, "Options")
 		options:SetPoint ("left", segmentos, "right", 10, 0)
 		options:SetTemplate (DetailsFrameWork:GetTemplate ("button", "DETAILS_PLUGIN_BUTTON_TEMPLATE"))
-		options:SetIcon ([[Interface\Buttons\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
+		options:SetIcon ([[Interface\AddOns\Details\images\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
 
 	--> macro box
 		BossFrame.MacroEditBox = DetailsFrameWork:CreateTextEntry (frame, function()end, 300, 20)

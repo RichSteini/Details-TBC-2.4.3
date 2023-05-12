@@ -1075,7 +1075,7 @@ function atributo_misc:ToolTipCC (instancia, numero, barra)
 			if (classe) then
 				GameCooltip:AddIcon ([[Interface\AddOns\Details\images\classes_small]], nil, 2, lineHeight, lineHeight, unpack (_detalhes.class_coords [classe]))
 			else
-				GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, 2, lineHeight, lineHeight, .25, .5, 0, 1)
+				GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, 2, lineHeight, lineHeight, .25, .5, 0, 1)
 			end
 
 			_detalhes:AddTooltipBackgroundStatusbar()
@@ -1170,7 +1170,7 @@ function atributo_misc:ToolTipDispell (instancia, numero, barra, keydown)
 				classe = "UNKNOW"
 			end
 			if (classe == "UNKNOW") then
-				GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, 14, 14, .25, .5, 0, 1)
+				GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, 14, 14, .25, .5, 0, 1)
 			else
 				GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\classes_small", nil, nil, 14, 14, _unpack (_detalhes.class_coords [classe]))
 			end
@@ -1754,7 +1754,7 @@ function atributo_misc:ToolTipDefensiveCooldowns (instancia, numero, barra)
 					classe = "UNKNOW"
 				end
 				if (classe == "UNKNOW") then
-					GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, 14, 14, .25, .5, 0, 1)
+					GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, 14, 14, .25, .5, 0, 1)
 				else
 					local specID = _detalhes:GetSpec (alvos[i][1])
 					if (specID) then
@@ -1834,7 +1834,7 @@ function atributo_misc:ToolTipRess (instancia, numero, barra)
 					classe = "UNKNOW"
 				end
 				if (classe == "UNKNOW") then
-					GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
+					GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
 				else
 					local specID = _detalhes:GetSpec (alvos[i][1])
 					if (specID) then

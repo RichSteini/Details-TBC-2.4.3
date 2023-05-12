@@ -681,24 +681,24 @@ function atributo_custom:RefreshBarra(esta_barra, instancia, from_resize)
 
 	--> we need a customized icon settings for custom displays.
 	if self.classe == "UNKNOW" then
-		esta_barra.icone_classe:SetTexture("Interface\\LFGFRAME\\LFGROLE_BW")
+		esta_barra.icone_classe:SetTexture("Interface\\AddOns\\Details\\images\\LFGROLE_BW")
 		esta_barra.icone_classe:SetTexCoord(.25, .5, 0, 1)
 		esta_barra.icone_classe:SetVertexColor(1, 1, 1)
 	elseif self.classe == "UNGROUPPLAYER" then
 		if self.enemy then
 			if _detalhes.faction_against == "Horde" then
-				esta_barra.icone_classe:SetTexture("Interface\\ICONS\\Achievement_Character_Orc_Male")
+				esta_barra.icone_classe:SetTexture("Interface\\AddOns\\Details\\images\\Achievement_Character_Orc_Male")
 				esta_barra.icone_classe:SetTexCoord(0, 1, 0, 1)
 			else
-				esta_barra.icone_classe:SetTexture("Interface\\ICONS\\Achievement_Character_Human_Male")
+				esta_barra.icone_classe:SetTexture("Interface\\AddOns\\Details\\images\\Achievement_Character_Human_Male")
 				esta_barra.icone_classe:SetTexCoord(0, 1, 0, 1)
 			end
 		else
 			if _detalhes.faction_against == "Horde" then
-				esta_barra.icone_classe:SetTexture("Interface\\ICONS\\Achievement_Character_Human_Male")
+				esta_barra.icone_classe:SetTexture("Interface\\AddOns\\Details\\images\\Achievement_Character_Human_Male")
 				esta_barra.icone_classe:SetTexCoord(0, 1, 0, 1)
 			else
-				esta_barra.icone_classe:SetTexture("Interface\\ICONS\\Achievement_Character_Orc_Male")
+				esta_barra.icone_classe:SetTexture("Interface\\AddOns\\Details\\images\\Achievement_Character_Orc_Male")
 				esta_barra.icone_classe:SetTexCoord(0, 1, 0, 1)
 			end
 		end
@@ -1599,7 +1599,7 @@ function _detalhes:AddDefaultCustomDisplays()
 				local texture, l, r, t, b = _detalhes:GetClassIcon(class)
 				GameCooltip:AddIcon("Interface\\AddOns\\Details\\images\\classes_small_alpha", 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height, l, r, t, b)
 				else
-				GameCooltip:AddIcon("Interface\\GossipFrame\\IncompleteQuestIcon", 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
+				GameCooltip:AddIcon("Interface\\AddOns\\Details\\images\\IncompleteQuestIcon", 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
 				end
 				--
 			end
@@ -1733,7 +1733,7 @@ function _detalhes:AddDefaultCustomDisplays()
 				local texture, l, r, t, b = _detalhes:GetClassIcon(class)
 				GameCooltip:AddIcon("Interface\\AddOns\\Details\\images\\classes_small_alpha", 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height, l, r, t, b)
 				else
-				GameCooltip:AddIcon("Interface\\GossipFrame\\IncompleteQuestIcon", 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
+				GameCooltip:AddIcon("Interface\\AddOns\\Details\\images\\IncompleteQuestIcon", 1, 1, _detalhes.tooltip.line_height, _detalhes.tooltip.line_height)
 				end
 
 			end

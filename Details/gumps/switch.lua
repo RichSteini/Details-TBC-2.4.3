@@ -809,10 +809,10 @@ function _detalhes.switch:ShowMe (instancia)
 					block.texture:SetTexture (Texture)
 					block.texture:SetTexCoord (L, R, T, B)
 				else
-					block.texture:SetTexture ([[Interface\Scenarios\ScenarioIcon-Boss]])
+					block.texture:SetTexture ([[Interface\AddOns\Details\images\ScenarioIcon-Boss]])
 				end
 			else
-				block.texture:SetTexture ([[Interface\Scenarios\ScenarioIcon-Boss]])
+				block.texture:SetTexture ([[Interface\AddOns\Details\images\ScenarioIcon-Boss]])
 			end
 
 			block:ShowMe()

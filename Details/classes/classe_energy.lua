@@ -823,7 +823,7 @@ function atributo_energy:ToolTipRegenRecebido (instancia, numero, barra, keydown
 			classe = "UNKNOW"
 		end
 		if (classe == "UNKNOW") then
-			GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, icon_size.W, icon_size.H, .25, .5, 0, 1)
+			GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, icon_size.W, icon_size.H, .25, .5, 0, 1)
 		else
 			GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\classes_small", nil, nil, icon_size.W, icon_size.H, _unpack (_detalhes.class_coords [classe]))
 		end

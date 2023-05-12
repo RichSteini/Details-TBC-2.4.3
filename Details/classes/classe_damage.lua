@@ -1057,7 +1057,7 @@
 					end
 
 					if (classe == "UNKNOW") then
-						GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
+						GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
 					else
 
 						local specID = _detalhes:GetSpec (t[1])
@@ -1468,7 +1468,7 @@
 					GameCooltip:AddIcon ([[Interface\AddOns\Details\images\classes_small_alpha]], nil, nil, lineHeight, lineHeight, unpack (_detalhes.class_coords [classe]))
 				end
 			else
-				GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
+				GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
 			end
 
 			local _, _, _, _, _, r, g, b = _detalhes:GetClass (t[1])
@@ -2689,7 +2689,7 @@ local InBarIconPadding = 6
 		if (arena_enemy) then
 			if (_detalhes.show_arena_role_icon) then
 				--> show arena role icon
-				local leftText = bar_number .. "|TInterface\\LFGFRAME\\UI-LFG-ICON-ROLES:" .. (instance.row_info.height - InBarIconPadding)..":"..(instance.row_info.height - InBarIconPadding) .. ":0:0:256:256:" .. _detalhes.role_texcoord [self.role or "NONE"] .. "|t " .. self.displayName
+				local leftText = bar_number .. "|TInterface\\AddOns\\Details\\images\\UI-LFG-ICON-ROLES:" .. (instance.row_info.height - InBarIconPadding)..":"..(instance.row_info.height - InBarIconPadding) .. ":0:0:256:256:" .. _detalhes.role_texcoord [self.role or "NONE"] .. "|t " .. self.displayName
 				if (UsingCustomLeftText) then
 					bar.texto_esquerdo:SetText (_string_replace (instance.row_info.textL_custom_text, bar.colocacao, self.displayName, "|TInterface\\LFGFRAME\\UI-LFG-ICON-ROLES:" .. (instance.row_info.height - InBarIconPadding)..":"..(instance.row_info.height - InBarIconPadding) .. ":0:0:256:256:" .. _detalhes.role_texcoord [self.role or "NONE"] .. "|t ", self, instance.showing, instance, leftText))
 				else
@@ -2723,7 +2723,7 @@ local InBarIconPadding = 6
 		end
 	else
 		if (arena_ally and _detalhes.show_arena_role_icon) then
-			local leftText = bar_number .. "|TInterface\\LFGFRAME\\UI-LFG-ICON-ROLES:" .. (instance.row_info.height - InBarIconPadding)..":"..(instance.row_info.height - InBarIconPadding) .. ":0:0:256:256:" .. _detalhes.role_texcoord [self.role or "NONE"] .. "|t " .. self.displayName
+			local leftText = bar_number .. "|TInterface\\AddOns\\Details\\images\\UI-LFG-ICON-ROLES:" .. (instance.row_info.height - InBarIconPadding)..":"..(instance.row_info.height - InBarIconPadding) .. ":0:0:256:256:" .. _detalhes.role_texcoord [self.role or "NONE"] .. "|t " .. self.displayName
 			if (UsingCustomLeftText) then
 				bar.texto_esquerdo:SetText (_string_replace (instance.row_info.textL_custom_text, bar.colocacao, self.displayName, "|TInterface\\LFGFRAME\\UI-LFG-ICON-ROLES:" .. (instance.row_info.height - InBarIconPadding)..":"..(instance.row_info.height - InBarIconPadding) .. ":0:0:256:256:" .. _detalhes.role_texcoord [self.role or "NONE"] .. "|t ", self, instance.showing, instance, leftText))
 			else
@@ -2783,21 +2783,21 @@ end
 	elseif (classe == "UNGROUPPLAYER") then
 		if (self.enemy) then
 			if (_detalhes.faction_against == "Horde") then
-				texture:SetTexture ("Interface\\ICONS\\Achievement_Character_Troll_Male")
+				texture:SetTexture ("Interface\\AddOns\\Details\\images\\Achievement_Character_Troll_Male")
 				--texture:SetTexture ("Interface\\ICONS\\PVPCurrency-Honor-Horde.blp")
 				texture:SetTexCoord (0.05, 0.95, 0.05, 0.95)
 			else
-				texture:SetTexture ("Interface\\ICONS\\Achievement_Character_Nightelf_Female")
+				texture:SetTexture ("Interface\\AddOns\\Details\\images\\Achievement_Character_Nightelf_Female")
 				--texture:SetTexture ("Interface\\ICONS\\PVPCurrency-Honor-Alliance.blp")
 				texture:SetTexCoord (0.05, 0.95, 0.05, 0.95)
 			end
 		else
 			if (_detalhes.faction_against == "Horde") then
-				texture:SetTexture ("Interface\\ICONS\\Achievement_Character_Nightelf_Female")
+				texture:SetTexture ("Interface\\AddOns\\Details\\images\\Achievement_Character_Nightelf_Female")
 				--texture:SetTexture ("Interface\\ICONS\\PVPCurrency-Honor-Alliance.blp")
 				texture:SetTexCoord (0.05, 0.95, 0.05, 0.95)
 			else
-				texture:SetTexture ("Interface\\ICONS\\Achievement_Character_Troll_Male")
+				texture:SetTexture ("Interface\\AddOns\\Details\\images\\Achievement_Character_Troll_Male")
 				--texture:SetTexture ("Interface\\ICONS\\PVPCurrency-Honor-Horde.blp")
 				texture:SetTexCoord (0.05, 0.95, 0.05, 0.95)
 			end
@@ -3031,7 +3031,7 @@ function atributo_damage:ToolTip_DamageDone (instancia, numero, barra, keydown)
 				for i = 1, _math_min (max_targets, #ActorTargetsSortTable) do
 					local este_inimigo = ActorTargetsSortTable [i]
 					GameCooltip:AddLine (este_inimigo[1], FormatTooltipNumber (_, este_inimigo[2]) .." (".._cstr("%.1f", este_inimigo[2]/ActorDamageWithPet*100).."%)")
-					GameCooltip:AddIcon ([[Interface\PetBattles\PetBattle-StatIcons]], nil, nil, icon_size.W, icon_size.H, 0, 0.5, 0, 0.5, {.7, .7, .7, 1}, nil, true)
+					GameCooltip:AddIcon ([[Interface\AddOns\Details\images\PetBattle-StatIcons]], nil, nil, icon_size.W, icon_size.H, 0, 0.5, 0, 0.5, {.7, .7, .7, 1}, nil, true)
 					_detalhes:AddTooltipBackgroundStatusbar (false, este_inimigo[2] / topEnemy * 100)
 				end
 			end
@@ -3103,7 +3103,7 @@ function atributo_damage:ToolTip_DamageDone (instancia, numero, barra, keydown)
 				if (not added_logo) then
 					added_logo = true
 
-					_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_PETS"], headerColor, #totais, [[Interface\COMMON\friendship-heart]], 0.21875, 0.78125, 0.09375, 0.6875)
+					_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_PETS"], headerColor, #totais, [[Interface\AddOns\Details\images\friendship-heart]], 0.21875, 0.78125, 0.09375, 0.6875)
 
 					if (ismaximized) then
 						GameCooltip:AddIcon ([[Interface\AddOns\Details\images\key_alt]], 1, 2, _detalhes.tooltip_key_size_width, _detalhes.tooltip_key_size_height, 0, 1, 0, 0.640625, _detalhes.tooltip_key_overlay2)
@@ -3140,7 +3140,7 @@ function atributo_damage:ToolTip_DamageDone (instancia, numero, barra, keydown)
 
 				--_detalhes:AddTooltipSpellHeaderText ("Phases", headerColor, 1, [[Interface\Garrison\MobileAppIcons]], 2*130/1024, 3*130/1024, 5*130/1024, 6*130/1024)
 				--_detalhes:AddTooltipSpellHeaderText ("Phases", headerColor, 1, [[Interface\Garrison\orderhall-missions-mechanic10]], 0, 1, 0, 1)
-				_detalhes:AddTooltipSpellHeaderText ("Damage by Encounter Phase", headerColor, 1, [[Interface\Garrison\orderhall-missions-mechanic8]], 11/64, 53/64, 11/64, 53/64) --localize-me
+				_detalhes:AddTooltipSpellHeaderText ("Damage by Encounter Phase", headerColor, 1, [[Interface\AddOns\Details\images\orderhall-missions-mechanic8]], 11/64, 53/64, 11/64, 53/64) --localize-me
 				--GameCooltip:AddIcon ([[Interface\AddOns\Details\images\key_shift]], 1, 2, _detalhes.tooltip_key_size_width, _detalhes.tooltip_key_size_height, 0, 1, 0, 0.640625, _detalhes.tooltip_key_overlay1)
 				_detalhes:AddTooltipHeaderStatusbar (r, g, b, barAlha)
 
@@ -3172,7 +3172,7 @@ function atributo_damage:ToolTip_DamageDone (instancia, numero, barra, keydown)
 				for i = 1, #playerPhases do
 					--[1] Phase Number [2] Amount Done [3] Rank [4] Percent
 					GameCooltip:AddLine ("|cFFF0F0F0Phase|r " .. playerPhases [i][1], FormatTooltipNumber (_, playerPhases [i][2]) .. " (|cFFFFFF00#" .. playerPhases [i][3] ..  "|r, " .. _cstr ("%.1f", playerPhases [i][4]) .. "%)")
-					GameCooltip:AddIcon ([[Interface\Garrison\orderhall-missions-mechanic9]], 1, 1, 14, 14, 11/64, 53/64, 11/64, 53/64)
+					GameCooltip:AddIcon ([[Interface\AddOns\Details\images\orderhall-missions-mechanic9]], 1, 1, 14, 14, 11/64, 53/64, 11/64, 53/64)
 					_detalhes:AddTooltipBackgroundStatusbar()
 				end
 			end
@@ -3318,7 +3318,7 @@ function atributo_damage:ToolTip_Enemies (instancia, numero, barra, keydown)
 			classe = "UNKNOW"
 		end
 		if (classe == "UNKNOW") then
-			GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
+			GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
 		else
 			local specID = player.spec
 			if (specID) then
@@ -3495,7 +3495,7 @@ function atributo_damage:ToolTip_DamageTaken (instancia, numero, barra, keydown)
 			end
 
 			if (classe == "UNKNOW") then
-				GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, icon_size.W, icon_size.H, .25, .5, 0, 1)
+				GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, icon_size.W, icon_size.H, .25, .5, 0, 1)
 			else
 				GameCooltip:AddIcon (instancia.row_info.icon_file, nil, nil, icon_size.W, icon_size.H, _unpack (_detalhes.class_coords [classe]))
 			end
@@ -5484,7 +5484,7 @@ end
 				classe = "UNKNOW"
 			end
 			if (classe == "UNKNOW") then
-				GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", 2, nil, 14, 14, .25, .5, 0, 1)
+				GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", 2, nil, 14, 14, .25, .5, 0, 1)
 			else
 				GameCooltip:AddIcon (instancia.row_info.icon_file, 2, nil, 14, 14, _unpack (_detalhes.class_coords [classe]))
 			end

@@ -165,7 +165,7 @@ function DF:CreateCoolTip()
 
 			self:SetSize (500, 500)
 			self:SetPoint ("CENTER", UIParent, "CENTER")
-			self:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], tile = true, edgeSize = 1, tileSize = 16, insets = {left = 0, right = 0, top = 0, bottom = 0}})
+			self:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], tile = true, edgeSize = 1, tileSize = 16, insets = {left = 0, right = 0, top = 0, bottom = 0}})
 			self:SetBackdropColor (0.09019, 0.09019, 0.18823, 1)
 			self:SetBackdropBorderColor (0, 0, 0, 1)
 
@@ -249,7 +249,7 @@ function DF:CreateCoolTip()
 
 			if (not self.titleIcon) then
 				self.titleIcon = self:CreateTexture ("$parent_TitleIcon", "OVERLAY")
-				self.titleIcon:SetTexture ("Interface\\Challenges\\challenges-main")
+				self.titleIcon:SetTexture ("Interface\\AddOns\\Details\\images\\challenges-main")
 				self.titleIcon:SetTexCoord (0.1521484375, 0.563671875, 0.160859375, 0.234375)
 				self.titleIcon:SetPoint ("CENTER", self, "CENTER")
 				self.titleIcon:SetPoint ("BOTTOM", self, "TOP", 0, -22)
@@ -518,7 +518,7 @@ function DF:CreateCoolTip()
 
 			statusbar.spark = statusbar:CreateTexture ("$parent_Spark", "BACKGROUND")
 			statusbar.spark:Hide()
-			statusbar.spark:SetTexture ("Interface\\CastingBar\\UI-CastingBar-Spark")
+			statusbar.spark:SetTexture ("Interface\\AddOns\\Details\\images\\UI-CastingBar-Spark")
 			statusbar.spark:SetBlendMode ("ADD")
 			statusbar.spark:SetSize (12, 24)
 			statusbar.spark:SetPoint ("LEFT", statusbar, "RIGHT", -20, -1)
@@ -545,7 +545,7 @@ function DF:CreateCoolTip()
 			statusbar.spark2:SetSize (32, 32)
 			statusbar.spark2:SetPoint ("LEFT", statusbar, "RIGHT", -17, -1)
 			statusbar.spark2:SetBlendMode ("ADD")
-			statusbar.spark2:SetTexture ("Interface\\CastingBar\\UI-CastingBar-Spark")
+			statusbar.spark2:SetTexture ("Interface\\AddOns\\Details\\images\\UI-CastingBar-Spark")
 			statusbar.spark2:Hide()
 
 			statusbar.subMenuArrow = statusbar:CreateTexture ("$parent_SubMenuArrow", "OVERLAY")
@@ -1184,7 +1184,7 @@ function DF:CreateCoolTip()
 
 				if (StatusBar [7]) then
 					menuButton.statusbar2:SetValue (StatusBar[7].value)
-					menuButton.statusbar2.texture:SetTexture (StatusBar[7].texture or [[Interface\RaidFrame\Raid-Bar-Hp-Fill]])
+					menuButton.statusbar2.texture:SetTexture (StatusBar[7].texture or [[Interface\AddOns\Details\images\Raid-Bar-Hp-Fill]])
 					if (StatusBar[7].specialSpark) then
 						menuButton.spark2:Show()
 					end
@@ -1706,7 +1706,7 @@ function DF:CreateCoolTip()
 	function CoolTip:CreateDivBar (button)
 		button.divbar = button:CreateTexture (nil, "overlay")
 
-		button.divbar:SetTexture ([[Interface\QUESTFRAME\AutoQuest-Parts]])
+		button.divbar:SetTexture ([[Interface\AddOns\Details\images\AutoQuest-Parts]])
 		button.divbar:SetTexCoord (238/512, 445/512, 0/64, 4/64)
 
 		button.divbar:SetHeight (3)
@@ -2241,7 +2241,7 @@ function DF:CreateCoolTip()
 ----------------------------------------------------------------------
 	--> Reset cooltip
 
-	local default_backdrop = {bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], tile = true,
+	local default_backdrop = {bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], tile = true,
 	edgeSize = 1, tileSize = 16, insets = {left = 0, right = 0, top = 0, bottom = 0}}
 	local default_backdrop_color = {0.09019, 0.09019, 0.18823, 1}
 	local default_backdropborder_color = {1, 1, 1, 1}

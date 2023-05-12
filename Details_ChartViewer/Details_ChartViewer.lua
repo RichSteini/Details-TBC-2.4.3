@@ -53,7 +53,7 @@ local function CreatePluginFrames (data)
 			if (not ChartViewerWindowFrame.OptionsButton) then
 				local options = ChartViewer:GetFramework():NewButton (ChartViewerWindowFrame, nil, "$parentOptionsButton", "OptionsButton", 120, 20, ChartViewer.OpenOptionsPanel, nil, nil, nil, "Options")
 				options:SetTextColor (1, 0.93, 0.74)
-				options:SetIcon ([[Interface\Buttons\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
+				options:SetIcon ([[Interface\AddOns\Details\images\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
 				options:SetPoint ("left", ChartViewer.NewTabButton, "right", 4, 0)
 				options:SetTemplate (ChartViewer:GetFramework():GetTemplate ("button", "DETAILS_PLUGIN_BUTTON_TEMPLATE"))
 				options:SetFrameLevel (10)

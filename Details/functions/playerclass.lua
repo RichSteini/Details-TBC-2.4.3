@@ -78,7 +78,7 @@ do
 		end
 
 		if c == "UNKNOW" then
-			return [[Interface\LFGFRAME\LFGROLE_BW]], 0.25, 0.5, 0, 1
+			return [[Interface\AddOns\Details\images\LFGROLE_BW]], 0.25, 0.5, 0, 1
 		elseif c == "UNGROUPPLAYER" then
 			return [[Interface\ICONS\Achievement_Character_Orc_Male]], 0, 1, 0, 1
 		elseif c == "PET" then

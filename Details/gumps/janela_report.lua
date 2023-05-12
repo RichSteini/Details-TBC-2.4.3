@@ -307,13 +307,13 @@ General/Trade: 255 189 192
 
 
 local icons_and_colors = {
-	["PARTY"] = {icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.53125, 0.7265625, 0.078125, 0.40625}, color = {0.66, 0.65, 1}},
-	["RAID"] = {icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.53125, 0.7265625, 0.078125, 0.40625}, color = {1, 0.49, 0}},
-	["GUILD"] = {icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.8046875, 0.96875, 0.125, 0.390625}, color = {0.25, 0.98, 0.25}},
-	["OFFICER"] = {label = Loc ["STRING_REPORTFRAME_OFFICERS"], icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.8046875, 0.96875, 0.125, 0.390625}, color = {0.25, 0.74, 0.25}},
-	["WHISPER"] = {icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.0546875, 0.1953125, 0.625, 0.890625}, color = {1, 0.49, 1}},
-	["SAY"] = {icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.0390625, 0.203125, 0.09375, 0.375}, color = {1, 1, 1}},
-	["COPY"] = {icon = [[Interface\Buttons\UI-GuildButton-PublicNote-Disabled]], coords = {0, 1, 0, 1}, color = {1, 1, 1}},
+	["PARTY"] = {icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.53125, 0.7265625, 0.078125, 0.40625}, color = {0.66, 0.65, 1}},
+	["RAID"] = {icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.53125, 0.7265625, 0.078125, 0.40625}, color = {1, 0.49, 0}},
+	["GUILD"] = {icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.8046875, 0.96875, 0.125, 0.390625}, color = {0.25, 0.98, 0.25}},
+	["OFFICER"] = {label = Loc ["STRING_REPORTFRAME_OFFICERS"], icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.8046875, 0.96875, 0.125, 0.390625}, color = {0.25, 0.74, 0.25}},
+	["WHISPER"] = {icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.0546875, 0.1953125, 0.625, 0.890625}, color = {1, 0.49, 1}},
+	["SAY"] = {icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.0390625, 0.203125, 0.09375, 0.375}, color = {1, 1, 1}},
+	["COPY"] = {icon = [[Interface\AddOns\Details\images\UI-GuildButton-PublicNote-Disabled]], coords = {0, 1, 0, 1}, color = {1, 1, 1}},
 }
 function _detalhes.GetReportIconAndColor (report_where)
 	local key = report_where:gsub ((".*|"), "")
@@ -325,14 +325,14 @@ local function cria_drop_down (este_gump)
 	local iconsize = {16, 16}
 
 	local lista = {
-		{Loc ["STRING_REPORTFRAME_PARTY"], "PARTY", function() return GetNumSubgroupMembers() > 0 end, {iconsize = iconsize, icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.53125, 0.7265625, 0.078125, 0.40625}, color = {0.66, 0.65, 1}}},
-		{Loc ["STRING_REPORTFRAME_RAID"], "RAID", _IsInRaid, {iconsize = iconsize, icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.53125, 0.7265625, 0.078125, 0.40625}, color = {1, 0.49, 0}}},
-		{Loc ["STRING_REPORTFRAME_GUILD"], "GUILD", _IsInGuild, {iconsize = iconsize, icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.8046875, 0.96875, 0.125, 0.390625}, color = {0.25, 0.98, 0.25}}},
-		{Loc ["STRING_REPORTFRAME_OFFICERS"], "OFFICER", _IsInGuild, {iconsize = iconsize, icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.8046875, 0.96875, 0.125, 0.390625}, color = {0.25, 0.74, 0.25}}},
-		{Loc ["STRING_REPORTFRAME_WHISPER"], "WHISPER", nil, {iconsize = iconsize, icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.0546875, 0.1953125, 0.625, 0.890625}, color = {1, 0.49, 1}}},
-		{Loc ["STRING_REPORTFRAME_WHISPERTARGET"], "WHISPER2", nil, {iconsize = iconsize, icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.0546875, 0.1953125, 0.625, 0.890625}, color = {1, 0.49, 1}}},
-		{Loc ["STRING_REPORTFRAME_SAY"], "SAY", IsInInstance, {iconsize = iconsize, icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], coords = {0.0390625, 0.203125, 0.09375, 0.375}, color = {1, 1, 1}}},
-		{Loc ["STRING_REPORTFRAME_COPY"], "COPY", nil, {iconsize = iconsize, icon = [[Interface\Buttons\UI-GuildButton-PublicNote-Disabled]], coords = {0, 1, 0, 1}, color = {1, 1, 1}}},
+		{Loc ["STRING_REPORTFRAME_PARTY"], "PARTY", function() return GetNumSubgroupMembers() > 0 end, {iconsize = iconsize, icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.53125, 0.7265625, 0.078125, 0.40625}, color = {0.66, 0.65, 1}}},
+		{Loc ["STRING_REPORTFRAME_RAID"], "RAID", _IsInRaid, {iconsize = iconsize, icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.53125, 0.7265625, 0.078125, 0.40625}, color = {1, 0.49, 0}}},
+		{Loc ["STRING_REPORTFRAME_GUILD"], "GUILD", _IsInGuild, {iconsize = iconsize, icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.8046875, 0.96875, 0.125, 0.390625}, color = {0.25, 0.98, 0.25}}},
+		{Loc ["STRING_REPORTFRAME_OFFICERS"], "OFFICER", _IsInGuild, {iconsize = iconsize, icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.8046875, 0.96875, 0.125, 0.390625}, color = {0.25, 0.74, 0.25}}},
+		{Loc ["STRING_REPORTFRAME_WHISPER"], "WHISPER", nil, {iconsize = iconsize, icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.0546875, 0.1953125, 0.625, 0.890625}, color = {1, 0.49, 1}}},
+		{Loc ["STRING_REPORTFRAME_WHISPERTARGET"], "WHISPER2", nil, {iconsize = iconsize, icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.0546875, 0.1953125, 0.625, 0.890625}, color = {1, 0.49, 1}}},
+		{Loc ["STRING_REPORTFRAME_SAY"], "SAY", IsInInstance, {iconsize = iconsize, icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], coords = {0.0390625, 0.203125, 0.09375, 0.375}, color = {1, 1, 1}}},
+		{Loc ["STRING_REPORTFRAME_COPY"], "COPY", nil, {iconsize = iconsize, icon = [[Interface\AddOns\Details\images\UI-GuildButton-PublicNote-Disabled]], coords = {0, 1, 0, 1}, color = {1, 1, 1}}},
 	}
 
 		local on_click = function (self, fixedParam, selectedOutput)
@@ -350,7 +350,7 @@ local function cria_drop_down (este_gump)
 
 			local channels = {_GetChannelList()} --> coloca o resultado em uma tabela .. {id1, canal1, id2, canal2}
 			for i = 1, #channels, 2 do --> total de canais
-				output_array [#output_array + 1] = {iconsize = iconsize, value = "CHANNEL|"..channels [i], label = channels [i]..". "..channels [i+1], onclick = on_click, icon = [[Interface\FriendsFrame\UI-Toast-ToastIcons]], texcoord = {0.3046875, 0.4453125, 0.109375, 0.390625}, iconcolor = {149/255, 112/255, 112/255}}
+				output_array [#output_array + 1] = {iconsize = iconsize, value = "CHANNEL|"..channels [i], label = channels [i]..". "..channels [i+1], onclick = on_click, icon = [[Interface\AddOns\Details\images\UI-Toast-ToastIcons]], texcoord = {0.3046875, 0.4453125, 0.109375, 0.390625}, iconcolor = {149/255, 112/255, 112/255}}
 			end
 
 			local bnet_friends = {}
@@ -360,7 +360,7 @@ local function cria_drop_down (este_gump)
 				local name, level, class, area, connected, status, note, RAF = GetFriendInfo(i)
 
 				if (connected) and (name) then
-					output_array [#output_array + 1] = {iconsize = iconsize, value = "REALID|" .. name, label = name, onclick = on_click, icon = [[Interface\FriendsFrame\Battlenet-Battleneticon]], texcoord = {0.125, 0.875, 0.125, 0.875}, iconcolor = {1, 1, 1}}
+					output_array [#output_array + 1] = {iconsize = iconsize, value = "REALID|" .. name, label = name, onclick = on_click, icon = [[Interface\AddOns\Details\images\Battlenet-Battleneticon]], texcoord = {0.125, 0.875, 0.125, 0.875}, iconcolor = {1, 1, 1}}
 				end
 			end
 
@@ -649,7 +649,7 @@ local function cria_drop_down (este_gump)
 		window.dropdown:ClearAllPoints()
 		window.dropdown:SetWidth (155)
 		window.dropdown:SetPoint ("TOPLEFT", window, "TOPLEFT", anchorX, -30)
-		window.dropdown:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
+		window.dropdown:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
 		tileSize = 64, insets = {left = 0, right = 0, top = 0, bottom = 0}})
 		window.dropdown:SetBackdropBorderColor (0, 0, 0, 0.5)
 		window.dropdown:SetBackdropColor (0, 0, 0, 0.1)
@@ -660,7 +660,7 @@ local function cria_drop_down (este_gump)
 		window.editbox:SetPoint ("TOPLEFT", window.wisp_who, "BOTTOMLEFT", 0, -3)
 		window.editbox:SetWidth (155)
 		window.editbox:SetHeight (20)
-		window.editbox:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
+		window.editbox:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
 		tileSize = 64, insets = {left = 0, right = 0, top = 0, bottom = 0}})
 		window.editbox:SetBackdropBorderColor (0, 0, 0, 0.5)
 		window.editbox:SetBackdropColor (0, 0, 0, 0.3)
@@ -670,7 +670,7 @@ local function cria_drop_down (este_gump)
 		window.slider:ClearAllPoints()
 		window.slider:SetWidth (155)
 		window.slider:SetPoint ("TOPLEFT", window.linhas_amt, "BOTTOMLEFT", 0, -3)
-		window.slider:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
+		window.slider:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
 		tileSize = 64, insets = {left = 0, right = 0, top = 0, bottom = 0}})
 		window.slider:SetBackdropBorderColor (0, 0, 0, 0.5)
 		window.slider:SetBackdropColor (0, 0, 0, 0.3)
@@ -684,7 +684,7 @@ local function cria_drop_down (este_gump)
 		local reverse_checkbox = Details_Report_CB_2
 		reverse_checkbox:Show()
 		reverse_checkbox:ClearAllPoints()
-		reverse_checkbox:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
+		reverse_checkbox:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
 		tileSize = 64, insets = {left = 0, right = 0, top = 0, bottom = 0}})
 		reverse_checkbox:SetBackdropBorderColor (0, 0, 0, 0.5)
 		reverse_checkbox:SetBackdropColor (0, 0, 0, 0.3)
@@ -698,7 +698,7 @@ local function cria_drop_down (este_gump)
 
 		window.enviar:ClearAllPoints()
 		window.enviar:SetPoint ("BOTTOM", window, "BOTTOM", 0, 10)
-		window.enviar:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
+		window.enviar:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\Buttons\WHITE8X8]], edgeSize = 1, tile=true,
 		tileSize = 64, insets = {left = 0, right = 0, top = 0, bottom = 0}})
 		window.enviar:SetBackdropBorderColor (0, 0, 0, 0.5)
 		window.enviar:SetBackdropColor (0, 0, 0, 0.3)
@@ -807,7 +807,7 @@ local function cria_drop_down (este_gump)
 		window.editbox:SetPoint ("TOPLEFT", window.wisp_who, "BOTTOMLEFT", 0, -3)
 		window.editbox:SetWidth (145)
 		window.editbox:SetHeight (20)
-		window.editbox:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\AddOns\Details\images\border_3]], tile=true,
+		window.editbox:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\AddOns\Details\images\border_3]], tile=true,
 		edgeSize = 15, tileSize = 64, insets = {left = 3, right = 3, top = 4, bottom = 4}})
 
 		window.linhas_amt:ClearAllPoints()
@@ -815,7 +815,7 @@ local function cria_drop_down (este_gump)
 		window.slider:ClearAllPoints()
 		window.slider :SetWidth (145)
 		window.slider:SetPoint ("TOPLEFT", window.linhas_amt, "BOTTOMLEFT", 0, -3)
-		window.slider:SetBackdrop ({bgFile = [[Interface\DialogFrame\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\AddOns\Details\images\border_3]], tile=true,
+		window.slider:SetBackdrop ({bgFile = [[Interface\AddOns\Details\images\UI-DialogBox-Background-Dark]], edgeFile = [[Interface\AddOns\Details\images\border_3]], tile=true,
 		edgeSize = 15, tileSize = 64, insets = {left = 3, right = 3, top = 4, bottom = 4}})
 
 		window.slider.thumb:SetTexture ("Interface\\Buttons\\UI-ScrollBar-Knob")

@@ -146,7 +146,7 @@ function _detalhes:OpenOptionsWindow (instance, no_reopen, section)
 			backdropbordercolor = {0, 0, 0, 1},
 			width = 160,
 			height = 18,
-			icon = {texture = [[Interface\Buttons\UI-OptionsButton]], width = 12, height = 12, color = {1, 0.8, 0, 1}, textdistance = 3, leftpadding = 2},
+			icon = {texture = [[Interface\AddOns\Details\images\UI-OptionsButton]], width = 12, height = 12, color = {1, 0.8, 0, 1}, textdistance = 3, leftpadding = 2},
 		})
 
 		-- Most of details widgets have the same 6 first parameters: parent, container, global name, parent key, width, height
@@ -7578,8 +7578,8 @@ function window:CreateFrame6()
 				_G.DetailsOptionsWindow.instance.StatusBar ["right"]:Setup()
 			end)
 			ConfigRightMicroFrameButton:SetPoint ("left", HideRightMicroFrameButton, "right", 1, -1)
-			ConfigRightMicroFrameButton:SetNormalTexture ([[Interface\Buttons\UI-OptionsButton]])
-			ConfigRightMicroFrameButton:SetHighlightTexture ([[Interface\Buttons\UI-OptionsButton]])
+			ConfigRightMicroFrameButton:SetNormalTexture ([[Interface\AddOns\Details\images\UI-OptionsButton]])
+			ConfigRightMicroFrameButton:SetHighlightTexture ([[Interface\AddOns\Details\images\UI-OptionsButton]])
 			ConfigRightMicroFrameButton.tooltip = Loc ["STRING_OPTIONS_MICRODISPLAYS_OPTION_TOOLTIP"]
 
 			local ConfigCenterMicroFrameButton = g:NewButton (frame6.MicroDisplayCenterDropdown, _, "$parentConfigCenterMicroFrameButton", "ConfigCenterMicroFrameButton", 18, 18, function (self)
@@ -7587,8 +7587,8 @@ function window:CreateFrame6()
 				_G.DetailsOptionsWindow.instance.StatusBar ["center"]:Setup()
 			end)
 			ConfigCenterMicroFrameButton:SetPoint ("left", HideCenterMicroFrameButton, "right", 1, -1)
-			ConfigCenterMicroFrameButton:SetNormalTexture ([[Interface\Buttons\UI-OptionsButton]])
-			ConfigCenterMicroFrameButton:SetHighlightTexture ([[Interface\Buttons\UI-OptionsButton]])
+			ConfigCenterMicroFrameButton:SetNormalTexture ([[Interface\AddOns\Details\images\UI-OptionsButton]])
+			ConfigCenterMicroFrameButton:SetHighlightTexture ([[Interface\AddOns\Details\images\UI-OptionsButton]])
 			ConfigCenterMicroFrameButton.tooltip = Loc ["STRING_OPTIONS_MICRODISPLAYS_OPTION_TOOLTIP"]
 
 			local ConfigLeftMicroFrameButton = g:NewButton (frame6.MicroDisplayLeftDropdown, _, "$parentConfigLeftMicroFrameButton", "ConfigLeftMicroFrameButton", 18, 18, function (self)
@@ -7596,8 +7596,8 @@ function window:CreateFrame6()
 				_G.DetailsOptionsWindow.instance.StatusBar ["left"]:Setup()
 			end)
 			ConfigLeftMicroFrameButton:SetPoint ("left", HideLeftMicroFrameButton, "right", 1, -1)
-			ConfigLeftMicroFrameButton:SetNormalTexture ([[Interface\Buttons\UI-OptionsButton]])
-			ConfigLeftMicroFrameButton:SetHighlightTexture ([[Interface\Buttons\UI-OptionsButton]])
+			ConfigLeftMicroFrameButton:SetNormalTexture ([[Interface\AddOns\Details\images\UI-OptionsButton]])
+			ConfigLeftMicroFrameButton:SetHighlightTexture ([[Interface\AddOns\Details\images\UI-OptionsButton]])
 			ConfigLeftMicroFrameButton.tooltip = Loc ["STRING_OPTIONS_MICRODISPLAYS_OPTION_TOOLTIP"]
 
 	--> lock mini displays
@@ -10931,7 +10931,7 @@ function window:CreateFrame12()
 
 			window:CreateLineBackground2 (bframe, "OptionsButton"..i, "OptionsButton"..i, nil, nil, {1, 0.8, 0}, button_color_rgb)
 			bframe ["OptionsButton"..i]:SetTextColor (button_color_rgb)
-			bframe ["OptionsButton"..i]:SetIcon ([[Interface\Buttons\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
+			bframe ["OptionsButton"..i]:SetIcon ([[Interface\AddOns\Details\images\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
 		end
 
 		i = i + 1
@@ -11075,7 +11075,7 @@ function window:CreateFrame12()
 
 			window:CreateLineBackground2 (bframe, "OptionsButton"..i, "OptionsButton"..i, nil, nil, {1, 0.8, 0}, button_color_rgb)
 			bframe ["OptionsButton"..i]:SetTextColor (button_color_rgb)
-			bframe ["OptionsButton"..i]:SetIcon ([[Interface\Buttons\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
+			bframe ["OptionsButton"..i]:SetIcon ([[Interface\AddOns\Details\images\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
 		end
 
 		--plugins installed, adding their abs name
@@ -11212,7 +11212,7 @@ function window:CreateFrame12()
 
 			window:CreateLineBackground2 (bframe, "OptionsButton"..i, "OptionsButton"..i, nil, nil, {1, 0.8, 0}, button_color_rgb)
 			bframe ["OptionsButton"..i]:SetTextColor (button_color_rgb)
-			bframe ["OptionsButton"..i]:SetIcon ([[Interface\Buttons\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
+			bframe ["OptionsButton"..i]:SetIcon ([[Interface\AddOns\Details\images\UI-OptionsButton]], 14, 14, nil, {0, 1, 0, 1}, nil, 3)
 		end
 
 		i = i + 1

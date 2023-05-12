@@ -555,12 +555,12 @@ function Details.UnitTexture (unitId, segment)
 	local combatObject = getCombatObject (segment)
 
 	local textureInfo = {
-		classTexture = [[Interface\LFGFRAME\LFGROLE_BW]],
+		classTexture = [[Interface\AddOns\Details\images\LFGROLE_BW]],
 		classLeft = 0.25,
 		classRight = 0.5,
 		classTop = 0,
 		classBottom = 1,
-		specTexture = [[Interface\LFGFRAME\LFGROLE_BW]],
+		specTexture = [[Interface\AddOns\Details\images\LFGROLE_BW]],
 		specLeft = 0.25,
 		specRight = 0.5,
 		specTop = 0,

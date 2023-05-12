@@ -1005,7 +1005,7 @@ function atributo_heal:ToolTip_HealingDenied (instancia, numero, barra, keydown)
 
 	--Spells
 		table.sort (spellList, _detalhes.Sort2)
-		_detalhes:AddTooltipSpellHeaderText ("Spells", headerColor, #spellList, [[Interface\TUTORIALFRAME\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
+		_detalhes:AddTooltipSpellHeaderText ("Spells", headerColor, #spellList, [[Interface\AddOns\Details\images\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
 		_detalhes:AddTooltipHeaderStatusbar (r, g, b, barAlha)
 
 		local ismaximized = false
@@ -1046,7 +1046,7 @@ function atributo_heal:ToolTip_HealingDenied (instancia, numero, barra, keydown)
 			tinsert (playerSorted, {playerName, amount})
 		end
 		table.sort (playerSorted, _detalhes.Sort2)
-		_detalhes:AddTooltipSpellHeaderText ("Targets", headerColor, #playerSorted, [[Interface\TUTORIALFRAME\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
+		_detalhes:AddTooltipSpellHeaderText ("Targets", headerColor, #playerSorted, [[Interface\AddOns\Details\images\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
 		_detalhes:AddTooltipHeaderStatusbar (r, g, b, barAlha)
 
 		ismaximized = false
@@ -1078,7 +1078,7 @@ function atributo_heal:ToolTip_HealingDenied (instancia, numero, barra, keydown)
 					classe = "UNKNOW"
 				end
 				if (classe == "UNKNOW") then
-					GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, 14, 14, .25, .5, 0, 1)
+					GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, 14, 14, .25, .5, 0, 1)
 				else
 					GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\classes_small", nil, nil, 14, 14, _unpack (_detalhes.class_coords [classe]))
 				end
@@ -1092,7 +1092,7 @@ function atributo_heal:ToolTip_HealingDenied (instancia, numero, barra, keydown)
 			tinsert (spellsSorted, {spellID, amount})
 		end
 		table.sort (spellsSorted, _detalhes.Sort2)
-		_detalhes:AddTooltipSpellHeaderText ("Spells Affected", headerColor, #spellsSorted, [[Interface\TUTORIALFRAME\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
+		_detalhes:AddTooltipSpellHeaderText ("Spells Affected", headerColor, #spellsSorted, [[Interface\AddOns\Details\images\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
 		_detalhes:AddTooltipHeaderStatusbar (r, g, b, barAlha)
 
 		ismaximized = false
@@ -1121,7 +1121,7 @@ function atributo_heal:ToolTip_HealingDenied (instancia, numero, barra, keydown)
 
 	--healers denied
 
-		_detalhes:AddTooltipSpellHeaderText ("Healers", headerColor, #spellsSorted, [[Interface\TUTORIALFRAME\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
+		_detalhes:AddTooltipSpellHeaderText ("Healers", headerColor, #spellsSorted, [[Interface\AddOns\Details\images\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
 		_detalhes:AddTooltipHeaderStatusbar (r, g, b, barAlha)
 
 		local healersSorted = {}
@@ -1143,7 +1143,7 @@ function atributo_heal:ToolTip_HealingDenied (instancia, numero, barra, keydown)
 					classe = "UNKNOW"
 				end
 				if (classe == "UNKNOW") then
-					GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, 14, 14, .25, .5, 0, 1)
+					GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, 14, 14, .25, .5, 0, 1)
 				else
 					GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\classes_small", nil, nil, 14, 14, _unpack (_detalhes.class_coords [classe]))
 				end
@@ -1182,7 +1182,7 @@ function atributo_heal:ToolTip_HealingTaken (instancia, numero, barra, keydown)
 		end
 	end
 
-	_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_FROM"], headerColor, #meus_curadores, [[Interface\TUTORIALFRAME\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
+	_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_FROM"], headerColor, #meus_curadores, [[Interface\AddOns\Details\images\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
 	_detalhes:AddTooltipHeaderStatusbar (r, g, b, barAlha)
 
 	local ismaximized = false
@@ -1215,7 +1215,7 @@ function atributo_heal:ToolTip_HealingTaken (instancia, numero, barra, keydown)
 			classe = "UNKNOW"
 		end
 		if (classe == "UNKNOW") then
-			GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
+			GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, lineHeight, lineHeight, .25, .5, 0, 1)
 		else
 			local specID = _detalhes:GetSpec (meus_curadores[i][1])
 			if (specID) then
@@ -1316,7 +1316,7 @@ function atributo_heal:ToolTip_HealingDone (instancia, numero, barra, keydown)
 	_table_sort (ActorHealingTargets, _detalhes.Sort2)
 
 	--> Mostra as habilidades no tooltip
-	_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_SPELLS"], headerColor, #ActorHealingTable, [[Interface\RAIDFRAME\Raid-Icon-Rez]], 0.109375, 0.890625, 0.0625, 0.90625)
+	_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_SPELLS"], headerColor, #ActorHealingTable, [[Interface\AddOns\Details\images\Raid-Icon-Rez]], 0.109375, 0.890625, 0.0625, 0.90625)
 
 	local ismaximized = false
 	if (keydown == "shift" or TooltipMaximizedMethod == 2 or TooltipMaximizedMethod == 3) then
@@ -1397,7 +1397,7 @@ function atributo_heal:ToolTip_HealingDone (instancia, numero, barra, keydown)
 	if (instancia.sub_atributo == 6) then
 		GameCooltip:AddLine ("")
 		GameCooltip:AddLine (Loc ["STRING_REPORT_LEFTCLICK"], nil, 1, _unpack (self.click_to_report_color))
-		GameCooltip:AddIcon ([[Interface\TUTORIALFRAME\UI-TUTORIAL-FRAME]], 1, 1, 12, 16, 0.015625, 0.13671875, 0.4375, 0.59765625)
+		GameCooltip:AddIcon ([[Interface\AddOns\Details\images\UI-TUTORIAL-FRAME]], 1, 1, 12, 16, 0.015625, 0.13671875, 0.4375, 0.59765625)
 
 		GameCooltip:ShowCooltip()
 	end
@@ -1407,7 +1407,7 @@ function atributo_heal:ToolTip_HealingDone (instancia, numero, barra, keydown)
 
 	if (instancia.sub_atributo == 1) then -- 1 or 2 -> healing done or hps
 
-		_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_TARGETS"], headerColor, #ActorHealingTargets, [[Interface\TUTORIALFRAME\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
+		_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_TARGETS"], headerColor, #ActorHealingTargets, [[Interface\AddOns\Details\images\UI-TutorialFrame-LevelUp]], 0.10546875, 0.89453125, 0.05859375, 0.6796875)
 
 		local ismaximized = false
 		if (keydown == "ctrl" or TooltipMaximizedMethod == 2 or TooltipMaximizedMethod == 4) then
@@ -1445,7 +1445,7 @@ function atributo_heal:ToolTip_HealingDone (instancia, numero, barra, keydown)
 					classe = "UNKNOW"
 				end
 				if (classe == "UNKNOW") then
-					GameCooltip:AddIcon ("Interface\\LFGFRAME\\LFGROLE_BW", nil, nil, icon_size.W, icon_size.H, .25, .5, 0, 1)
+					GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\LFGROLE_BW", nil, nil, icon_size.W, icon_size.H, .25, .5, 0, 1)
 				else
 					GameCooltip:AddIcon ("Interface\\AddOns\\Details\\images\\classes_small", nil, nil, icon_size.W, icon_size.H, _unpack (_detalhes.class_coords [classe]))
 				end
@@ -1503,7 +1503,7 @@ function atributo_heal:ToolTip_HealingDone (instancia, numero, barra, keydown)
 
 				if (not added_logo) then
 					added_logo = true
-					_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_PETS"], headerColor, #totais, [[Interface\COMMON\friendship-heart]], 0.21875, 0.78125, 0.09375, 0.6875)
+					_detalhes:AddTooltipSpellHeaderText (Loc ["STRING_PETS"], headerColor, #totais, [[Interface\AddOns\Details\images\friendship-heart]], 0.21875, 0.78125, 0.09375, 0.6875)
 
 					if (ismaximized) then
 						GameCooltip:AddIcon ([[Interface\AddOns\Details\images\key_alt]], 1, 2, _detalhes.tooltip_key_size_width, _detalhes.tooltip_key_size_height, 0, 1, 0, 0.640625, _detalhes.tooltip_key_overlay2)
@@ -1542,7 +1542,7 @@ function atributo_heal:ToolTip_HealingDone (instancia, numero, barra, keydown)
 
 					--_detalhes:AddTooltipSpellHeaderText ("Phases", headerColor, 1, [[Interface\Garrison\MobileAppIcons]], 2*130/1024, 3*130/1024, 5*130/1024, 6*130/1024)
 					--_detalhes:AddTooltipSpellHeaderText ("Phases", headerColor, 1, [[Interface\Garrison\orderhall-missions-mechanic10]], 0, 1, 0, 1)
-					_detalhes:AddTooltipSpellHeaderText ("Healing by Encounter Phase", headerColor, 1, [[Interface\Garrison\orderhall-missions-mechanic8]], 11/64, 53/64, 11/64, 53/64)
+					_detalhes:AddTooltipSpellHeaderText ("Healing by Encounter Phase", headerColor, 1, [[Interface\AddOns\Details\images\orderhall-missions-mechanic8]], 11/64, 53/64, 11/64, 53/64)
 					--GameCooltip:AddIcon ([[Interface\AddOns\Details\images\key_shift]], 1, 2, _detalhes.tooltip_key_size_width, _detalhes.tooltip_key_size_height, 0, 1, 0, 0.640625, _detalhes.tooltip_key_overlay1)
 					_detalhes:AddTooltipHeaderStatusbar (r, g, b, barAlha)
 
@@ -1574,7 +1574,7 @@ function atributo_heal:ToolTip_HealingDone (instancia, numero, barra, keydown)
 					for i = 1, #playerPhases do
 						--[1] Phase Number [2] Amount Done [3] Rank [4] Percent
 						GameCooltip:AddLine ("|cFFF0F0F0Phase|r " .. playerPhases [i][1], FormatTooltipNumber (_, playerPhases [i][2]) .. " (|cFFFFFF00#" .. playerPhases [i][3] ..  "|r, " .. _cstr ("%.1f", playerPhases [i][4]) .. "%)")
-						GameCooltip:AddIcon ([[Interface\Garrison\orderhall-missions-mechanic9]], 1, 1, 14, 14, 11/64, 53/64, 11/64, 53/64)
+						GameCooltip:AddIcon ([[Interface\AddOns\Details\images\orderhall-missions-mechanic9]], 1, 1, 14, 14, 11/64, 53/64, 11/64, 53/64)
 						_detalhes:AddTooltipBackgroundStatusbar()
 					end
 				end

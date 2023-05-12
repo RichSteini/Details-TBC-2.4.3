@@ -1504,7 +1504,7 @@ do
 	--> configure threshold
 		local threshold_config = framework:NewButton (f, _, "$parentOptionsPanelButton", "OptionsPanelButton", w, mode_buttons_height, DeathGraphs.OpenOptionsPanel, nil, nil, nil, Loc ["STRING_OPTIONS"], 1, framework:GetTemplate ("button", "DETAILS_PLUGIN_BUTTON_TEMPLATE"))
 		threshold_config:SetPoint ("right", delete, "left", 2, 0)
-		threshold_config:SetIcon ([[Interface\Buttons\UI-OptionsButton]], nil, nil, nil, {0, 1, 0, 1}, nil, nil, 2)
+		threshold_config:SetIcon ([[Interface\AddOns\Details\images\UI-OptionsButton]], nil, nil, nil, {0, 1, 0, 1}, nil, nil, 2)
 		--threshold_config:SetTextColor ("orange")
 
 	--> refresh on open

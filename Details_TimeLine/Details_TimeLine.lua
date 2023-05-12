@@ -686,7 +686,7 @@ local function CreatePluginFrames()
 
 	local options_button = framework:NewButton(TimeLineFrame, _, "$parentOptionsPanelButton", "OptionsPanelButton", 100, 20, TimeLine.OpenOptionsPanel, nil, nil, nil, Loc["STRING_OPTIONS"], 1, TimeLine:GetFramework():GetTemplate("button", "DETAILS_PLUGIN_BUTTON_TEMPLATE"))
 	options_button:SetPoint("right", delete_button, "left", 2, 0)
-	options_button:SetIcon([[Interface\Buttons\UI-OptionsButton]], nil, nil, nil, {0, 1, 0, 1}, nil, nil, 2)
+	options_button:SetIcon([[Interface\AddOns\Details\images\UI-OptionsButton]], nil, nil, nil, {0, 1, 0, 1}, nil, nil, 2)
 
 	local useIconsFunc = function()
 		TimeLine.db.useicons = not TimeLine.db.useicons

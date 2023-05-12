@@ -341,7 +341,7 @@ function DropDownMetaFunctions:NoOptionSelected()
 	if (self.empty_icon) then
 		self.icon:SetTexture (self.empty_icon)
 	else
-		self.icon:SetTexture ([[Interface\COMMON\UI-ModelControlPanel]])
+		self.icon:SetTexture ([[Interface\AddOns\Details\images\UI-ModelControlPanel]])
 		self.icon:SetTexCoord (0.625, 0.78125, 0.328125, 0.390625)
 	end
 	self.icon:SetVertexColor (1, 1, 1, 0.4)
@@ -1116,7 +1116,7 @@ function DF:CreateNewDropdownFrame (parent, name)
 	local icon = f:CreateTexture ("$parent_IconTexture", "BORDER")
 	icon:SetPoint ("left", f, "left", 2, 0)
 	icon:SetSize (20, 20)
-	icon:SetTexture ([[Interface\COMMON\UI-ModelControlPanel]])
+	icon:SetTexture ([[Interface\AddOns\Details\images\UI-ModelControlPanel]])
 	icon:SetTexCoord (0.625, 0.78125, 0.328125, 0.390625)
 	icon:SetVertexColor (1, 1, 1, 0.4)
 	f.icon = icon
@@ -1181,7 +1181,7 @@ function DF:CreateNewDropdownFrame (parent, name)
 	selected:SetSize (150, 16)
 	selected:Hide()
 	selected:SetPoint ("left", child, "left", 2, 0)
-	selected:SetTexture ([[Interface\RAIDFRAME\Raid-Bar-Hp-Fill]])
+	selected:SetTexture ([[Interface\AddOns\Details\images\Raid-Bar-Hp-Fill]])
 	child.selected = selected
 
 	local mouseover = child:CreateTexture ("$parent_MouseOverTexture", "ARTWORK")
