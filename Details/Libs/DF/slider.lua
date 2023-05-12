@@ -308,7 +308,7 @@ local DFSliderMetaFunctions = _G [DF.GlobalWidgetControlNames ["slider"]]
 		--self.slider:Enable()
 		if (not self.is_checkbox) then
 			if (not self.lock_texture) then
-				DF:NewImage (self, [[Interface\PetBattles\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
+				DF:NewImage (self, [[Interface\AddOns\Details\images\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
 				self.lock_texture:SetDesaturated (true)
 				self.lock_texture:SetPoint ("center", self.amt, "center")
 			end
@@ -332,7 +332,7 @@ local DFSliderMetaFunctions = _G [DF.GlobalWidgetControlNames ["slider"]]
 
 		if (not self.is_checkbox) then
 			if (not self.lock_texture) then
-				DF:NewImage (self, [[Interface\PetBattles\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
+				DF:NewImage (self, [[Interface\AddOns\Details\images\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
 				self.lock_texture:SetDesaturated (true)
 				self.lock_texture:SetPoint ("center", self.amt, "center")
 			end
@@ -867,7 +867,7 @@ local switch_disable = function (self)
 	else
 		self._text:Hide()
 		if (not self.lock_texture) then
-			DF:NewImage (self, [[Interface\PetBattles\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
+			DF:NewImage (self, [[Interface\AddOns\Details\images\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
 			self.lock_texture:SetDesaturated (true)
 			self.lock_texture:SetPoint ("center", self._thumb, "center")
 		end
@@ -886,7 +886,7 @@ local switch_enable = function (self)
 		end
 	else
 		if (not self.lock_texture) then
-			DF:NewImage (self, [[Interface\PetBattles\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
+			DF:NewImage (self, [[Interface\AddOns\Details\images\PetBattle-LockIcon]], 12, 12, "overlay", {0.0546875, 0.9453125, 0.0703125, 0.9453125}, "lock_texture", "$parentLockTexture")
 			self.lock_texture:SetDesaturated (true)
 			self.lock_texture:SetPoint ("center", self._thumb, "center")
 		end

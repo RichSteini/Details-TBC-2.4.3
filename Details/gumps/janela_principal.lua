@@ -1652,7 +1652,7 @@ end
 
 local lockButtonTooltip = {
 	{text = Loc["STRING_LOCK_DESC"]},
-	{icon =[[Interface\PetBattles\PetBattle-LockIcon]], width = 14, height = 14, l = 0.0703125, r = 0.9453125, t = 0.0546875, b = 0.9453125, color = "orange"},
+	{icon =[[Interface\AddOns\Details\images\PetBattle-LockIcon]], width = 14, height = 14, l = 0.0703125, r = 0.9453125, t = 0.0546875, b = 0.9453125, color = "orange"},
 }
 
 local lockFunctionOnEnter = function(self)

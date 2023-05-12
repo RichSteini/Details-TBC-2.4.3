@@ -1318,7 +1318,7 @@ function ChartViewer:OnEvent (_, event, ...)
 					titlebar:SetBackdropBorderColor (0, 0, 0, 1)
 
 					local name_bg_texture = ChartViewerWindowFrame:CreateTexture (nil, "background")
-					name_bg_texture:SetTexture ([[Interface\PetBattles\_PetBattleHorizTile]], true)
+					name_bg_texture:SetTexture ([[Interface\AddOns\Details\images\_PetBattleHorizTile]], true)
 					--name_bg_texture:SetHorizTile (true)
 					name_bg_texture:SetTexCoord (0, 1, 126/256, 19/256)
 					name_bg_texture:SetPoint ("topleft", ChartViewerWindowFrame, "topleft", 2, -22)

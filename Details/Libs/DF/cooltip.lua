@@ -250,7 +250,7 @@ function DF:CreateCoolTip()
 			if (not self.titleIcon) then
 				self.titleIcon = self:CreateTexture ("$parent_TitleIcon", "OVERLAY")
 				self.titleIcon:SetTexture ("Interface\\AddOns\\Details\\images\\challenges-main")
-				self.titleIcon:SetTexCoord (0.1521484375, 0.563671875, 0.160859375, 0.234375)
+				self.titleIcon:SetTexCoord (0, 0.823046875, 0.160859375, 0.234375)
 				self.titleIcon:SetPoint ("CENTER", self, "CENTER")
 				self.titleIcon:SetPoint ("BOTTOM", self, "TOP", 0, -22)
 				self.titleIcon:Hide()

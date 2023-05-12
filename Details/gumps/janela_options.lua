@@ -3020,7 +3020,7 @@ function window:CreateFrame16()
 		local accept_changes_label = g:NewLabel (big_code_editor, nil, nil, nil, Loc ["STRING_OPTIONS_CHART_SAVE"])
 		accept_changes_label:SetPoint ("left", accept_changes, "right", 2, 0)
 
-		local cancel_changes = g:NewButton (big_code_editor, nil, "$parentCancel", "CancelButton", 20, 20, cancel, nil, nil, [[Interface\PetBattles\DeadPetIcon]])
+		local cancel_changes = g:NewButton (big_code_editor, nil, "$parentCancel", "CancelButton", 20, 20, cancel, nil, nil, [[Interface\AddOns\Details\images\DeadPetIcon]])
 		cancel_changes:SetPoint (100, 17)
 		local cancel_changes_label = g:NewLabel (big_code_editor, nil, nil, nil, Loc ["STRING_OPTIONS_CHART_CANCEL"])
 		cancel_changes_label:SetPoint ("left", cancel_changes, "right", 2, 0)
@@ -3365,7 +3365,7 @@ function window:CreateFrame16()
 			capture_func:SetPoint (start, -130)
 
 			addcapturebutton:SetIcon ([[Interface\Buttons\UI-CheckBox-Check]], 18, 18, nil, nil, nil, 4)
-			closebutton:SetIcon ([[Interface\PetBattles\DeadPetIcon]], 14, 14, nil, nil, nil, 4)
+			closebutton:SetIcon ([[Interface\AddOns\Details\images\DeadPetIcon]], 14, 14, nil, nil, nil, 4)
 
 			addcapturebutton:SetTemplate (options_button_template)
 			closebutton:SetTemplate (options_button_template)
@@ -4159,7 +4159,7 @@ function window:CreateFrame1()
 
 			window:CreateLineBackground2 (frame1, "LockButton", "LockButton", Loc ["STRING_OPTIONS_WC_LOCK_DESC"], nil, {1, 0.8, 0}, button_color_rgb)
 
-			frame1.LockButton:SetIcon ([[Interface\PetBattles\PetBattle-LockIcon]], nil, nil, nil, {0.0703125, 0.9453125, 0.0546875, 0.9453125}, nil, nil, 2)
+			frame1.LockButton:SetIcon ([[Interface\AddOns\Details\images\PetBattle-LockIcon]], nil, nil, nil, {0.0703125, 0.9453125, 0.0546875, 0.9453125}, nil, nil, 2)
 			frame1.LockButton:SetTextColor (button_color_rgb)
 
 		--break snap

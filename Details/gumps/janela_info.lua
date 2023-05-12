@@ -1232,7 +1232,7 @@ local elvui_skin = function()
 		window.extra_frames ["ElvUITitleBar"] = titlebar
 
 		local name_bg_texture = window:CreateTexture (nil, "background")
-		name_bg_texture:SetTexture ([[Interface\PetBattles\_PetBattleHorizTile]], true)
+		name_bg_texture:SetTexture ([[Interface\AddOns\Details\images\_PetBattleHorizTile]], true)
 		--name_bg_texture:SetHorizTile (true)
 		name_bg_texture:SetTexCoord (0, 1, 126/256, 19/256)
 		name_bg_texture:SetPoint ("TOPLEFT", window, "TOPLEFT", 2, -22)

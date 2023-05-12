@@ -3466,7 +3466,7 @@ local _utf8sub = string.utf8sub
 
 						--> reset
 						GameCooltip:AddMenu (1, _detalhes.tabela_historico.resetar, true, nil, nil, Loc ["STRING_ERASE_DATA"], nil, true)
-						GameCooltip:AddIcon ([[Interface\Details\images\VOICECHAT-MUTED]], 1, 1, 14, 14)
+						GameCooltip:AddIcon ([[Interface\AddOns\Details\images\VOICECHAT-MUTED]], 1, 1, 14, 14)
 
 						GameCooltip:AddLine ("$div")
 
@@ -3486,10 +3486,10 @@ local _utf8sub = string.utf8sub
 
 						--> lock
 						GameCooltip:AddMenu (1, _detalhes.TravasInstancias, true, nil, nil, Loc ["STRING_MINIMAPMENU_LOCK"], nil, true)
-						GameCooltip:AddIcon ([[Interface\PetBattles\PetBattle-LockIcon]], 1, 1, 14, 14, 0.0703125, 0.9453125, 0.0546875, 0.9453125)
+						GameCooltip:AddIcon ([[Interface\AddOns\Details\images\PetBattle-LockIcon]], 1, 1, 14, 14, 0.0703125, 0.9453125, 0.0546875, 0.9453125)
 
 						GameCooltip:AddMenu (1, _detalhes.DestravarInstancias, true, nil, nil, Loc ["STRING_MINIMAPMENU_UNLOCK"], nil, true)
-						GameCooltip:AddIcon ([[Interface\PetBattles\PetBattle-LockIcon]], 1, 1, 14, 14, 0.0703125, 0.9453125, 0.0546875, 0.9453125, "gray")
+						GameCooltip:AddIcon ([[Interface\AddOns\Details\images\PetBattle-LockIcon]], 1, 1, 14, 14, 0.0703125, 0.9453125, 0.0546875, 0.9453125, "gray")
 
 						GameCooltip:AddLine ("$div")
 
@@ -3505,7 +3505,7 @@ local _utf8sub = string.utf8sub
 							end
 						end
 						GameCooltip:AddMenu (1, disable_minimap, true, nil, nil, Loc ["STRING_MINIMAPMENU_HIDEICON"], nil, true)
-						GameCooltip:AddIcon ([[Interface\Buttons\UI-Panel-HideButton-Disabled]], 1, 1, 14, 14, 7/32, 24/32, 8/32, 24/32, "gray")
+						GameCooltip:AddIcon ([[Interface\AddOns\Details\images\UI-Panel-HideButton-Disabled]], 1, 1, 14, 14, 7/32, 24/32, 8/32, 24/32, "gray")
 
 						--
 
