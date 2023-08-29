@@ -1587,6 +1587,18 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 			_current_combat_cleu_events.n = _current_combat_cleu_events.n + 1
 		end
 
+		if alvo_name and _UnitHealthMax(alvo_name)~=100 then
+			local HealthMissing = _UnitHealthMax(alvo_name)-_UnitHealth(alvo_name)
+			if HealthMissing<cura_efetiva then
+				overhealing=cura_efetiva-HealthMissing
+				cura_efetiva=HealthMissing --Adjust healing considered to the correct number
+			else
+				overhealing=0
+			end
+		elseif overhealing == nil then
+			overhealing=0
+		end
+
 		if(is_shield) then
 			--return spell:Add(alvo_serial, alvo_name, alvo_flags, cura_efetiva, who_name, 0, 		  nil, 	     overhealing, true)
 			return spell_heal_func(spell, alvo_serial, alvo_name, alvo_flags, cura_efetiva, who_name, 0, 		  nil, 	     overhealing, true)
@@ -1648,6 +1660,18 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 		if(not spell) then
 			spell = este_jogador.spells:PegaHabilidade(spellid, true, token)
 			spell.neutral = true
+		end
+
+		if alvo_name and _UnitHealthMax(alvo_name)~=100 then
+			local HealthMissing = _UnitHealthMax(alvo_name)-_UnitHealth(alvo_name)
+			if HealthMissing<cura_efetiva then
+				overhealing=cura_efetiva-HealthMissing
+				cura_efetiva=HealthMissing --Adjust healing considered to the correct number
+			else
+				overhealing=0
+			end
+		elseif overhealing == nil then
+			overhealing=0
 		end
 
 		return spell_heal_func(spell, alvo_serial, alvo_name, alvo_flags, absorbed + amount - overhealing, who_name, absorbed, critical, overhealing, nil)
