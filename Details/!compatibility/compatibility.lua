@@ -115,114 +115,6 @@ while spellIdCacheMisses < 53000 do
 end
 ]]
 
--- UnitAura now parses the spellId from the spellLink, spellIdCache not used atm
-function UnitAura(unit, indexOrName, rank, filter)
-	--[[
-	local aura_index, aura_name, aura_type
-	if type(indexOrName) ~= "number" then
-		aura_name = indexOrName
-	else
-		aura_index = indexOrName
-	end
-	if not filter and rank then
-		if type(rank) ~= "number" and rank:find("[HELPFUL,HARMFUL,PLAYER,RAID,CANCELABLE,NOT_CANCELABLE]") then
-			filter = rank
-			rank = nil
-		else
-			filter = "HELPFUL" -- default value https://wowwiki.fandom.com/wiki/API_UnitAura
-		end
-	end
-	
-	if aura_name then
-		local i = 1
-    while true do
-      name, r, icon, count, duration, expirationTime = UnitBuff(unit, i, filter)
-			
-			i = i + 1
-		end
-	end
-	--]]
-	local argCount = filter and 4 or 3
-	local debuffType
-
-	if ((filter and filter:find("HARMFUL")) or ((rank and rank:find("HARMFUL")) and filter == nil)) then
-		debuffType = "HARMFUL";
-	elseif ((filter and filter:find("HELPFUL")) or ((rank and rank:find("HELPFUL")) and filter == nil)) then
-		debuffType = "HELPFUL";
-	else
-		debuffType = nil;
-	end
-  
-	local x;
-	if(type(indexOrName) == "number") then
-		x = indexOrName
-	else
-		x = 1
-	end
-	
-	if (debuffType == "HELPFUL" or debuffType == nil) then
-		local castable = filter and filter:find("PLAYER") and 1 or nil;
-		local name, r, icon, count, duration, remaining = UnitBuff(unit, x, castable);
-		while (name ~= nil) do
-			if ((name == indexOrName or x == indexOrName) and (rank == nil or rank:find("HARMFUL") or rank:find("HELPFUL") or rank == r)) then
-				-- Due to a Blizzard bug, having two of the same weapon
-				-- proc will return nil for the duration of the second proc.
-				-- Crusader (Holy Strength), Mongoose (Lightning Speed),
-				-- and Executioner all last 15 seconds.
-				duration = duration or 15
-				remaining = remaining or GetPlayerBuffTimeLeft(x)
-				local spellLink = GetSpellLink(name, r or "")
-
-				local maxDurationOrExpirationTime
-				if argCount == 4 then
-					maxDurationOrExpirationTime = GetTime() + (remaining or 0)
-				else
-					maxDurationOrExpirationTime = remaining or 0
-				end
-
-				if spellLink then
-					return name, r, icon, count, debuffType, duration, maxDurationOrExpirationTime, (castable and "player"), nil, nil, tonumber(spellLink:match("spell:(%d+)"))
-				else
-					return name, r, icon, count, debuffType, duration, maxDurationOrExpirationTime, (castable and "player")
-				end
-			end
-			x = x + 1;
-			name, r, icon, count, duration, remaining = UnitBuff(unit, x, castable);
-		end
-	end
-	
-	if (debuffType == "HARMFUL" or debuffType == nil) then
-		local removable = nil
-		if(type(indexOrName) == "number") then
-			x = indexOrName
-		else
-			x = 1
-		end
-		local name, r, icon, count, dispelType, duration, remaining = UnitDebuff(unit, x, removable);
-		while (name ~= nil) do
-			if ((name == indexOrName or x == indexOrName) and (rank == nil or rank:find("HARMFUL") or rank:find("HELPFUL") or rank == r)) then
-				local spellLink = GetSpellLink(name, r or "")
-
-				local maxDurationOrExpirationTime
-				if argCount == 4 then
-					maxDurationOrExpirationTime = GetTime() + (remaining or 0)
-				else
-					maxDurationOrExpirationTime = remaining or 0
-				end
-
-				if spellLink then
-					return name, r, icon, count, dispelType, duration, maxDurationOrExpirationTime, nil, nil, nil, tonumber(spellLink:match("spell:(%d+)"))
-				else
-					return name, r, icon, count, dispelType, duration, maxDurationOrExpirationTime
-				end
-			end
-			x = x + 1;
-			name, r, icon, count, dispelType, duration, remaining = UnitDebuff(unit, x, removable);
-		end
-	end
-	return nil, nil, nil, nil, nil, 0, 0; 
-end
-
 function UnitInVehicle(unit)
 	return false
 end
@@ -273,6 +165,7 @@ function IsUsableSpell(spell, booktype)
 	else
 		spell = SpellID_to_SpellName(spell)
 		if spell then
+			spell = (string.gsub(spell, "%)$",")()"))
 			return hooks.IsUsableSpell(spell) -- вызываем оригинал
 		else
 			return nil
