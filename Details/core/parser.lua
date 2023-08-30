@@ -1591,7 +1591,6 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 			local HealthMissing = _UnitHealthMax(alvo_name)-_UnitHealth(alvo_name)
 			if HealthMissing<cura_efetiva then
 				overhealing=cura_efetiva-HealthMissing
-				cura_efetiva=HealthMissing --Adjust healing considered to the correct number
 			else
 				overhealing=0
 			end
@@ -1664,9 +1663,8 @@ function parser:spell_dmg(token, time, who_serial, who_name, who_flags, alvo_ser
 
 		if alvo_name and _UnitHealthMax(alvo_name)~=100 then
 			local HealthMissing = _UnitHealthMax(alvo_name)-_UnitHealth(alvo_name)
-			if HealthMissing<cura_efetiva then
-				overhealing=cura_efetiva-HealthMissing
-				cura_efetiva=HealthMissing --Adjust healing considered to the correct number
+			if HealthMissing<amount then
+				overhealing=amount-HealthMissing
 			else
 				overhealing=0
 			end
